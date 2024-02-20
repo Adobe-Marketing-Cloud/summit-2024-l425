@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
-    "@adobe/aem-headless-client-js": "file:../../../adobe/aem-headless-client-js/adobe-aem-headless-client-js-3.3.3.tgz",
+    "@adobe/aem-headless-client-js": "^3.3.3",
     "@adobe/universal-editor-cors": "^2.2.2",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
