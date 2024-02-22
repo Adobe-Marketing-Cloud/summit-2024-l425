@@ -1,38 +1,42 @@
-import './App.css';
-import React, { useEffect } from 'react';
+import React from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 
-import { usePageBySlug } from './api/usePersistedQueries.js';
-import ContentFragment from './components/util/ContentFragment.js';
-import Footer from './components/structure/Footer.jsx';
-import Header from './components/structure/Header.jsx';
+import { getURI } from "./components/util/Utils.js";
+import Home from "./components/Home.jsx";
+import Footer from "./components/structure/Footer.jsx";
+import Header from "./components/structure/Header.jsx";
+
+import "./App.css";
 
 function App() {
-  useEffect(() => { 
-    document.head.insertAdjacentHTML('beforeend', 
-      '');
-  }, []);
-
-  var gqlParams = {};
-  const params = new URLSearchParams(document.location.search);
-  if (params.get('variation')) {
-    gqlParams['variation'] = params.get('variation');
-  }
-
-  const { page } = usePageBySlug('home', gqlParams);
-  if (!page) {
-    return <div>loading...</div>;
-  }
-
   return (
-    <main className="app">
-      <Header />
-      
-      <main>
-        <ContentFragment cf={page} />
-      </main>
-
-      <Footer />
-    </main>
+    <HelmetProvider>
+      <div className="app">
+        <Helmet>
+          <meta
+            name="urn:adobe:aue:system:aemconnection"
+            content={`aem:${getURI()}`}
+          />
+        </Helmet>
+        <Router>
+          <Header />
+          <main>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              {/* Todo:
+              <Route path="/articles" element={<Articles />} />
+              <Route path="/articles/:slug" element={<ArticleDetail />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/services/:slug" element={<ServiceDetail />} />
+              Maybe <Route element={<NotFound />} />
+              */}
+            </Routes>
+          </main>
+        </Router>
+        <Footer />
+      </div>
+    </HelmetProvider>
   );
 }
 

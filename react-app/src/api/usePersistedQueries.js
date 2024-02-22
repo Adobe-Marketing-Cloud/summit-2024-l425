@@ -8,11 +8,10 @@ it.
 */
 
 import { useEffect, useState } from "react";
+
 import aemHeadlessClient from "./aemHeadlessClient";
 
-const {
-  REACT_APP_ENDPOINT
-} = process.env;
+const { REACT_APP_ENDPOINT } = process.env;
 
 /**
  * This file contains the React useEffect custom hooks that:
@@ -27,10 +26,10 @@ const {
 
 /**
  * Private, shared function that invokes the AEM Headless client.
- * 
+ *
  * @param {String} persistedQueryName the fully qualified name of the persisted query
  * @param {*} queryParameters an optional JavaScript object containing query parameters
- * @returns the GraphQL data or an error message 
+ * @returns the GraphQL data or an error message
  */
 async function fetchPersistedQuery(persistedQueryName, queryParameters) {
   let data;
@@ -46,10 +45,7 @@ async function fetchPersistedQuery(persistedQueryName, queryParameters) {
     data = response?.data;
   } catch (e) {
     // An error occurred, return the error messages
-    err = e
-      .toJSON()
-      ?.map((error) => error.message)
-      ?.join(", ");
+    err = e.toJSON()?.message;
   }
 
   return { data, err };
@@ -62,24 +58,31 @@ async function fetchPersistedQuery(persistedQueryName, queryParameters) {
  * @param {*} params option parameters
  * @returns a JSON object representing the Page
  */
-export function usePageBySlug(slugName, params = {}) {
+export function usePageBySlug(slugName) {
   const [page, setPage] = useState(null);
   const [references, setReferences] = useState(null);
   const [errors, setErrors] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
+      const gqlParams = {};
 
-      let response;
+      const params = new URLSearchParams(document.location.search);
+      for (const param of ["variation"]) {
+        const value = params.get(param);
+        if (value) {
+          gqlParams[param] = value;
+        }
+      }
 
       // The key is 'slug' as defined in the persisted query
-      const queryVariables = { 
-        ...params,
+      const queryVariables = {
+        ...gqlParams,
         slug: slugName,
       };
 
       // Call the AEM GraphQL persisted query named "page-by-slug" with parameters
-      response = await fetchPersistedQuery(
+      const response = await fetchPersistedQuery(
         REACT_APP_ENDPOINT + "/page-by-slug",
         queryVariables
       );
@@ -99,8 +102,7 @@ export function usePageBySlug(slugName, params = {}) {
 
     // Call the internal fetchData() as per React best practices
     fetchData();
-
-  }, [slugName, JSON.stringify(params)]);
+  }, [slugName]);
 
   return { page, references, errors };
 }

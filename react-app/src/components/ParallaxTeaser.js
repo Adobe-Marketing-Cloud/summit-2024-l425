@@ -2,18 +2,17 @@ import React from "react";
 import { useState } from "react";
 import { useEffect } from "react";
 import PropTypes from "prop-types";
+
 import { getURI } from "./util/Utils";
+import ContentFragment from "./util/ContentFragment";
 
-import './ParallaxTeaser.css';
+import "./ParallaxTeaser.css";
 
-const ParallaxTeaser = (
-  {
-    image,
-    title,
-    text = ''
-  }
-) => {
+const ParallaxTeaser = ({ cf }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
+  const image = cf.image?._dynamicUrl;
+  const title = cf.image?.title || cf.title || "";
+  const text = cf.content?.plaintext || "";
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,33 +20,42 @@ const ParallaxTeaser = (
       setScrollPosition(position);
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   return (
-    <div className="parallax-container">
-      <div className="parallax-image"
+    <ContentFragment cf={cf} className="parallax-container">
+      <div
+        className="parallax-image"
         data-aue-prop="image"
         data-aue-type="media"
-        data-aue-label="Page image"
+        data-aue-label="Image"
         style={{
-          backgroundImage: `url(${getURI(image)})`
-        }} />
+          backgroundImage: `url(${getURI(image)})`,
+        }}
+      />
       <div className="text-overlay">
-        <h1>{title}</h1>
-        <p>{text}</p>
+        <h1 data-aue-prop="title" data-aue-type="text" data-aue-label="Title">
+          {title}
+        </h1>
+        <p
+          data-aue-prop="content"
+          data-aue-type="richtext"
+          data-aue-label="Content"
+        >
+          {text}
+        </p>
       </div>
-    </div>
+    </ContentFragment>
   );
-}
+};
 
 ParallaxTeaser.propTypes = {
-  image: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired
+  cf: PropTypes.object.isRequired,
 };
 
 export default ParallaxTeaser;

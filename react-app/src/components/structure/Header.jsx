@@ -1,16 +1,21 @@
-import './Header.css';
+import "./Header.css";
 
 const Header = () => {
   return (
-    <header class="App-header">
-      <div class="header-nav">
+    <header className="App-header">
+      <div className="header-nav">
         <div>
-          <img src="./securbank.svg" class="logo" alt="logo" />
-          <ul>
-            <li><strong>Dashboard</strong></li>
-            <li><a href="#">Saving Account</a></li>
-            <li><a href="#">Transactions</a></li>
-            <li><a href="#">Cards</a></li>
+          <img src="./securbank.svg" className="logo" alt="logo" />
+          <ul className="menu">
+            <li>
+              <a href={`/`}>Home</a>
+            </li>
+            <li>
+              <a href={`/services${window.location.search}`}>Services</a>
+            </li>
+            <li>
+              <a href={`/articles${window.location.search}`}>Articles</a>
+            </li>
           </ul>
         </div>
       </div>

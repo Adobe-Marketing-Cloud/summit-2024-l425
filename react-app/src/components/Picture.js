@@ -3,28 +3,39 @@ import PropTypes from "prop-types";
 
 const AEM_HOST = process.env.REACT_APP_HOST_URI;
 
-const Picture = ({
-  dynamicUrl,
-  alt = 'SecurBank Image',
-  sources
-}) => {
+const Picture = ({ dynamicUrl, alt = "SecurBank Image", sources }) => {
   if (!dynamicUrl) {
     return null;
   }
 
   sources = sources || [];
 
-  const sourcesTags = sources.filter((source) => (source.minWidth));
-  let imgTags = sources.filter((source) => (!source.minWidth));
+  const sourcesTags = sources.filter((source) => source.minWidth);
+  let imgTags = sources.filter((source) => !source.minWidth);
   imgTags = imgTags.length > 0 ? imgTags[0] : [{ minWidth: 0, width: 1200 }];
-  
+
+  const editorProps = {
+    "data-aue-prop": "icon",
+    "data-aue-type": "media",
+    "data-aue-label": "Icon",
+  };
+
   return (
     <picture>
-      {sourcesTags.map((source, index) => {  
-        return <source key={index} srcSet={setOptimizedImageUrlParams(dynamicUrl, { width: source.width })} media={`(min-width: ${source.minWidth}px)`}/>
+      {sourcesTags.map((source, index) => {
+        return (
+          <source
+            key={index}
+            srcSet={setOptimizedImageUrlParams(dynamicUrl, {
+              width: source.width,
+            })}
+            media={`(min-width: ${source.minWidth}px)`}
+          />
+        );
       })}
 
       <img
+        {...editorProps}
         src={setOptimizedImageUrlParams(dynamicUrl, {
           width: imgTags.width,
         })}
@@ -42,9 +53,8 @@ Picture.propTypes = {
       minWidth: PropTypes.number,
       width: PropTypes.number.isRequired,
     })
-  ).isRequired
+  ).isRequired,
 };
-
 
 export default Picture;
 
@@ -55,7 +65,7 @@ export default Picture;
  * @returns the dynamic URL with the query parameters
  */
 function setOptimizedImageUrlParams(imageUrl, params) {
-   // replace last / in AEM_HOST with ""
+  // replace last / in AEM_HOST with ""
   const aemHost = AEM_HOST.endsWith("/") ? AEM_HOST.slice(0, -1) : AEM_HOST;
 
   let url = new URL(aemHost + imageUrl);
