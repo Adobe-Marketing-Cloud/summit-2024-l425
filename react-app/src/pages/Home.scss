@@ -1,0 +1,9 @@
+@import "../styles/variables";
+
+.teasers-wrapper {
+  display: flex;
+  padding: 120px 140px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 80px;
+}

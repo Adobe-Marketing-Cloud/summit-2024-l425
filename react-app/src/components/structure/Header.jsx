@@ -1,22 +1,33 @@
-import "./Header.css";
+import React from "react";
+import Logo from "../Logo";
+import "./Header.scss";
 
 const Header = () => {
+  const navigations = [
+    { label: "Services", href: "/services" },
+    { label: "Articles", href: "/articles" },
+  ];
+
   return (
-    <header className="App-header">
-      <div className="header-nav">
-        <div>
-          <img src="./securbank.svg" className="logo" alt="logo" />
-          <ul className="menu">
-            <li>
-              <a href={`/`}>Home</a>
-            </li>
-            <li>
-              <a href={`/services${window.location.search}`}>Services</a>
-            </li>
-            <li>
-              <a href={`/articles${window.location.search}`}>Articles</a>
-            </li>
-          </ul>
+    <header className="background-blue">
+      <div className="outer-wrapper header">
+        <div className="navigations-wrapper">
+          <Logo variant="light" />
+          <nav>
+            {navigations.map(({ label, href }, index) => (
+              <a
+                key={index}
+                href={href}
+                className="font-size-medium font-weight-medium color-light"
+              >
+                {label}
+              </a>
+            ))}
+          </nav>
+        </div>
+        <div className="buttons-wrapper">
+          <button className="transparent font-size-medium">Sign In</button>
+          <button className="font-size-medium">Open an Account</button>
         </div>
       </div>
     </header>

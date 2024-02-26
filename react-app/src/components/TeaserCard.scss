@@ -1,0 +1,16 @@
+@import "../styles/variables";
+
+.teaser-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+
+  button {
+    width: 160px;
+    height: 52px;
+  }
+}
+
+.reverse {
+  flex-direction: row-reverse;
+}

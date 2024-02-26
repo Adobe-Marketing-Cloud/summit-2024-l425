@@ -13,11 +13,12 @@
     "react-helmet-async": "^2.0.4",
     "react-router-dom": "^6.22.1",
     "react-scripts": "5.0.1",
+    "sass": "^1.71.1",
     "util": "^0.12.5",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "HTTPS=true react-scripts start",
+    "start": "PORT=3001 HTTPS=true react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

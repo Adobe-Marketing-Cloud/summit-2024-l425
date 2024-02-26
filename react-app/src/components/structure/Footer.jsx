@@ -1,86 +1,101 @@
-import "./Footer.css";
+import React from "react";
+import Logo from "../Logo";
+import copyright from "../../assets/copyright.svg";
+import linkedinIcon from "../../assets/linkedin-icon.svg";
+import twitterIcon from "../../assets/twitter-icon.svg";
+import facebookIcon from "../../assets/facebook-icon.svg";
+import "./Footer.scss";
 
 const Footer = () => {
+  const categories = {
+    Services: [
+      {
+        label: "Savings Account",
+        href: "/",
+      },
+      {
+        label: "Mortgage Consultation",
+        href: "/",
+      },
+      {
+        label: "Credit Card Application Assistance",
+        href: "/",
+      },
+    ],
+    Magazine: [
+      {
+        label: "Category 1",
+        href: "/",
+      },
+      {
+        label: "Category 2",
+        href: "/",
+      },
+      {
+        label: "Category 3",
+        href: "/",
+      },
+    ],
+    About: [
+      {
+        label: "Comparny",
+        href: "/",
+      },
+      {
+        label: "Careers",
+        href: "/",
+      },
+      {
+        label: "FAQ",
+        href: "/",
+      },
+      {
+        label: "Contact Us",
+        href: "/",
+      },
+    ],
+  };
   return (
-    <footer className="footer-wrapper">
-      <div
-        className="footer block"
-        data-block-name="footer"
-        data-block-status="loaded"
-      >
-        <div>
-          <div>
-            <div className="columns">
-              <div>
-                <div data-valign="middle">
-                  <p>
-                    <a href="/">
-                      <span className="icon icon-securbank_logo">
-                        <svg xmlns="http://www.w3.org/2000/svg">
-                          <use href="#icons-sprite-securbank_logo"></use>
-                        </svg>
-                      </span>
+    <footer>
+      <div className="outer-wrapper footer">
+        <div className="top-wrapper">
+          <Logo variant="dark" />
+          <div className="categories-wrapper">
+            {Object.keys(categories).map((category, index) => (
+              <div key={index} className="category-wrapper">
+                <p className="font-size-large font-weight-medium">{category}</p>
+                <nav>
+                  {categories[category].map(({ label, href }, index) => (
+                    <a
+                      key={index}
+                      href={href}
+                      className="font-size-large font-weight-medium color-dark"
+                    >
+                      {label}
                     </a>
-                  </p>
-                  <p>201 Sussex St,</p>
-                  <p>Sydney, NSW, Australia</p>
-                  <p>+61 97784100</p>
-                  <p>
-                    Any reference to SecurBank, its logo and/or its products and
-                    services is for demonstration purposes only and is not
-                    intended to refer to any actual organisation, products or
-                    services.
-                  </p>
-                </div>
-                <div data-valign="middle">
-                  <p>
-                    <strong>Navigate</strong>
-                  </p>
-                  <ul>
-                    <li>
-                      <a href="/">Home</a>
-                    </li>
-                    <li>
-                      <a href="/creditcards/">Credit Cards</a>
-                    </li>
-                    <li>
-                      <a href="/insurance/">Insurances</a>
-                    </li>
-                    <li>
-                      <a href="/accounts/">Accounts</a>
-                    </li>
-                    <li>
-                      <a href="/loans/">Loans</a>
-                    </li>
-                  </ul>
-                </div>
-                <div data-valign="middle">
-                  <p>
-                    <strong>About Us</strong>
-                  </p>
-                  <ul>
-                    <li>Company</li>
-                    <li>What we do</li>
-                    <li>Help center</li>
-                    <li>
-                      <a href="/blog/">News</a>
-                    </li>
-                    <li>Terms of service</li>
-                    <li>Contact</li>
-                  </ul>
-                </div>
-                <div data-valign="middle">
-                  <p>
-                    <strong>Help</strong>
-                  </p>
-                  <ul>
-                    <li>Info</li>
-                    <li>Careers</li>
-                    <li>Education</li>
-                  </ul>
-                </div>
+                  ))}
+                </nav>
               </div>
-            </div>
+            ))}
+          </div>
+        </div>
+        <div className="bottom-wrapper">
+          <div className="rights-wrapper">
+            <img src={copyright} alt="Copyright icon" className="icon" />
+            <p className="font-size-large font-weight-regular">
+              2024 SecurBank. All right reserved
+            </p>
+          </div>
+          <div className="social-media-wrapper">
+            <a href="/">
+              <img src={linkedinIcon} alt="LinkedIn icon" className="icon" />
+            </a>
+            <a href="/">
+              <img src={twitterIcon} alt="Twitter icon" className="icon" />
+            </a>
+            <a href="/">
+              <img src={facebookIcon} alt="Facebook icon" className="icon" />
+            </a>
           </div>
         </div>
       </div>

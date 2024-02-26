@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import ContentFragment from "./util/ContentFragment";
+import ContentFragment from "../utils/ContentFragment";
 
 const Article = ({ cf }) => {
   if (cf.type === "article") {
@@ -54,19 +54,11 @@ const OfferPage = ({ cf }) => {
 const ArticlePage = ({ cf }) => {
   return (
     <div className="page article">
-      <h1
-        data-aue-prop="title"
-        data-aue-type="text"
-        data-aue-label="Title"
-      >
+      <h1 data-aue-prop="title" data-aue-type="text" data-aue-label="Title">
         ARTICLE: {cf?.title}
       </h1>
 
-      <div
-        data-aue-prop="image"
-        data-aue-type="media"
-        data-aue-label="Image"
-      >
+      <div data-aue-prop="image" data-aue-type="media" data-aue-label="Image">
         {/* <Picture
           dynamicUrl={cf.image?._dynamicUrl}
           alt={cf.image?.title || cf.title}
