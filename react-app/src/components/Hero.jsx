@@ -18,7 +18,7 @@ const Hero = ({ cf }) => {
             <Title heading="h1" prop="title" className="color-light">
               {title}
             </Title>
-            <Text content={content} prop="content" />
+            <Text content={content} prop="content" className="color-grey" />
           </div>
           <RedirectButton href="/services">Our Services</RedirectButton>
         </div>

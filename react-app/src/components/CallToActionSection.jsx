@@ -9,7 +9,7 @@ const CallToActionSection = () => {
           <h1 className="color-light">
             Unlock Your Financial Future with SecurBank
           </h1>
-          <p>
+          <p className="color-grey">
             Experience effortless banking with SecurBank. Start your journey to
             financial freedom.
           </p>

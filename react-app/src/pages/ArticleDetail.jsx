@@ -12,33 +12,35 @@ import "./ArticleDetail.scss";
 
 const ArticleDetail = () => {
   const { slug } = useParams();
-  const { page } = useArticleBySlug(slug);
+  const { data } = useArticleBySlug(slug);
 
-  if (!page) return <Loading />;
+  if (!data) return <Loading />;
 
-  const image = page?.image?._dynamicUrl;
-  const title = page?.title;
-  const content = page?.content;
+  const image = data?.image?._dynamicUrl;
+  const title = data?.title;
+  const content = data?.content;
 
   return (
     <>
-      <div className="container">
-        <ContentFragment cf={page} className="article-wrapper">
-          <Title heading="h2" prop="title" className="color-dark">
-            {title}
-          </Title>
-          <Image
-            src={image}
-            alt={`${title} illustration`}
-            prop="Image"
-            className="main-image"
-          />
-          <hr />
-          <Text content={content} prop="content" className="content" />
-          <hr />
-        </ContentFragment>
-      </div>
-      <ArticlesSection title="Related Articles" cfs={page.relatedArticles} />
+      <ContentFragment cf={data} className="container article-wrapper">
+        <Title heading="h2" prop="title" className="color-dark">
+          {title}
+        </Title>
+        <Image
+          src={image}
+          alt={`${title} illustration`}
+          prop="Image"
+          className="main-image"
+        />
+        <hr />
+        <Text content={content} prop="content" className="content" />
+        <hr />
+      </ContentFragment>
+      <ArticlesSection
+        title="Related Articles"
+        cfs={data.relatedArticles}
+        columns={3}
+      />
       <CallToActionCard />
     </>
   );

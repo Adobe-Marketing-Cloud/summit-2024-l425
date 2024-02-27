@@ -9,30 +9,28 @@ import { usePageBySlug } from "../api/usePersistedQueries";
 import "./Home.scss";
 
 const Home = () => {
-  const { page } = usePageBySlug("home");
+  const { data } = usePageBySlug("home");
 
-  if (!page) return <Loading />;
+  if (!data) return <Loading />;
 
-  const title = page?.teasers?.title;
+  const title = data?.teasers?.title;
 
   return (
-    <ContentFragment cf={page}>
-      <Hero cf={page} />
-      <div className="container">
-        <ContentFragment cf={page.teasers} className="teasers-wrapper">
-          <Title heading="h2" prop="title" className="color-dark">
-            {title}
-          </Title>
-          {page?.teasers?.relatedOffers.map((teaser, index) => (
-            <TeaserCard
-              key={teaser?.title}
-              cf={teaser}
-              reverse={index % 2 !== 0}
-            />
-          ))}
-        </ContentFragment>
-        <CallToActionSection />
-      </div>
+    <ContentFragment cf={data}>
+      <Hero cf={data} />
+      <ContentFragment cf={data.teasers} className="container teasers-wrapper">
+        <Title heading="h2" prop="title" className="color-dark">
+          {title}
+        </Title>
+        {data?.teasers?.relatedOffers.map((teaser, index) => (
+          <TeaserCard
+            key={teaser?.title}
+            cf={teaser}
+            reverse={index % 2 !== 0}
+          />
+        ))}
+      </ContentFragment>
+      <CallToActionSection />
     </ContentFragment>
   );
 };

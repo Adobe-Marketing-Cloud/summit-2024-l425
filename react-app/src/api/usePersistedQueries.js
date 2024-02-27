@@ -59,7 +59,7 @@ async function fetchPersistedQuery(persistedQueryName, queryParameters) {
  * @returns a JSON object representing the Page
  */
 export function usePageBySlug(slugName) {
-  const [page, setPage] = useState(null);
+  const [data, setData] = useState(null);
   const [references, setReferences] = useState(null);
   const [error, setError] = useState(null);
 
@@ -92,7 +92,7 @@ export function usePageBySlug(slugName) {
         setError(response.err);
       } else if (response?.data?.pageList?.items?.length === 1) {
         // Set the Page data after data validation
-        setPage(response.data.pageList.items[0]);
+        setData(response.data.pageList.items[0]);
         setReferences(response.data.pageList._references);
       } else {
         // Set an error if no Page could be found
@@ -104,11 +104,11 @@ export function usePageBySlug(slugName) {
     fetchData();
   }, [slugName]);
 
-  return { page, references, error };
+  return { data, references, error };
 }
 
 export function useArticleBySlug(slugName) {
-  const [page, setArticle] = useState(null);
+  const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
@@ -129,7 +129,7 @@ export function useArticleBySlug(slugName) {
         setError(response.err);
       } else if (response?.data?.articleList?.items?.length === 1) {
         // Set the Page data after data validation
-        setArticle(response.data.articleList.items[0]);
+        setData(response.data.articleList.items[0]);
       } else {
         // Set an error if no Page could be found
         setError(`Cannot find Article with slug: ${slugName}`);
@@ -140,5 +140,35 @@ export function useArticleBySlug(slugName) {
     fetchData();
   }, [slugName]);
 
-  return { page, error };
+  return { data, error };
+}
+
+export function useArticles() {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      // Call the AEM GraphQL persisted query named "page-by-slug" with parameters
+      const response = await fetchPersistedQuery(
+        REACT_APP_ENDPOINT + "/articles"
+      );
+
+      if (response?.err) {
+        // Capture error from the HTTP request
+        setError(response.err);
+      } else if (response?.data?.articlePaginated?.edges?.length) {
+        // Set the Page data after data validation
+        setData(response.data.articlePaginated.edges);
+      } else {
+        // Set an error if no Page could be found
+        setError(`Cannot find Articles`);
+      }
+    }
+
+    // Call the internal fetchData() as per React best practices
+    fetchData();
+  }, []);
+
+  return { data, error };
 }
