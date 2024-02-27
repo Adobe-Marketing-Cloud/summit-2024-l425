@@ -10,7 +10,7 @@ const Header = () => {
 
   return (
     <header className="background-blue">
-      <div className="outer-wrapper header">
+      <div className="container header">
         <div className="navigations-wrapper">
           <Logo variant="light" />
           <nav>

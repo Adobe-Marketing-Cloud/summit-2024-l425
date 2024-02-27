@@ -1,7 +1,7 @@
 import React from "react";
 import Hero from "../components/Hero";
 import TeaserCard from "../components/TeaserCard";
-import CallToActionCard from "../components/CallToActionCard";
+import CallToActionSection from "../components/CallToActionSection";
 import Loading from "../components/Loading";
 import ContentFragment from "../components/base/ContentFragment";
 import Title from "../components/base/Title";
@@ -13,23 +13,25 @@ const Home = () => {
 
   if (!page) return <Loading />;
 
+  const title = page?.teasers?.title;
+
   return (
     <ContentFragment cf={page}>
       <Hero cf={page} />
-      <div className="outer-wrapper">
+      <div className="container">
         <ContentFragment cf={page.teasers} className="teasers-wrapper">
-          <Title tag="h2" className="color-dark" prop="title">
-            {page.teasers.title}
+          <Title heading="h2" prop="title" className="color-dark">
+            {title}
           </Title>
-          {page.teasers.relatedOffers.map((teaser, index) => (
+          {page?.teasers?.relatedOffers.map((teaser, index) => (
             <TeaserCard
-              key={teaser.title}
+              key={teaser?.title}
               cf={teaser}
               reverse={index % 2 !== 0}
             />
           ))}
         </ContentFragment>
-        <CallToActionCard />
+        <CallToActionSection />
       </div>
     </ContentFragment>
   );

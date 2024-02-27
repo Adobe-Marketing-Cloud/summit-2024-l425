@@ -57,7 +57,7 @@ const Footer = () => {
   };
   return (
     <footer>
-      <div className="outer-wrapper footer">
+      <div className="container footer">
         <div className="top-wrapper">
           <Logo variant="dark" />
           <div className="categories-wrapper">

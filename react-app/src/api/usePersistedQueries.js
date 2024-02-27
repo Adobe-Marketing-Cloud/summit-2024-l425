@@ -61,15 +61,15 @@ async function fetchPersistedQuery(persistedQueryName, queryParameters) {
 export function usePageBySlug(slugName) {
   const [page, setPage] = useState(null);
   const [references, setReferences] = useState(null);
-  const [errors, setErrors] = useState(null);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
       const gqlParams = {};
 
-      const params = new URLSearchParams(document.location.search);
+      const searchParams = new URLSearchParams(document.location.search);
       for (const param of ["variation"]) {
-        const value = params.get(param);
+        const value = searchParams.get(param);
         if (value) {
           gqlParams[param] = value;
         }
@@ -87,16 +87,16 @@ export function usePageBySlug(slugName) {
         queryVariables
       );
 
-      if (response.err) {
-        // Capture errors from the HTTP request
-        setErrors(response.err);
-      } else if (response.data?.pageList?.items?.length === 1) {
+      if (response?.err) {
+        // Capture error from the HTTP request
+        setError(response.err);
+      } else if (response?.data?.pageList?.items?.length === 1) {
         // Set the Page data after data validation
         setPage(response.data.pageList.items[0]);
         setReferences(response.data.pageList._references);
       } else {
         // Set an error if no Page could be found
-        setErrors(`Cannot find Page with slug: ${slugName}`);
+        setError(`Cannot find Page with slug: ${slugName}`);
       }
     }
 
@@ -104,5 +104,41 @@ export function usePageBySlug(slugName) {
     fetchData();
   }, [slugName]);
 
-  return { page, references, errors };
+  return { page, references, error };
+}
+
+export function useArticleBySlug(slugName) {
+  const [page, setArticle] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      // The key is 'slug' as defined in the persisted query
+      const queryVariables = {
+        slug: slugName,
+      };
+
+      // Call the AEM GraphQL persisted query named "page-by-slug" with parameters
+      const response = await fetchPersistedQuery(
+        REACT_APP_ENDPOINT + "/article-by-slug",
+        queryVariables
+      );
+
+      if (response?.err) {
+        // Capture error from the HTTP request
+        setError(response.err);
+      } else if (response?.data?.articleList?.items?.length === 1) {
+        // Set the Page data after data validation
+        setArticle(response.data.articleList.items[0]);
+      } else {
+        // Set an error if no Page could be found
+        setError(`Cannot find Article with slug: ${slugName}`);
+      }
+    }
+
+    // Call the internal fetchData() as per React best practices
+    fetchData();
+  }, [slugName]);
+
+  return { page, error };
 }

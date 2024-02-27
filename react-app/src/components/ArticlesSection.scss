@@ -1,0 +1,15 @@
+@import "../styles/variables";
+
+.articles-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 96px 120px;
+  gap: 48px;
+
+  .cards-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
+    grid-gap: 32px;
+  }
+}

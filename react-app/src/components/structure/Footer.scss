@@ -12,11 +12,13 @@ footer {
       justify-content: space-between;
       align-items: flex-start;
       align-self: stretch;
+      gap: 72px;
 
       .categories-wrapper {
         width: 730px;
         display: flex;
         justify-content: space-between;
+        gap: 16px;
 
         .category-wrapper {
           display: flex;

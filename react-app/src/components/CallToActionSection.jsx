@@ -1,9 +1,9 @@
 import React from "react";
-import "./CallToActionCard.scss";
+import "./CallToActionSection.scss";
 
-const CallToActionCard = () => {
+const CallToActionSection = () => {
   return (
-    <div className="cta-wrapper">
+    <section className="container cta-wrapper">
       <div className="content-button-wrapper background-blue card-wrapper">
         <div className="content-wrapper">
           <h1 className="color-light">
@@ -19,8 +19,8 @@ const CallToActionCard = () => {
           <button className="secondary">Contact Us</button>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default CallToActionCard;
+export default CallToActionSection;

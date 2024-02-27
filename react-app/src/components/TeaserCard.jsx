@@ -1,15 +1,16 @@
 import React from "react";
-import arrowRight from "../assets/arrow-right.svg";
 import Image from "./base/Image";
 import ContentFragment from "./base/ContentFragment";
 import Title from "./base/Title";
 import Text from "./base/Text";
+import RedirectButton from "./RedirectButton";
+import arrowRight from "../assets/arrow-right.svg";
 import "./TeaserCard.scss";
 
 const TeaserCard = ({ cf, reverse }) => {
   const image = cf?.icon?._dynamicUrl;
   const title = cf?.title;
-  const description = cf?.description?.plaintext;
+  const content = cf?.description;
 
   return (
     <ContentFragment
@@ -19,15 +20,15 @@ const TeaserCard = ({ cf, reverse }) => {
       <Image src={image} alt={`${title} illustration`} prop="icon" />
       <div className="content-button-wrapper">
         <div className="content-wrapper">
-          <Title tag="h2" className="color-dark" prop="title">
+          <Title heading="h2" prop="title" className="color-dark">
             {title}
           </Title>
-          <Text prop="description">{description}</Text>
+          <Text content={content} prop="description" />
         </div>
-        <button>
+        <RedirectButton>
           {"Learn More"}
           <img src={arrowRight} alt="Right arrow icon" className="icon" />
-        </button>
+        </RedirectButton>
       </div>
     </ContentFragment>
   );

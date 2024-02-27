@@ -173,14 +173,31 @@ img {
   border: 1px solid $color-grey-100;
 }
 
+hr {
+  align-self: stretch;
+  border: none;
+  border-bottom: 1px solid $color-grey-200;
+}
+
 .icon {
   width: auto !important;
   height: auto !important;
 
   all: initial;
+  cursor: pointer;
 }
 
-.outer-wrapper {
+.content {
+  * {
+    margin-bottom: 16px;
+  }
+
+  & *:last-child {
+    margin-bottom: 0px;
+  }
+}
+
+.container {
   max-width: $max-width;
   margin: 0 auto;
 }
@@ -211,6 +228,17 @@ img {
 
 .background-blue {
   background-color: $color-secondary-300;
+}
+
+.background-grey {
+  background: $color-grey-50;
+}
+
+.card {
+  border-radius: 24px;
+  border: 1px solid $color-grey-0;
+  background: $color-grey-0;
+  box-shadow: 0px 4px 11px -1px rgba(10, 10, 10, 0.04);
 }
 
 @media only screen and (max-width: $tablet-breakpoint) {
