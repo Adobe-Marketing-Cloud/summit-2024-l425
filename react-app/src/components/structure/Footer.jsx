@@ -1,60 +1,57 @@
-import React from "react";
+import React, { useMemo } from "react";
 import Logo from "../Logo";
 import copyright from "../../assets/copyright.svg";
 import linkedinIcon from "../../assets/linkedin-icon.svg";
 import twitterIcon from "../../assets/twitter-icon.svg";
 import facebookIcon from "../../assets/facebook-icon.svg";
+import { useArticles, useServices } from "../../api/usePersistedQueries";
 import "./Footer.scss";
 
+const hardcodedCategories = {
+  About: [
+    {
+      label: "Comparny",
+      href: "/",
+    },
+    {
+      label: "Careers",
+      href: "/",
+    },
+    {
+      label: "FAQ",
+      href: "/",
+    },
+    {
+      label: "Contact Us",
+      href: "/",
+    },
+  ],
+};
+
 const Footer = () => {
-  const categories = {
-    Services: [
-      {
-        label: "Savings Account",
-        href: "/",
-      },
-      {
-        label: "Mortgage Consultation",
-        href: "/",
-      },
-      {
-        label: "Credit Card Application Assistance",
-        href: "/",
-      },
-    ],
-    Magazine: [
-      {
-        label: "Category 1",
-        href: "/",
-      },
-      {
-        label: "Category 2",
-        href: "/",
-      },
-      {
-        label: "Category 3",
-        href: "/",
-      },
-    ],
-    About: [
-      {
-        label: "Comparny",
-        href: "/",
-      },
-      {
-        label: "Careers",
-        href: "/",
-      },
-      {
-        label: "FAQ",
-        href: "/",
-      },
-      {
-        label: "Contact Us",
-        href: "/",
-      },
-    ],
-  };
+  const { data: articlesData } = useArticles(3);
+  const { data: servicesData } = useServices(3);
+
+  const categories = useMemo(() => {
+    const map = {};
+
+    if (articlesData && servicesData) {
+      const articles = articlesData.map((node) => ({
+        label: node.node.title,
+        href: `/articles/${node.node.slug}`,
+      }));
+      const services = servicesData.map((node) => ({
+        label: node.node.title,
+        href: `/services/${node.node.slug}`,
+      }));
+
+      map["Articles"] = articles;
+      map["Services"] = services;
+    }
+
+    return { ...map, ...hardcodedCategories };
+  }, [articlesData, servicesData]);
+
   return (
     <footer>
       <div className="container footer">

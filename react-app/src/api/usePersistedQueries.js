@@ -58,7 +58,7 @@ async function fetchPersistedQuery(persistedQueryName, queryParameters) {
  * @param {*} params option parameters
  * @returns a JSON object representing the Page
  */
-export function usePageBySlug(slugName, variation) {
+export function usePageBySlug(slugName, variation = "master") {
   const [data, setData] = useState(null);
   const [references, setReferences] = useState(null);
   const [error, setError] = useState(null);
@@ -169,15 +169,20 @@ export function useServiceBySlug(slugName) {
   return { data, error };
 }
 
-export function useArticles() {
+export function useArticles(first) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
+      const queryVariables = {};
+
+      first && (queryVariables.first = first);
+
       // Call the AEM GraphQL persisted query named "page-by-slug" with parameters
       const response = await fetchPersistedQuery(
-        REACT_APP_ENDPOINT + "/articles"
+        REACT_APP_ENDPOINT + "/articles",
+        queryVariables
       );
 
       if (response?.err) {
@@ -199,15 +204,20 @@ export function useArticles() {
   return { data, error };
 }
 
-export function useServices() {
+export function useServices(first) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
+    const queryVariables = {};
+
+    first && (queryVariables.first = first);
+
     async function fetchData() {
       // Call the AEM GraphQL persisted query named "page-by-slug" with parameters
       const response = await fetchPersistedQuery(
-        REACT_APP_ENDPOINT + "/services"
+        REACT_APP_ENDPOINT + "/services",
+        queryVariables
       );
 
       if (response?.err) {
