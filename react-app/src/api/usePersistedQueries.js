@@ -58,27 +58,17 @@ async function fetchPersistedQuery(persistedQueryName, queryParameters) {
  * @param {*} params option parameters
  * @returns a JSON object representing the Page
  */
-export function usePageBySlug(slugName) {
+export function usePageBySlug(slugName, variation) {
   const [data, setData] = useState(null);
   const [references, setReferences] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
-      const gqlParams = {};
-
-      const searchParams = new URLSearchParams(document.location.search);
-      for (const param of ["variation"]) {
-        const value = searchParams.get(param);
-        if (value) {
-          gqlParams[param] = value;
-        }
-      }
-
       // The key is 'slug' as defined in the persisted query
       const queryVariables = {
-        ...gqlParams,
         slug: slugName,
+        variation,
       };
 
       // Call the AEM GraphQL persisted query named "page-by-slug" with parameters
@@ -102,7 +92,7 @@ export function usePageBySlug(slugName) {
 
     // Call the internal fetchData() as per React best practices
     fetchData();
-  }, [slugName]);
+  }, [slugName, variation]);
 
   return { data, references, error };
 }
