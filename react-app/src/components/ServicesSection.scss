@@ -1,0 +1,25 @@
+@import "../styles/variables";
+
+.services-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 80px 120px;
+  gap: 40px;
+
+  .category-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+
+    button {
+      padding: 12px 20px;
+
+      background-color: transparent;
+      color: $color-grey-400;
+    }
+
+    .selected {
+      background-color: $color-secondary-300;
+      color: $color-primary-300;
+    }
+  }
+}

@@ -102,6 +102,10 @@ h6,
   color: $color-grey-300;
 }
 
+.color-blue {
+  color: $color-secondary-300;
+}
+
 .color-dark {
   color: $color-grey-900;
 }
@@ -238,7 +242,14 @@ hr {
   background: $color-grey-50;
 }
 
-.card {
+.card-horizontal {
+  border-radius: 0px;
+  border: 1px solid $color-grey-100;
+  background: $color-grey-0;
+  box-shadow: 0px 4px 11px -1px rgba(10, 10, 10, 0.04);
+}
+
+.card-vertical {
   border-radius: 24px;
   border: 1px solid $color-grey-0;
   background: $color-grey-0;

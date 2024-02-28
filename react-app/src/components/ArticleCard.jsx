@@ -12,13 +12,13 @@ const ArticleCard = ({ cf }) => {
   const path = `/articles/${cf.slug}`;
 
   return (
-    <ContentFragment cf={cf} className="card article-card-wrapper">
+    <ContentFragment cf={cf} className="card-vertical article-card-wrapper">
       <Image src={image} alt={`${title} illustration`} prop="image" />
       <Title heading="h5" prop="title" className="color-dark">
         {title}
       </Title>
       <RedirectButton href={path} className="secondary">
-        {"Learn More"}
+        Learn More
         <img src={arrowRight} alt="Right arrow icon" className="icon" />
       </RedirectButton>
     </ContentFragment>

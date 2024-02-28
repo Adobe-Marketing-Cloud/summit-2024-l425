@@ -143,6 +143,42 @@ export function useArticleBySlug(slugName) {
   return { data, error };
 }
 
+export function useServiceBySlug(slugName) {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      // The key is 'slug' as defined in the persisted query
+      const queryVariables = {
+        slug: slugName,
+      };
+
+      // Call the AEM GraphQL persisted query named "page-by-slug" with parameters
+      const response = await fetchPersistedQuery(
+        REACT_APP_ENDPOINT + "/service-by-slug",
+        queryVariables
+      );
+
+      if (response?.err) {
+        // Capture error from the HTTP request
+        setError(response.err);
+      } else if (response?.data?.serviceList?.items?.length === 1) {
+        // Set the Page data after data validation
+        setData(response.data.serviceList.items[0]);
+      } else {
+        // Set an error if no Page could be found
+        setError(`Cannot find Service with slug: ${slugName}`);
+      }
+    }
+
+    // Call the internal fetchData() as per React best practices
+    fetchData();
+  }, [slugName]);
+
+  return { data, error };
+}
+
 export function useArticles() {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -163,6 +199,36 @@ export function useArticles() {
       } else {
         // Set an error if no Page could be found
         setError(`Cannot find Articles`);
+      }
+    }
+
+    // Call the internal fetchData() as per React best practices
+    fetchData();
+  }, []);
+
+  return { data, error };
+}
+
+export function useServices() {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      // Call the AEM GraphQL persisted query named "page-by-slug" with parameters
+      const response = await fetchPersistedQuery(
+        REACT_APP_ENDPOINT + "/services"
+      );
+
+      if (response?.err) {
+        // Capture error from the HTTP request
+        setError(response.err);
+      } else if (response?.data?.servicePaginated?.edges?.length) {
+        // Set the Page data after data validation
+        setData(response.data.servicePaginated.edges);
+      } else {
+        // Set an error if no Page could be found
+        setError(`Cannot find Services`);
       }
     }
 

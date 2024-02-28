@@ -11,6 +11,7 @@ const TeaserCard = ({ cf, reverse }) => {
   const image = cf?.icon?._dynamicUrl;
   const title = cf?.title;
   const content = cf?.description;
+  const path = `/services/${cf.slug}`;
 
   return (
     <ContentFragment
@@ -25,8 +26,8 @@ const TeaserCard = ({ cf, reverse }) => {
           </Title>
           <Text content={content} prop="description" />
         </div>
-        <RedirectButton>
-          {"Learn More"}
+        <RedirectButton href={path}>
+          Learn More
           <img src={arrowRight} alt="Right arrow icon" className="icon" />
         </RedirectButton>
       </div>

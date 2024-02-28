@@ -1,0 +1,54 @@
+@import "../styles/variables";
+
+.service-card-wrapper {
+  display: flex;
+  align-self: stretch;
+  align-items: flex-start;
+  padding: 16px;
+  gap: 24px;
+
+  .right-wrapper {
+    display: flex;
+    padding: 24px;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex: 1 0 0;
+    align-self: stretch;
+
+    .tag-wrapper {
+      display: flex;
+      gap: 10px;
+
+      .category {
+        padding: 5px 10px;
+        text-align: center;
+
+        border-radius: 1000px;
+        background: $color-primary-25;
+      }
+
+      .duration-wrapper {
+        display: flex;
+        align-items: center;
+        gap: 3px;
+
+        font-size: $font-size-medium;
+      }
+    }
+  }
+
+  img {
+    height: 350px;
+    max-width: 500px;
+
+    object-fit: cover;
+    object-position: center;
+    border-radius: 0px;
+  }
+
+  button {
+    height: 48px;
+    margin-top: 24px;
+  }
+}

@@ -24,7 +24,9 @@ const ContentFragment = ({
     label || cf?._model?.title + (title ? ` (${title})` : "");
 
   const editorProps = {
-    "data-aue-resource": `urn:aemconnection:${cf._path}/jcr:content/data/${cf._variation}`,
+    "data-aue-resource": `urn:aemconnection:${cf?._path}/jcr:content/data/${
+      cf?._variation || "master"
+    }`,
     "data-aue-prop": prop,
     "data-aue-type": type || "reference",
     "data-aue-label": compositeLabel,
