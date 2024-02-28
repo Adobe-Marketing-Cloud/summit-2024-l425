@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { useParams } from "react-router-dom";
 import ContentFragment from "./base/ContentFragment";
 import Title from "./base/Title";
 import Image from "./base/Image";
@@ -7,8 +6,7 @@ import Text from "./base/Text";
 import { useServiceBySlug } from "../api/usePersistedQueries";
 import "./ServiceDetail.scss";
 
-const ServiceDetail = () => {
-  const { slug } = useParams();
+const ServiceDetail = ({ slug }) => {
   const { data } = useServiceBySlug(slug);
 
   useEffect(() => {

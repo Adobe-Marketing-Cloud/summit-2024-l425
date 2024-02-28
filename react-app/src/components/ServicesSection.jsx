@@ -2,7 +2,7 @@ import React, { useState, useMemo } from "react";
 import ServiceCard from "./ServiceCard";
 import "./ServicesSection.scss";
 
-const ServicesSection = ({ cfs }) => {
+const ServicesSection = ({ slug, cfs }) => {
   const [selectedCategory, setSelectedCategory] = useState("All Services");
 
   const categoriesedServices = useMemo(() => {
@@ -11,11 +11,15 @@ const ServicesSection = ({ cfs }) => {
       const category = service?.serviceCategory?.name;
       if (category) {
         map[category] = map[category] || [];
-        map[category].push(service);
+        if (service.slug !== slug) {
+          map[category].push(service);
+        } else {
+          setSelectedCategory(category);
+        }
       }
     });
     return { "All Services": cfs, ...map };
-  }, [cfs]);
+  }, [slug, cfs]);
 
   const services = useMemo(
     () =>

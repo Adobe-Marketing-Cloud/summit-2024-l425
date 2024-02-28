@@ -1,10 +1,12 @@
 import React, { useMemo } from "react";
-import CallToActionSection from "../components/CallToActionSection";
-import ServicesSection from "../components/ServicesSection";
-import { useServices } from "../api/usePersistedQueries";
+import { useParams } from "react-router-dom";
 import ServiceDetail from "../components/ServiceDetail";
+import ServicesSection from "../components/ServicesSection";
+import CallToActionSection from "../components/CallToActionSection";
+import { useServices } from "../api/usePersistedQueries";
 
 const Services = () => {
+  const { slug } = useParams();
   const { data } = useServices();
 
   const services = useMemo(
@@ -16,8 +18,8 @@ const Services = () => {
 
   return (
     <>
-      <ServiceDetail />
-      <ServicesSection cfs={services} />
+      <ServiceDetail slug={slug} />
+      <ServicesSection slug={slug} cfs={services} />
       <CallToActionSection />
     </>
   );
