@@ -199,7 +199,7 @@ export function useArticles(first) {
 
     // Call the internal fetchData() as per React best practices
     fetchData();
-  }, []);
+  }, [first]);
 
   return { data, error };
 }
@@ -234,7 +234,7 @@ export function useServices(first) {
 
     // Call the internal fetchData() as per React best practices
     fetchData();
-  }, []);
+  }, [first]);
 
   return { data, error };
 }
