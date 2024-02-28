@@ -1,8 +1,8 @@
 import React, { useMemo } from "react";
-import Loading from "../components/Loading";
 import CallToActionSection from "../components/CallToActionSection";
 import ServicesSection from "../components/ServicesSection";
 import { useServices } from "../api/usePersistedQueries";
+import ServiceDetail from "../components/ServiceDetail";
 
 const Services = () => {
   const { data } = useServices();
@@ -12,10 +12,11 @@ const Services = () => {
     [data]
   );
 
-  if (!services) return <Loading />;
+  if (!services) return;
 
   return (
     <>
+      <ServiceDetail />
       <ServicesSection cfs={services} />
       <CallToActionSection />
     </>

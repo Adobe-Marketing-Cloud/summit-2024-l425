@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useParams } from "react-router-dom";
 import ContentFragment from "./base/ContentFragment";
 import Title from "./base/Title";
 import Image from "./base/Image";
@@ -6,7 +7,8 @@ import Text from "./base/Text";
 import { useServiceBySlug } from "../api/usePersistedQueries";
 import "./ServiceDetail.scss";
 
-const ServiceDetail = ({ slug }) => {
+const ServiceDetail = () => {
+  const { slug } = useParams();
   const { data } = useServiceBySlug(slug);
 
   useEffect(() => {
@@ -24,7 +26,11 @@ const ServiceDetail = ({ slug }) => {
   const duration = data?.duration;
 
   return (
-    <ContentFragment cf={data} className="container service-detail-wrapper">
+    <ContentFragment
+      tag="section"
+      cf={data}
+      className="container service-detail-wrapper"
+    >
       <div className="left-wrapper">
         <div className="content-wrapper">
           <div className="tag-wrapper">

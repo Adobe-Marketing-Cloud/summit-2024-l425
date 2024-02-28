@@ -1,8 +1,7 @@
 import React, { useMemo } from "react";
-import Loading from "../components/Loading";
-import { useArticles } from "../api/usePersistedQueries";
 import ArticlesSection from "../components/ArticlesSection";
 import CallToActionSection from "../components/CallToActionSection";
+import { useArticles } from "../api/usePersistedQueries";
 
 const Articles = () => {
   const { data } = useArticles();
@@ -12,7 +11,7 @@ const Articles = () => {
     [data]
   );
 
-  if (!articles) return <Loading />;
+  if (!articles) return;
 
   return (
     <>

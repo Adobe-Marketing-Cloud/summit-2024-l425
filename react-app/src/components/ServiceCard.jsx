@@ -3,6 +3,7 @@ import Image from "./base/Image";
 import Title from "./base/Title";
 import Text from "./base/Text";
 import ContentFragment from "./base/ContentFragment";
+import RedirectButton from "./RedirectButton";
 import arrowRight from "../assets/arrow-right.svg";
 import "./ServiceCard.scss";
 
@@ -13,13 +14,7 @@ const ServiceCard = ({ cf }) => {
   const slug = cf?.slug;
   const category = cf?.serviceCategory?.name;
   const duration = cf?.duration;
-
-  const customEvent = new CustomEvent("updateLocation", { detail: { slug } });
-
-  const selectService = () => {
-    window.dispatchEvent(customEvent);
-    window.history.pushState({}, "", `/services/${slug}`);
-  };
+  const path = `/services/${slug}`;
 
   return (
     <ContentFragment cf={cf} className="card-horizontal service-card-wrapper">
@@ -51,10 +46,10 @@ const ServiceCard = ({ cf }) => {
             className="font-size-large"
           />
         </div>
-        <button onClick={selectService} className="secondary">
+        <RedirectButton href={path} className="secondary">
           Learn More
           <img src={arrowRight} alt="Right arrow icon" className="icon" />
-        </button>
+        </RedirectButton>
       </div>
     </ContentFragment>
   );

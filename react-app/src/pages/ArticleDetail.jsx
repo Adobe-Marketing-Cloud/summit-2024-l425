@@ -5,7 +5,6 @@ import Title from "../components/base/Title";
 import Image from "../components/base/Image";
 import Text from "../components/base/Text";
 import CallToActionCard from "../components/CallToActionSection";
-import Loading from "../components/Loading";
 import ArticlesSection from "../components/ArticlesSection";
 import { useArticleBySlug } from "../api/usePersistedQueries";
 import "./ArticleDetail.scss";
@@ -14,7 +13,7 @@ const ArticleDetail = () => {
   const { slug } = useParams();
   const { data } = useArticleBySlug(slug);
 
-  if (!data) return <Loading />;
+  if (!data) return;
 
   const image = data?.image?._dynamicUrl;
   const title = data?.title;
