@@ -6,7 +6,7 @@ const ServicesSection = ({ slug, cfs }) => {
   const [selectedCategory, setSelectedCategory] = useState("All Services");
 
   const categoriesedServices = useMemo(() => {
-    const map = {};
+    const map = { "All Services": [] };
     cfs.forEach((service) => {
       const category = service?.serviceCategory?.name;
       if (category) {
@@ -17,8 +17,11 @@ const ServicesSection = ({ slug, cfs }) => {
           setSelectedCategory(category);
         }
       }
+      if (service.slug !== slug) {
+        map["All Services"].push(service);
+      }
     });
-    return { "All Services": cfs, ...map };
+    return map;
   }, [slug, cfs]);
 
   const services = useMemo(

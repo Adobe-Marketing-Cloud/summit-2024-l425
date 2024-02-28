@@ -15,22 +15,27 @@ const Home = () => {
   const title = data?.teasers?.title;
 
   return (
-    <ContentFragment cf={data}>
-      <Hero cf={data} />
-      <ContentFragment cf={data.teasers} className="container teasers-wrapper">
-        <Title heading="h2" prop="title" className="color-dark">
-          {title}
-        </Title>
-        {data?.teasers?.relatedOffers.map((teaser, index) => (
-          <TeaserCard
-            key={teaser?.title}
-            cf={teaser}
-            reverse={index % 2 !== 0}
-          />
-        ))}
+    <>
+      <ContentFragment cf={data}>
+        <Hero cf={data} />
+        <ContentFragment
+          cf={data.teasers}
+          className="container teasers-wrapper"
+        >
+          <Title heading="h2" prop="title" className="color-dark">
+            {title}
+          </Title>
+          {data?.teasers?.relatedOffers.map((teaser, index) => (
+            <TeaserCard
+              key={teaser?.title}
+              cf={teaser}
+              reverse={index % 2 !== 0}
+            />
+          ))}
+        </ContentFragment>
       </ContentFragment>
       <CallToActionSection />
-    </ContentFragment>
+    </>
   );
 };
 
