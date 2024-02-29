@@ -20,7 +20,9 @@ const Hero = ({ cf }) => {
             </Title>
             <Text content={content} prop="content" className="color-grey" />
           </div>
-          <RedirectButton href="/services">Our Services</RedirectButton>
+          <RedirectButton href="/services" className="hover-effect">
+            Our Services
+          </RedirectButton>
         </div>
         <Image
           src={image}
