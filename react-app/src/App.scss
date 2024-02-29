@@ -109,6 +109,14 @@ h6,
   color: $color-grey-900;
 }
 
+.hover-effect {
+  transition: all 0.4s cubic-bezier(0.47, 0, 0.23, 1.38);
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
 button {
   display: flex;
   justify-content: center;

@@ -3,6 +3,7 @@ import ContentFragment from "./base/ContentFragment";
 import Title from "./base/Title";
 import Image from "./base/Image";
 import Text from "./base/Text";
+import RedirectButton from "./RedirectButton";
 import { useServiceBySlug } from "../api/usePersistedQueries";
 import "./ServiceDetail.scss";
 
@@ -52,9 +53,14 @@ const ServiceDetail = ({ slug }) => {
           </Title>
           <Text content={content} prop="description" />
         </div>
-        <button>Book Now</button>
+        <RedirectButton className="hover-effect">Book Now</RedirectButton>
       </div>
-      <Image src={image} alt={`${title} illustration`} prop="image" />
+      <Image
+        src={image}
+        alt={`${title} illustration`}
+        prop="image"
+        className="hover-effect"
+      />
     </ContentFragment>
   );
 };

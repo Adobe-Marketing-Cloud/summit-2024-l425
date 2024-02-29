@@ -17,7 +17,10 @@ const ServiceCard = ({ cf }) => {
   const path = `/services/${slug}`;
 
   return (
-    <ContentFragment cf={cf} className="card-horizontal service-card-wrapper">
+    <ContentFragment
+      cf={cf}
+      className="card-horizontal hover-effect service-card-wrapper"
+    >
       <Image src={image} alt={`${title} illustration`} prop="image" />
       <div className="right-wrapper">
         <div className="content-wrapper">

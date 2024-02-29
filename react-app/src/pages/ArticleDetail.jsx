@@ -29,7 +29,7 @@ const ArticleDetail = () => {
           src={image}
           alt={`${title} illustration`}
           prop="Image"
-          className="main-image"
+          className="hover-effect main-image"
         />
         <hr />
         <Text content={content} prop="content" className="content" />

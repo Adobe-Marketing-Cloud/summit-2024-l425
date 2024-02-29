@@ -22,7 +22,12 @@ const Hero = ({ cf }) => {
           </div>
           <RedirectButton href="/services">Our Services</RedirectButton>
         </div>
-        <Image src={image} alt="Hero banner" prop="image" />
+        <Image
+          src={image}
+          alt="Hero banner"
+          prop="image"
+          className="hover-effect"
+        />
       </div>
     </div>
   );

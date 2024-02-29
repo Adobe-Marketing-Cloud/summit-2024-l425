@@ -1,5 +1,6 @@
 import React from "react";
 import Logo from "../Logo";
+import RedirectButton from "../RedirectButton";
 import "./Header.scss";
 
 const Header = () => {
@@ -26,8 +27,12 @@ const Header = () => {
           </nav>
         </div>
         <div className="buttons-wrapper">
-          <button className="transparent font-size-medium">Sign In</button>
-          <button className="font-size-medium">Open an Account</button>
+          <RedirectButton className="transparent font-size-medium hover-effect">
+            Sign In
+          </RedirectButton>
+          <RedirectButton className="font-size-medium hover-effect">
+            Open an Account
+          </RedirectButton>
         </div>
       </div>
     </header>

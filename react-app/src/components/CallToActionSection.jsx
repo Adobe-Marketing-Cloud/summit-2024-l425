@@ -1,4 +1,5 @@
 import React from "react";
+import RedirectButton from "./RedirectButton";
 import "./CallToActionSection.scss";
 
 const CallToActionSection = () => {
@@ -15,8 +16,12 @@ const CallToActionSection = () => {
           </p>
         </div>
         <div className="buttons-wrapper">
-          <button>Open an Account</button>
-          <button className="secondary">Contact Us</button>
+          <RedirectButton className="hover-effect">
+            Open an Account
+          </RedirectButton>
+          <RedirectButton className="secondary hover-effect">
+            Contact Us
+          </RedirectButton>
         </div>
       </div>
     </section>
