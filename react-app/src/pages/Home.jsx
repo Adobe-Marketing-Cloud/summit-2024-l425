@@ -4,6 +4,7 @@ import TeaserCard from "../components/TeaserCard";
 import CallToActionSection from "../components/CallToActionSection";
 import ContentFragment from "../components/base/ContentFragment";
 import Title from "../components/base/Title";
+import Container from "../components/base/Container";
 import phones from "../assets/phones.png";
 import { usePageBySlug } from "../api/usePersistedQueries";
 import "./Home.scss";
@@ -75,13 +76,19 @@ const Home = () => {
           <Title heading="h2" prop="title" className="color-dark">
             {title}
           </Title>
-          {relatedOffers.map((teaser, index) => (
-            <TeaserCard
-              key={teaser?.title}
-              cf={teaser}
-              reverse={index % 2 !== 0}
-            />
-          ))}
+          <Container
+            prop="relatedOffers"
+            label="Related Offers"
+            className="teasers-container"
+          >
+            {relatedOffers.map((teaser, index) => (
+              <TeaserCard
+                key={teaser?.title}
+                cf={teaser}
+                reverse={index % 2 !== 0}
+              />
+            ))}
+          </Container>
         </ContentFragment>
       </ContentFragment>
       <CallToActionSection />

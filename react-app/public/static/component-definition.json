@@ -1,0 +1,25 @@
+{
+  "groups": [
+    {
+      "title": "Content Fragments",
+      "id": "content-fragments",
+      "components": [
+        {
+          "title": "Service Teaser",
+          "id": "service-teaser",
+          "plugins": {
+            "aem": {
+              "cf": {
+                "name": "service-teaser",
+                "cfModel": "/conf/securbank/settings/dam/cfm/models/service",
+                "cfFolder": "/content/dam/securbank/services",
+                "title": "Service Teaser",
+                "description": ""
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

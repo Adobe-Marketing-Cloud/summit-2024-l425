@@ -8,7 +8,7 @@ import "./Logo.scss";
 const Logo = ({ variant }) => {
   const icon = variant === "dark" ? darkIcon : lightIcon;
   return (
-    <a href="/" className="logo-wrapper">
+    <a href="/" className="hover-effect logo-wrapper">
       <img src={icon} alt="SecurBank icon" className="icon" />
       <h5 className={`color-${variant}`}>SecurBank</h5>
     </a>

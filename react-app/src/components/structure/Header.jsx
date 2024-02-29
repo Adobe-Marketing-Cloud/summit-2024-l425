@@ -19,7 +19,7 @@ const Header = () => {
               <a
                 key={index}
                 href={href}
-                className="font-size-medium font-weight-medium color-light"
+                className="font-size-medium font-weight-medium color-light hover-effect"
               >
                 {label}
               </a>

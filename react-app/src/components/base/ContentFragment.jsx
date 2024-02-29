@@ -6,7 +6,6 @@ const ContentFragment = ({
   className,
   cf,
   prop,
-  type,
   label,
   behavior,
   filter,
@@ -28,7 +27,7 @@ const ContentFragment = ({
       cf?._variation || "master"
     }`,
     "data-aue-prop": prop,
-    "data-aue-type": type || "reference",
+    "data-aue-type": "reference",
     "data-aue-label": compositeLabel,
     "data-aue-behavior": behavior,
     "data-aue-filter": filter,
