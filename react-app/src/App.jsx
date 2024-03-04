@@ -30,7 +30,7 @@ function App() {
               <Route path="/articles/:slug" element={<ArticleDetail />} />
               <Route path="/services" element={<Services />} />
               <Route path="/services/:slug" element={<Services />} />
-              <Route element={<NotFound />} />
+              <Route path="/*" element={<NotFound />} />
             </Routes>
           </main>
         </Router>

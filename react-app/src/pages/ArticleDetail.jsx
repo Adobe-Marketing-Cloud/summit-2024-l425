@@ -4,6 +4,7 @@ import ContentFragment from "../components/base/ContentFragment";
 import Title from "../components/base/Title";
 import Image from "../components/base/Image";
 import Text from "../components/base/Text";
+import Container from "../components/base/Container";
 import CallToActionCard from "../components/CallToActionSection";
 import ArticlesSection from "../components/ArticlesSection";
 import { useArticleBySlug } from "../api/usePersistedQueries";
@@ -21,25 +22,29 @@ const ArticleDetail = () => {
 
   return (
     <>
-      <ContentFragment cf={data} className="container article-wrapper">
-        <Title heading="h2" prop="title" className="color-dark">
-          {title}
-        </Title>
-        <Image
-          src={image}
-          alt={`${title} illustration`}
-          prop="Image"
-          className="hover-effect main-image"
-        />
-        <hr />
-        <Text content={content} prop="content" className="content" />
-        <hr />
+      <ContentFragment cf={data}>
+        <div className="container article-wrapper">
+          <Title heading="h2" prop="title" className="color-dark">
+            {title}
+          </Title>
+          <Image
+            src={image}
+            alt={`${title} illustration`}
+            prop="Image"
+            className="hover-effect main-image"
+          />
+          <hr />
+          <Text content={content} prop="content" className="content" />
+          <hr />
+        </div>
+        <Container prop="relatedArticles" label="Related Articles">
+          <ArticlesSection
+            title="Related Articles"
+            cfs={data.relatedArticles}
+            columns={3}
+          />
+        </Container>
       </ContentFragment>
-      <ArticlesSection
-        title="Related Articles"
-        cfs={data.relatedArticles}
-        columns={3}
-      />
       <CallToActionCard />
     </>
   );

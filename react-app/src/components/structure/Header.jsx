@@ -17,7 +17,7 @@ const Header = () => {
           <nav>
             {navigations.map(({ label, href }, index) => (
               <a
-                key={index}
+                key={`${href}_${index}`}
                 href={href}
                 className="font-size-medium font-weight-medium color-light hover-effect"
               >

@@ -1,17 +1,23 @@
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useMemo, useEffect, useState } from "react";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import Title from "../components/base/Title";
+import Container from "../components/base/Container";
 import Hero from "../components/Hero";
 import TeaserCard from "../components/TeaserCard";
 import CallToActionSection from "../components/CallToActionSection";
 import ContentFragment from "../components/base/ContentFragment";
-import Title from "../components/base/Title";
-import Container from "../components/base/Container";
+import SelectorButton from "../components/SelectorButton";
 import phones from "../assets/phones.png";
 import { usePageBySlug } from "../api/usePersistedQueries";
 import "./Home.scss";
 
 const Home = () => {
-  const [selectedVariation, setSelectedVariation] = useState("master");
-  const { data } = usePageBySlug("home", selectedVariation);
+  const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const [selectedVariation, setSelectedVariation] = useState(null);
+  const [fetchTrigger, setFetchTrigger] = useState(true);
+
+  const { data } = usePageBySlug("home", selectedVariation, fetchTrigger);
 
   const categories = useMemo(() => {
     const map = { master: "Personal" };
@@ -23,6 +29,28 @@ const Home = () => {
     }
     return map;
   }, [data]);
+
+  useEffect(() => {
+    const variation = searchParams.get("variation");
+
+    if (!variation) {
+      navigate("/?variation=master");
+    } else {
+      setSelectedVariation(variation);
+    }
+  }, [searchParams, navigate]);
+
+  useEffect(() => {
+    const contentAddHandler = () => {
+      setFetchTrigger((state) => !state);
+    };
+
+    document.addEventListener("content-add", contentAddHandler);
+
+    return () => {
+      window.addEventListener("content-add", contentAddHandler);
+    };
+  }, []);
 
   useEffect(() => {
     const scrollHandler = () => {
@@ -45,7 +73,7 @@ const Home = () => {
     };
   }, []);
 
-  if (!data) return;
+  if (!data || !categories.hasOwnProperty(selectedVariation)) return;
 
   const teasers = data?.teasers;
   const { title, relatedOffers } = teasers;
@@ -55,41 +83,43 @@ const Home = () => {
       <ContentFragment cf={data} className="home-wrapper">
         <Hero cf={data} />
         <img src={phones} id="parallax-item" alt="Phone" />
-        <ContentFragment
-          tag="section"
-          cf={teasers}
-          className="container teasers-wrapper"
-        >
-          <div className="category-wrapper">
-            {Object.entries(categories).map(([variation, label]) => (
-              <button
-                key={variation}
-                onClick={() => setSelectedVariation(variation)}
-                className={`font-size-medium${
-                  selectedVariation === variation ? " selected" : ""
-                }`}
-              >
-                {label}
-              </button>
-            ))}
-          </div>
-          <Title heading="h2" prop="title" className="color-dark">
-            {title}
-          </Title>
-          <Container
-            prop="relatedOffers"
-            label="Related Offers"
-            className="teasers-container"
+        <Container prop="teasers" label="Teasers">
+          <ContentFragment
+            tag="section"
+            cf={teasers}
+            className="container teasers-wrapper"
           >
-            {relatedOffers.map((teaser, index) => (
-              <TeaserCard
-                key={teaser?.title}
-                cf={teaser}
-                reverse={index % 2 !== 0}
-              />
-            ))}
-          </Container>
-        </ContentFragment>
+            <div className="category-wrapper">
+              {Object.entries(categories).map(([variation, label], index) => (
+                <SelectorButton
+                  key={`${variation}_${index}`}
+                  onClick={() =>
+                    (window.location.href = `/?variation=${variation}`)
+                  }
+                  isSelected={selectedVariation === variation}
+                >
+                  {label}
+                </SelectorButton>
+              ))}
+            </div>
+            <Title heading="h2" prop="title" className="color-dark">
+              {title}
+            </Title>
+            <Container
+              prop="relatedOffers"
+              label="Related Offers"
+              className="teasers-container"
+            >
+              {relatedOffers.map((teaser, index) => (
+                <TeaserCard
+                  key={`${teaser?.title}_${index}`}
+                  cf={teaser}
+                  reverse={index % 2 !== 0}
+                />
+              ))}
+            </Container>
+          </ContentFragment>
+        </Container>
       </ContentFragment>
       <CallToActionSection />
     </>

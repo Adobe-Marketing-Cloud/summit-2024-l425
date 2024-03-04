@@ -8,8 +8,8 @@ const ArticlesSection = ({ title, cfs, columns = 2 }) => {
       <section className="container articles-wrapper">
         {title && <h3 className="color-dark">{title}</h3>}
         <div className={`cards-wrapper columns-${columns}`}>
-          {cfs.map((cf) => (
-            <ArticleCard key={cf.slug} cf={cf} />
+          {cfs.map((cf, index) => (
+            <ArticleCard key={`${cf.slug}_${index}`} cf={cf} />
           ))}
         </div>
       </section>

@@ -59,12 +59,12 @@ const Footer = () => {
           <Logo variant="dark" />
           <div className="categories-wrapper">
             {Object.keys(categories).map((category, index) => (
-              <div key={index} className="category-wrapper">
+              <div key={`${category}_${index}`} className="category-wrapper">
                 <p className="font-size-large font-weight-medium">{category}</p>
                 <nav>
                   {categories[category].map(({ label, href }, index) => (
                     <a
-                      key={index}
+                      key={`${href}_${index}`}
                       href={href}
                       className="font-size-large font-weight-medium color-dark"
                     >

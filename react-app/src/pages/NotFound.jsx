@@ -1,7 +1,12 @@
 import React from "react";
+import "./NotFound.scss";
 
 const NotFound = () => {
-  return <h1 className="dolor-dark">Page not found</h1>;
+  return (
+    <div className="container">
+      <h1 className="color-dark not-found">Page not found</h1>
+    </div>
+  );
 };
 
 export default NotFound;

@@ -15,7 +15,7 @@ const Articles = () => {
 
   return (
     <>
-      <ArticlesSection title="Articles" cfs={articles} />
+      <ArticlesSection title="Articles" cfs={articles} columns={2} />
       <CallToActionSection />
     </>
   );

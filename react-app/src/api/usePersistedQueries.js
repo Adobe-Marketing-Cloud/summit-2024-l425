@@ -36,15 +36,12 @@ async function fetchPersistedQuery(persistedQueryName, queryParameters) {
   let err;
 
   try {
-    // AEM GraphQL queries are asynchronous, either await their return or use Promise-based .then(..) { ... } syntax
     const response = await aemHeadlessClient.runPersistedQuery(
       persistedQueryName,
       queryParameters
     );
-    // The GraphQL data is stored on the response's data field
     data = response?.data;
   } catch (e) {
-    // An error occurred, return the error messages
     err = e.toJSON()?.message;
   }
 
@@ -54,121 +51,113 @@ async function fetchPersistedQuery(persistedQueryName, queryParameters) {
 /**
  * Calls the 'page-by-slug' persisted query with `slug` parameter.
  *
- * @param {String!} slugName the page slug
- * @param {*} params option parameters
+ * @param {String!} slug the page slug
+ * @param {String} [variation="master"] variation of relatedOffers
  * @returns a JSON object representing the Page
  */
-export function usePageBySlug(slugName, variation = "master") {
+export function usePageBySlug(slug, variation = "master", fetchTrigger) {
   const [data, setData] = useState(null);
-  const [references, setReferences] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
-      // The key is 'slug' as defined in the persisted query
       const queryVariables = {
-        slug: slugName,
+        slug,
         variation,
       };
 
-      // Call the AEM GraphQL persisted query named "page-by-slug" with parameters
       const response = await fetchPersistedQuery(
         REACT_APP_ENDPOINT + "/page-by-slug",
         queryVariables
       );
 
       if (response?.err) {
-        // Capture error from the HTTP request
         setError(response.err);
       } else if (response?.data?.pageList?.items?.length === 1) {
-        // Set the Page data after data validation
         setData(response.data.pageList.items[0]);
-        setReferences(response.data.pageList._references);
-      } else {
-        // Set an error if no Page could be found
-        setError(`Cannot find Page with slug: ${slugName}`);
       }
     }
 
-    // Call the internal fetchData() as per React best practices
     fetchData();
-  }, [slugName, variation]);
+  }, [slug, variation, fetchTrigger]);
 
-  return { data, references, error };
+  return { data, error };
 }
 
-export function useArticleBySlug(slugName) {
+/**
+ * Calls the 'article-by-slug' persisted query with `slug` parameter.
+ *
+ * @param {String!} slug the page slug
+ * @returns a JSON object representing the Article
+ */
+export function useArticleBySlug(slug) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
-      // The key is 'slug' as defined in the persisted query
       const queryVariables = {
-        slug: slugName,
+        slug: slug,
       };
 
-      // Call the AEM GraphQL persisted query named "page-by-slug" with parameters
       const response = await fetchPersistedQuery(
         REACT_APP_ENDPOINT + "/article-by-slug",
         queryVariables
       );
 
       if (response?.err) {
-        // Capture error from the HTTP request
         setError(response.err);
       } else if (response?.data?.articleList?.items?.length === 1) {
-        // Set the Page data after data validation
         setData(response.data.articleList.items[0]);
-      } else {
-        // Set an error if no Page could be found
-        setError(`Cannot find Article with slug: ${slugName}`);
       }
     }
 
-    // Call the internal fetchData() as per React best practices
     fetchData();
-  }, [slugName]);
+  }, [slug]);
 
   return { data, error };
 }
 
-export function useServiceBySlug(slugName) {
+/**
+ * Calls the 'service-by-slug' persisted query with `slug` parameter.
+ *
+ * @param {String!} slug the page slug
+ * @returns a JSON object representing the Service
+ */
+export function useServiceBySlug(slug) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
-      // The key is 'slug' as defined in the persisted query
       const queryVariables = {
-        slug: slugName,
+        slug,
       };
 
-      // Call the AEM GraphQL persisted query named "page-by-slug" with parameters
       const response = await fetchPersistedQuery(
         REACT_APP_ENDPOINT + "/service-by-slug",
         queryVariables
       );
 
       if (response?.err) {
-        // Capture error from the HTTP request
         setError(response.err);
       } else if (response?.data?.serviceList?.items?.length === 1) {
-        // Set the Page data after data validation
         setData(response.data.serviceList.items[0]);
-      } else {
-        // Set an error if no Page could be found
-        setError(`Cannot find Service with slug: ${slugName}`);
       }
     }
 
-    // Call the internal fetchData() as per React best practices
     fetchData();
-  }, [slugName]);
+  }, [slug]);
 
   return { data, error };
 }
 
+/**
+ * Calls the 'articles' persisted query with `first` parameter.
+ *
+ * @param {String} [first] first x number of articles to fetch
+ * @returns a JSON object representing the Articles
+ */
 export function useArticles(first) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -179,31 +168,30 @@ export function useArticles(first) {
 
       first && (queryVariables.first = first);
 
-      // Call the AEM GraphQL persisted query named "page-by-slug" with parameters
       const response = await fetchPersistedQuery(
         REACT_APP_ENDPOINT + "/articles",
         queryVariables
       );
 
       if (response?.err) {
-        // Capture error from the HTTP request
         setError(response.err);
       } else if (response?.data?.articlePaginated?.edges?.length) {
-        // Set the Page data after data validation
         setData(response.data.articlePaginated.edges);
-      } else {
-        // Set an error if no Page could be found
-        setError(`Cannot find Articles`);
       }
     }
 
-    // Call the internal fetchData() as per React best practices
     fetchData();
   }, [first]);
 
   return { data, error };
 }
 
+/**
+ * Calls the 'services' persisted query with `first` parameter.
+ *
+ * @param {String} [first] first x number of services to fetch
+ * @returns a JSON object representing the Services
+ */
 export function useServices(first) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -214,25 +202,18 @@ export function useServices(first) {
     first && (queryVariables.first = first);
 
     async function fetchData() {
-      // Call the AEM GraphQL persisted query named "page-by-slug" with parameters
       const response = await fetchPersistedQuery(
         REACT_APP_ENDPOINT + "/services",
         queryVariables
       );
 
       if (response?.err) {
-        // Capture error from the HTTP request
         setError(response.err);
       } else if (response?.data?.servicePaginated?.edges?.length) {
-        // Set the Page data after data validation
         setData(response.data.servicePaginated.edges);
-      } else {
-        // Set an error if no Page could be found
-        setError(`Cannot find Services`);
       }
     }
 
-    // Call the internal fetchData() as per React best practices
     fetchData();
   }, [first]);
 

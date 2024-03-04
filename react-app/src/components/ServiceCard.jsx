@@ -26,19 +26,17 @@ const ServiceCard = ({ cf }) => {
         <div className="content-wrapper">
           <div className="tag-wrapper">
             {category && (
-              <p
-                data-aue-prop="serviceCategory"
-                data-aue-label="Service Category"
-                className="category color-blue font-size-small font-weight-medium"
-              >
+              <p className="category color-blue font-size-small font-weight-medium">
                 {category}
               </p>
             )}
-            <div className="duration-wrapper">
-              Duration
-              <Text prop="duration">{duration}</Text>
-              mins
-            </div>
+            {duration && (
+              <div className="duration-wrapper">
+                Duration
+                <Text prop="duration">{duration}</Text>
+                mins
+              </div>
+            )}
           </div>
           <Title heading="h5" prop="title" className="color-dark">
             {title}

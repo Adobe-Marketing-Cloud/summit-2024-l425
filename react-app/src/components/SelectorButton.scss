@@ -1,0 +1,15 @@
+@import "../styles/variables";
+
+.selector-button {
+  height: 40px;
+  padding: 12px 20px;
+  align-items: center;
+
+  background-color: transparent;
+  color: $color-grey-400;
+
+  &.selected {
+    background-color: $color-secondary-300;
+    color: $color-primary-300;
+  }
+}

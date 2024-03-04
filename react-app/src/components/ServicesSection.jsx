@@ -1,5 +1,6 @@
 import React, { useState, useMemo } from "react";
 import ServiceCard from "./ServiceCard";
+import SelectorButton from "./SelectorButton";
 import "./ServicesSection.scss";
 
 const ServicesSection = ({ slug, cfs }) => {
@@ -26,8 +27,8 @@ const ServicesSection = ({ slug, cfs }) => {
 
   const services = useMemo(
     () =>
-      categoriesedServices[selectedCategory].map((service) => (
-        <ServiceCard key={service.slug} cf={service} />
+      categoriesedServices[selectedCategory].map((service, index) => (
+        <ServiceCard key={`${service.slug}_${index}`} cf={service} />
       )),
     [selectedCategory, categoriesedServices]
   );
@@ -36,16 +37,14 @@ const ServicesSection = ({ slug, cfs }) => {
     <div className="background-grey">
       <section className="container services-wrapper">
         <div className="category-wrapper">
-          {Object.keys(categoriesedServices).map((category) => (
-            <button
-              key={category}
+          {Object.keys(categoriesedServices).map((category, index) => (
+            <SelectorButton
+              key={`${category}_${index}`}
               onClick={() => setSelectedCategory(category)}
-              className={`font-size-medium${
-                selectedCategory === category ? " selected" : ""
-              }`}
+              isSelected={selectedCategory === category}
             >
               {category}
-            </button>
+            </SelectorButton>
           ))}
         </div>
         {services}

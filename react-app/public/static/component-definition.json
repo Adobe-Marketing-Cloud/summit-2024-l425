@@ -5,16 +5,22 @@
       "id": "content-fragments",
       "components": [
         {
-          "title": "Service Teaser",
-          "id": "service-teaser",
+          "title": "Service",
+          "id": "service",
           "plugins": {
             "aem": {
               "cf": {
-                "name": "service-teaser",
+                "name": "service",
                 "cfModel": "/conf/securbank/settings/dam/cfm/models/service",
                 "cfFolder": "/content/dam/securbank/services",
-                "title": "Service Teaser",
-                "description": ""
+                "title": "Service",
+                "description": "",
+                "template": {
+                  "title": "New Service",
+                  "description": "<p>New service's description</p>",
+                  "slug": "new-service",
+                  "icon": "/content/dam/securbank/services/default-service-illustration.jpg"
+                }
               }
             }
           }

@@ -28,18 +28,6 @@
     display: flex;
     flex-wrap: wrap;
     margin: 0px auto;
-
-    button {
-      padding: 12px 20px;
-
-      background-color: transparent;
-      color: $color-grey-400;
-    }
-
-    .selected {
-      background-color: $color-secondary-300;
-      color: $color-primary-300;
-    }
   }
 
   .teasers-container {
