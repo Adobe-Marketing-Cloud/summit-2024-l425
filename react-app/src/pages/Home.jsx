@@ -14,7 +14,10 @@ import "./Home.scss";
 const Home = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
-  const [selectedVariation, setSelectedVariation] = useState(null);
+  const selectedVariation = useMemo(
+    () => searchParams.get("variation") || "master",
+    [searchParams]
+  );
   const [fetchTrigger, setFetchTrigger] = useState(true);
 
   const { data } = usePageBySlug("home", selectedVariation, fetchTrigger);
@@ -31,12 +34,8 @@ const Home = () => {
   }, [data]);
 
   useEffect(() => {
-    const variation = searchParams.get("variation");
-
-    if (!variation) {
+    if (!searchParams.get("variation")) {
       navigate("/?variation=master");
-    } else {
-      setSelectedVariation(variation);
     }
   }, [searchParams, navigate]);
 
