@@ -1,0 +1,20 @@
+.teaser-section {
+  display: flex;
+  padding: 120px 140px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 80px;
+
+  .category-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px auto;
+  }
+
+  .teasers-container {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    gap: 80px;
+  }
+}

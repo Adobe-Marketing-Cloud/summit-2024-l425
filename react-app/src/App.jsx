@@ -20,6 +20,10 @@ function App() {
             name="urn:adobe:aue:system:aemconnection"
             content={`aem:${getURI()}`}
           />
+          <meta
+            name="urn:adobe:aue:config:service"
+            content="https://universal-editor-service-dev.experiencecloud.live"
+          />
         </Helmet>
         <Header />
         <Router>

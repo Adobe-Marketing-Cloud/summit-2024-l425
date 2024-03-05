@@ -1,55 +1,15 @@
-import React, { useMemo, useEffect, useState } from "react";
-import { useNavigate, useSearchParams } from "react-router-dom";
-import Title from "../components/base/Title";
+import React, { useEffect } from "react";
 import Container from "../components/base/Container";
-import Hero from "../components/Hero";
-import TeaserCard from "../components/TeaserCard";
-import CallToActionSection from "../components/CallToActionSection";
 import ContentFragment from "../components/base/ContentFragment";
-import SelectorButton from "../components/SelectorButton";
+import Hero from "../components/Hero";
+import TeaserSection from "../components/TeaserSection";
+import CallToActionSection from "../components/CallToActionSection";
 import phones from "../assets/phones.png";
 import { usePageBySlug } from "../api/usePersistedQueries";
 import "./Home.scss";
 
 const Home = () => {
-  const navigate = useNavigate();
-  const [searchParams] = useSearchParams();
-  const selectedVariation = useMemo(
-    () => searchParams.get("variation") || "master",
-    [searchParams]
-  );
-  const [fetchTrigger, setFetchTrigger] = useState(true);
-
-  const { data } = usePageBySlug("home", selectedVariation, fetchTrigger);
-
-  const categories = useMemo(() => {
-    const map = { master: "Personal" };
-    const variations = data?.teasers?._variations;
-    if (variations) {
-      variations.forEach((variation) => {
-        map[variation] = variation[0].toUpperCase() + variation.slice(1);
-      });
-    }
-    return map;
-  }, [data]);
-
-  useEffect(() => {
-    if (!searchParams.get("variation")) {
-      navigate("/?variation=master");
-    }
-  }, [searchParams, navigate]);
-
-  useEffect(() => {
-    const contentAddHandler = () => {
-      setFetchTrigger((state) => !state);
-    };
-
-    document.addEventListener("content-add", contentAddHandler);
-
-    return () => {
-      window.addEventListener("content-add", contentAddHandler);
-    };
-  }, []);
+  const { data } = usePageBySlug("home");
 
   useEffect(() => {
     const scrollHandler = () => {
@@ -65,59 +25,27 @@ const Home = () => {
       parallaxItem.style.opacity = opacity;
     };
 
-    window.addEventListener("scroll", scrollHandler);
+    document.addEventListener("scroll", scrollHandler);
 
     return () => {
-      window.addEventListener("scroll", scrollHandler);
+      document.removeEventListener("scroll", scrollHandler);
     };
   }, []);
 
-  if (!data || !categories.hasOwnProperty(selectedVariation)) return;
+  if (!data) return;
 
-  const teasers = data?.teasers;
-  const { title, relatedOffers } = teasers;
+  const image = data?.image?._dynamicUrl;
+  const title = data?.title;
+  const content = data?.content;
+  const teaserListPath = data?.teasers?._path;
 
   return (
     <>
       <ContentFragment cf={data} className="home-wrapper">
-        <Hero cf={data} />
+        <Hero image={image} title={title} content={content} />
         <img src={phones} id="parallax-item" alt="Phone" />
         <Container prop="teasers" label="Teasers">
-          <ContentFragment
-            tag="section"
-            cf={teasers}
-            className="container teasers-wrapper"
-          >
-            <div className="category-wrapper">
-              {Object.entries(categories).map(([variation, label], index) => (
-                <SelectorButton
-                  key={`${variation}_${index}`}
-                  onClick={() =>
-                    (window.location.href = `/?variation=${variation}`)
-                  }
-                  isSelected={selectedVariation === variation}
-                >
-                  {label}
-                </SelectorButton>
-              ))}
-            </div>
-            <Title heading="h2" prop="title" className="color-dark">
-              {title}
-            </Title>
-            <Container
-              prop="relatedOffers"
-              label="Related Offers"
-              className="teasers-container"
-            >
-              {relatedOffers.map((teaser, index) => (
-                <TeaserCard
-                  key={`${teaser?.title}_${index}`}
-                  cf={teaser}
-                  reverse={index % 2 !== 0}
-                />
-              ))}
-            </Container>
-          </ContentFragment>
+          <TeaserSection cfPath={teaserListPath} />
         </Container>
       </ContentFragment>
       <CallToActionSection />

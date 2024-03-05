@@ -5,11 +5,7 @@ import Text from "./base/Text";
 import RedirectButton from "./RedirectButton";
 import "./Hero.scss";
 
-const Hero = ({ cf }) => {
-  const image = cf?.image?._dynamicUrl;
-  const title = cf?.title;
-  const content = cf?.content;
-
+const Hero = ({ image, title, content }) => {
   return (
     <div className="background-blue">
       <div className="container hero-wrapper">

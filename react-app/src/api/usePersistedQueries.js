@@ -52,10 +52,9 @@ async function fetchPersistedQuery(persistedQueryName, queryParameters) {
  * Calls the 'page-by-slug' persisted query with `slug` parameter.
  *
  * @param {String!} slug the page slug
- * @param {String} [variation="master"] variation of relatedOffers
  * @returns a JSON object representing the Page
  */
-export function usePageBySlug(slug, variation = "master", fetchTrigger) {
+export function usePageBySlug(slug) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
@@ -63,7 +62,6 @@ export function usePageBySlug(slug, variation = "master", fetchTrigger) {
     async function fetchData() {
       const queryVariables = {
         slug,
-        variation,
       };
 
       const response = await fetchPersistedQuery(
@@ -79,7 +77,42 @@ export function usePageBySlug(slug, variation = "master", fetchTrigger) {
     }
 
     fetchData();
-  }, [slug, variation, fetchTrigger]);
+  }, [slug]);
+
+  return { data, error };
+}
+
+/**
+ * Calls the 'teaser-list-by-path' persisted query with `path` and `variation` parameter.
+ *
+ * @param {String!} path the _path of the cf
+ * @returns a JSON object representing the Article
+ */
+export function useTeaserListByPath(path, variation = "master", fetchTrigger) {
+  const [data, setData] = useState(null);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function fetchData() {
+      const queryVariables = {
+        path,
+        variation,
+      };
+
+      const response = await fetchPersistedQuery(
+        REACT_APP_ENDPOINT + "/teaser-list-by-path",
+        queryVariables
+      );
+
+      if (response?.err) {
+        setError(response.err);
+      } else if (response?.data?.teaserListList?.items?.length === 1) {
+        setData(response.data.teaserListList.items[0]);
+      }
+    }
+
+    fetchData();
+  }, [path, variation, fetchTrigger]);
 
   return { data, error };
 }
