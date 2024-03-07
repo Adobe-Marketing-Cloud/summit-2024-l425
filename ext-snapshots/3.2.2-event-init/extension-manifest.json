@@ -1,0 +1,13 @@
+{
+  "name": "Create Version",
+  "id": "create-version",
+  "description": "Create version for content fragment without its publication",
+  "version": "0.0.1",
+  "headerMenuButtons": [
+    {
+      "label": "Create Version",
+      "needsModal": true,
+      "id": "create-version"
+    }
+  ]
+}
