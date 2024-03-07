@@ -10,7 +10,7 @@ l425extXX // replace XX with your workstation number
 ## Step 2.2.3 – Initialize extension source code 
 
 CLI commands:
-```
+```sh
 mkdir ext 
 cd ext
 aio app init
@@ -29,7 +29,7 @@ Create version for content fragment without its publication
 ## Step 2.2.4 – preview local extension 
 
 CLI commands:
-```
+```sh
 aio app run
 ```
 
@@ -41,13 +41,13 @@ devMode=true&ext=https://localhost:9080&
 ## Step 2.2.5 – Update button design 
 
 Update `ext/src/aem-cf-editor-1/web-src/src/components/ExtensionRegistration.js` lines 21:
-```
+```javascript
                 icon: 'Stopwatch',
                 variant: 'action',
 ```
 
 Final file `ext/src/aem-cf-editor-1/web-src/src/components/ExtensionRegistration.js`:
-```
+```javascript
 /*
  * <license header>
  */
@@ -99,12 +99,12 @@ export default ExtensionRegistration;
 > Updates for file `ext/src/aem-cf-editor-1/web-src/src/components/CreateversionModal.js`:
 
 Update 1 (Line 20, add codo):
-```
+```javascript
   const [submitted, setSubmitted] = useState();
 ```
 
 Update 2 (Line 34, replace JSX):
-```
+```javascript
   const onCreateHandler = async (e) => {
     e.preventDefault();
   };
@@ -142,7 +142,7 @@ Update 2 (Line 34, replace JSX):
 ```
 
 Update 3 (update imported components from `@adobe/react-spectrum`):
-```
+```javascript
 import {
   Provider,
   defaultTheme,
@@ -156,7 +156,7 @@ import {
 ```
 
 Final file `ext/src/aem-cf-editor-1/web-src/src/components/CreateversionModal.js`:
-```
+```javascript
 /*
  * <license header>
  */
@@ -232,7 +232,7 @@ export default function () {
 ## Step 2.2.7 – Runtime action for API invocation 
 
 CLI commands:
-```
+```sh
 aio app add action
 ```
 
@@ -244,12 +244,12 @@ create-version
 > Updates for file `ext/src/aem-cf-editor-1/actions/create-version/index.js`.
 
 Update 1 (declare required parameters, line 20):
-```
+```javascript
     const requiredParams = ['repo', 'fragmentId']
 ```
 
 Update 2 (invoke create version API, replace lines 46-54):
-```
+```javascript
     const apiEndpoint = `https://${params.repo}/adobe/sites/cf/fragments/${params.fragmentId}/versions`
 
     // fetch content from external api endpoint
@@ -271,7 +271,7 @@ Update 2 (invoke create version API, replace lines 46-54):
 ```
 
 Update 3 (response body): 
-```
+```javascript
     const response = {
       statusCode: 200,
       body: 'Ok'
@@ -279,7 +279,8 @@ Update 3 (response body):
 ```
 
 Final file `ext/src/aem-cf-editor-1/actions/create-version/index.js`:
-```/*
+```javascript
+/*
 * <license header>
 */
 
@@ -363,7 +364,7 @@ exports.main = main
 ```
 
 CLI Commands:
-```
+```sh
 aio app run
 ```
 
@@ -372,7 +373,7 @@ aio app run
 > Updates for file `ext/src/aem-cf-editor-1/web-src/src/components/CreateversionModal.js`.
 
 Update 1 (invoke runtime action, after import statements):
-```
+```javascript
 import actionWebInvoke from "../utils";
 import actionsConfig from "../config.json";
 
@@ -403,7 +404,7 @@ async function createVersion({
 ```
 
 Update 2 (append body of `onCreateHandler`, line 66):
-```
+```javascript
     setSubmitted(true);
 
     const versionInfo = Object.fromEntries(new FormData(e.currentTarget));
@@ -431,7 +432,7 @@ Update 2 (append body of `onCreateHandler`, line 66):
 ``` 
 
 Final file `ext/src/aem-cf-editor-1/web-src/src/components/CreateversionModal.js`:
-```
+```javascript
 /*
  * <license header>
  */
@@ -559,7 +560,7 @@ export default function () {
 ## Step 2.3.1 – Deploy and preview extension 
 
 CLI Commands:
-```
+```sh
 aio app use -w Production
 aio app deploy
 ```
@@ -567,7 +568,7 @@ aio app deploy
 ## Step 3.2.2 – Create event handler in App Builder 
 
 CLI Commands:
-```
+```sh
 aio app use –w Stage 
 aio login -f 
 aio app add event 
@@ -591,7 +592,7 @@ Registration for l425extXX // replace xx with your workstation number
 ## Step 3.2.3 – Deploy event handler 
 
 CLI Commands:
-```
+```sh
 aio app deploy 
 ```
 
@@ -600,17 +601,17 @@ Step 3.2.5 – Implement event handler
 > Updates in file `ext/actions/auto-version/index.js`.
 
 Update 1 (line 18):
-```
+```javascript
 const { context, getToken } = require('@adobe/aio-lib-ims') 
 ```
 
 Update 2 (line 20):
-```
+```javascript
 const { context, getToken } = require('@adobe/aio-lib-ims')
 ```
 
 Update 3 (line 222):
-```
+```javascript
 async function getAemApiTokenFromParams(params)
 {
   if (!params?.AEM_TECHNICAL_ACCOUNT_ID) {
@@ -632,7 +633,7 @@ async function getAemApiTokenFromParams(params)
 ```
 
 Update 4 (line 41):
-```
+```javascript
 function getAemRepoFromParams(params) {
   const env = /p\d+-e\d+/.exec(params.source);
   if (env === null) {
@@ -644,7 +645,7 @@ function getAemRepoFromParams(params) {
 ```
 
 Update 5 (line 50):
-```
+```javascript
 function getFragmentIdFromParams(params) {
   const fragmentId = params?.data?.id;
   if (!fragmentId) {
@@ -656,7 +657,7 @@ function getFragmentIdFromParams(params) {
 ```
 
 Update 6 (line 59):
-```
+```javascript
 async function fetchLastContentFragmentVersion({repo, fragmentId, token})
 {
   const apiEndpoint = `https:/${repo}/adobe/sites/cf/fragments/${fragmentId}/versions?limit1`;
@@ -683,7 +684,7 @@ async function fetchLastContentFragmentVersion({repo, fragmentId, token})
 ```
 
 Update 7 (line 83):
-```
+```javascript
 async function createVersion({repo, fragmentId, token})
 {
   const apiEndpoint = `https://${repo}/adobe/sites/cf/fragments/${fragmentId}/versions`;
@@ -708,7 +709,7 @@ async function createVersion({repo, fragmentId, token})
 ```
 
 Update 8 (replace from the line 105 to the end of the file):
-```
+```javascript
 // main function that will be executed by Adobe I/O Runtime
 const main = async ({
   AUTOVERSION_THRESHOLD,
@@ -745,7 +746,7 @@ exports.main = main
 ```
 
 Final file `ext/actions/auto-version/index.js`:
-```
+```javascript
 /* 
 * <license header>
 */
@@ -889,7 +890,7 @@ exports.main = main
 > Updates fro file `ext/app.config.yaml`.
 
 Update 1 (add after line 24):
-```
+```yaml
                 AUTOVERSION_THRESHOLD: $AUTOVERSION_THRESHOLD
                 AEM_LOCAL_TOKEN: $AEM_LOCAL_TOKEN
                 AEM_TECHNICAL_ACCOUNT_ORG: $AEM_TECHNICAL_ACCOUNT_ORG
@@ -900,7 +901,7 @@ Update 1 (add after line 24):
 ```
 
 Final file  `ext/app.config.yaml`:
-```
+```yaml
 extensions:
   aem/cf-editor/1:
     $include: src/aem-cf-editor-1/ext.config.yaml
@@ -947,7 +948,7 @@ extensions:
 
 > Updates for file `ext/.env`
 
-```
+```sh
 AUTOVERSION_THRESHOLD=60
 
 AEM_LOCAL_TOKEN="<AEM LOCAL TOKEN>"
