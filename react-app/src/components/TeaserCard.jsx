@@ -7,7 +7,7 @@ import RedirectButton from "./RedirectButton";
 import arrowRight from "../assets/arrow-right.svg";
 import "./TeaserCard.scss";
 
-const TeaserCard = ({ cf, reverse }) => {
+const TeaserCard = ({ cf }) => {
   const image = cf?.icon?._dynamicUrl;
   const title = cf?.title;
   const content = cf?.description;
@@ -17,7 +17,7 @@ const TeaserCard = ({ cf, reverse }) => {
     <ContentFragment
       cf={cf}
       behavior="component"
-      className={`hover-effect teaser-wrapper ${reverse ? " reverse" : ""}`}
+      className="hover-effect teaser-wrapper"
     >
       <Image src={image} alt={`${title} illustration`} prop="icon" />
       <div className="content-button-wrapper">

@@ -1,9 +1,11 @@
 import React, { useState, useMemo } from "react";
+import { useNavigate } from "react-router-dom";
 import ServiceCard from "./ServiceCard";
 import SelectorButton from "./SelectorButton";
 import "./ServicesSection.scss";
 
 const ServicesSection = ({ slug, cfs }) => {
+  const navigate = useNavigate();
   const [selectedCategory, setSelectedCategory] = useState("All Services");
 
   const categoriesedServices = useMemo(() => {
@@ -28,9 +30,13 @@ const ServicesSection = ({ slug, cfs }) => {
   const services = useMemo(
     () =>
       categoriesedServices[selectedCategory].map((service, index) => (
-        <ServiceCard key={`${service.slug}_${index}`} cf={service} />
+        <ServiceCard
+          key={`${service.slug}_${index}`}
+          cf={service}
+          navigate={navigate}
+        />
       )),
-    [selectedCategory, categoriesedServices]
+    [selectedCategory, categoriesedServices, navigate]
   );
 
   return (

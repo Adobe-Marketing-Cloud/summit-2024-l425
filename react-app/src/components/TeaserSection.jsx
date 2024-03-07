@@ -77,7 +77,7 @@ const TeaserSection = ({ cfPath }) => {
         {Object.entries(categories).map(([variation, label], index) => (
           <SelectorButton
             key={`${variation}_${index}`}
-            onClick={() => (window.location.href = `/?variation=${variation}`)}
+            onClick={() => navigate(`/?variation=${variation}`)}
             isSelected={selectedVariation === variation}
           >
             {label}
@@ -93,11 +93,7 @@ const TeaserSection = ({ cfPath }) => {
         className="teasers-container"
       >
         {relatedOffers.map((teaser, index) => (
-          <TeaserCard
-            key={`${teaser?.title}_${index}`}
-            cf={teaser}
-            reverse={index % 2 !== 0}
-          />
+          <TeaserCard key={`${teaser?.title}_${index}`} cf={teaser} />
         ))}
       </Container>
     </ContentFragment>

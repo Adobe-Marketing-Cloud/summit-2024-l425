@@ -16,5 +16,11 @@
     flex-direction: column;
     align-self: stretch;
     gap: 80px;
+
+    .teaser-wrapper {
+      &:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+    }
   }
 }
