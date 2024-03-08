@@ -5,22 +5,9 @@
   align-items: flex-start;
   gap: 80px;
 
-  .category-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0px auto;
-  }
-
-  .teasers-container {
-    display: flex;
-    flex-direction: column;
-    align-self: stretch;
-    gap: 80px;
-
-    .teaser-wrapper {
-      &:nth-child(even) {
-        flex-direction: row-reverse;
-      }
+  .teaser-wrapper {
+    &:nth-child(odd) {
+      flex-direction: row-reverse;
     }
   }
 }

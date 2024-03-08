@@ -4,7 +4,7 @@ import Title from "./base/Title";
 import Image from "./base/Image";
 import Text from "./base/Text";
 import RedirectButton from "./RedirectButton";
-import { useServiceBySlug } from "../api/usePersistedQueries";
+import { useServiceBySlug } from "../api";
 import "./ServiceDetail.scss";
 
 const ServiceDetail = ({ slug }) => {
@@ -26,7 +26,6 @@ const ServiceDetail = ({ slug }) => {
   const title = data?.title;
   const content = data?.description;
   const category = data?.serviceCategory?.name;
-  const duration = data?.duration;
 
   return (
     <ContentFragment
@@ -36,22 +35,15 @@ const ServiceDetail = ({ slug }) => {
     >
       <div className="left-wrapper">
         <div className="content-wrapper">
-          <div className="tag-wrapper">
-            {category && (
-              <p
-                data-aue-prop="serviceCategory"
-                data-aue-label="Service Category"
-                className="category color-blue font-size-small font-weight-medium"
-              >
-                {category}
-              </p>
-            )}
-            <div className="duration-wrapper">
-              Duration
-              <Text prop="duration">{duration}</Text>
-              mins
-            </div>
-          </div>
+          {category && (
+            <p
+              data-aue-prop="serviceCategory"
+              data-aue-label="Service Category"
+              className="category color-blue font-size-small font-weight-medium"
+            >
+              {category}
+            </p>
+          )}
           <Title heading="h1" prop="title" className="color-dark">
             {title}
           </Title>

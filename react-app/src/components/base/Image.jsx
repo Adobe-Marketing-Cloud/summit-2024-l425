@@ -1,5 +1,5 @@
 import React from "react";
-import { getURI } from "../../utils/Utils";
+import { getURI } from "../../utils";
 
 const Image = ({ src, alt, className, prop, type, label, behavior }) => {
   const editorProps = {

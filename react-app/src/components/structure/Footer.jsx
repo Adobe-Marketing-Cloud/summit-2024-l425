@@ -4,7 +4,7 @@ import copyright from "../../assets/copyright.svg";
 import linkedinIcon from "../../assets/linkedin-icon.svg";
 import twitterIcon from "../../assets/twitter-icon.svg";
 import facebookIcon from "../../assets/facebook-icon.svg";
-import { useArticles, useServices } from "../../api/usePersistedQueries";
+import { useArticles, useServices } from "../../api";
 import "./Footer.scss";
 
 const hardcodedCategories = {

@@ -16,25 +16,12 @@
     flex: 1 0 0;
     align-self: stretch;
 
-    .tag-wrapper {
-      display: flex;
-      gap: 10px;
+    .category {
+      padding: 5px 10px;
+      text-align: center;
 
-      .category {
-        padding: 5px 10px;
-        text-align: center;
-
-        border-radius: 1000px;
-        background: $color-primary-25;
-      }
-
-      .duration-wrapper {
-        display: flex;
-        align-items: center;
-        gap: 3px;
-
-        font-size: $font-size-medium;
-      }
+      border-radius: 1000px;
+      background: $color-primary-25;
     }
   }
 

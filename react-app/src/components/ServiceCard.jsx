@@ -12,7 +12,6 @@ const ServiceCard = ({ cf, navigate }) => {
   const content = cf?.description;
   const slug = cf?.slug;
   const category = cf?.serviceCategory?.name;
-  const duration = cf?.duration;
   const path = `/services/${slug}`;
 
   return (
@@ -23,20 +22,11 @@ const ServiceCard = ({ cf, navigate }) => {
       <Image src={image} alt={`${title} illustration`} prop="image" />
       <div className="right-wrapper">
         <div className="content-wrapper">
-          <div className="tag-wrapper">
-            {category && (
-              <p className="category color-blue font-size-small font-weight-medium">
-                {category}
-              </p>
-            )}
-            {duration && (
-              <div className="duration-wrapper">
-                Duration
-                <Text prop="duration">{duration}</Text>
-                mins
-              </div>
-            )}
-          </div>
+          {category && (
+            <p className="category color-blue font-size-small font-weight-medium">
+              {category}
+            </p>
+          )}
           <Title heading="h5" prop="title" className="color-dark">
             {title}
           </Title>

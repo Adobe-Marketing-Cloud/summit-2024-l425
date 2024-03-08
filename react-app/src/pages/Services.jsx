@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import ServiceDetail from "../components/ServiceDetail";
 import ServicesSection from "../components/ServicesSection";
 import CallToActionSection from "../components/CallToActionSection";
-import { useServices } from "../api/usePersistedQueries";
+import { useServices } from "../api";
 
 const Services = () => {
   const { slug } = useParams();

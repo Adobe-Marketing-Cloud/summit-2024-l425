@@ -7,7 +7,7 @@ import Text from "../components/base/Text";
 import Container from "../components/base/Container";
 import CallToActionCard from "../components/CallToActionSection";
 import ArticlesSection from "../components/ArticlesSection";
-import { useArticleBySlug } from "../api/usePersistedQueries";
+import { useArticleBySlug } from "../api";
 import "./ArticleDetail.scss";
 
 const ArticleDetail = () => {

@@ -49,12 +49,13 @@ async function fetchPersistedQuery(persistedQueryName, queryParameters) {
 }
 
 /**
- * Calls the 'page-by-slug' persisted query with `slug` parameter.
+ * Calls the 'page-by-slug' persisted query with `slug` and `variation` parameter.
  *
  * @param {String!} slug the page slug
+ * @param {String} variation the page variation
  * @returns a JSON object representing the Page
  */
-export function usePageBySlug(slug) {
+export function usePageBySlug(slug, variation = "master") {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
@@ -62,6 +63,7 @@ export function usePageBySlug(slug) {
     async function fetchData() {
       const queryVariables = {
         slug,
+        variation,
       };
 
       const response = await fetchPersistedQuery(
@@ -77,7 +79,7 @@ export function usePageBySlug(slug) {
     }
 
     fetchData();
-  }, [slug]);
+  }, [slug, variation]);
 
   return { data, error };
 }

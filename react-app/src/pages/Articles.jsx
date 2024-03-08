@@ -1,7 +1,7 @@
 import React, { useMemo } from "react";
 import ArticlesSection from "../components/ArticlesSection";
 import CallToActionSection from "../components/CallToActionSection";
-import { useArticles } from "../api/usePersistedQueries";
+import { useArticles } from "../api";
 
 const Articles = () => {
   const { data } = useArticles();
