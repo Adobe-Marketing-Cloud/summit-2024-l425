@@ -46,6 +46,7 @@ const ServicesSection = ({ slug, cfs }) => {
           {Object.keys(categoriesedServices).map((category, index) => (
             <SelectorButton
               key={`${category}_${index}`}
+              variant="dark"
               onClick={() => setSelectedCategory(category)}
               isSelected={selectedCategory === category}
             >

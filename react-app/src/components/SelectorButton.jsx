@@ -1,13 +1,13 @@
 import React from "react";
 import "./SelectorButton.scss";
 
-const SelectorButton = ({ children, onClick, isSelected }) => {
+const SelectorButton = ({ children, variant, onClick, isSelected }) => {
   return (
     <button
       onClick={onClick}
       className={`font-size-medium selector-button${
-        isSelected ? " selected" : ""
-      }`}
+        variant === "light" ? " light" : " dark"
+      }${isSelected ? " selected" : ""}`}
     >
       {children}
     </button>

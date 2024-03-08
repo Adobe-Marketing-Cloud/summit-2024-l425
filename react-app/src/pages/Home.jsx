@@ -1,6 +1,5 @@
-import React, { useEffect, useMemo } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import Container from "../components/base/Container";
 import ContentFragment from "../components/base/ContentFragment";
 import Hero from "../components/Hero";
 import SelectorButton from "../components/SelectorButton";
@@ -12,7 +11,7 @@ import { usePageBySlug } from "../api";
 import "./Home.scss";
 
 const Home = () => {
-  // const [fetchTrigger, setFetchTrigger] = useState(true);
+  const [fetchTrigger, setFetchTrigger] = useState(true);
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const selectedVariation = useMemo(
@@ -20,7 +19,7 @@ const Home = () => {
     [searchParams]
   );
 
-  const { data } = usePageBySlug("home", selectedVariation);
+  const { data } = usePageBySlug("home", selectedVariation, fetchTrigger);
 
   const categories = useMemo(() => {
     const map = { master: "Personal Banking" };
@@ -45,7 +44,7 @@ const Home = () => {
       const scrollPosition = window.scrollY;
 
       const opacity = 1 - (scrollPosition / window.innerHeight) * 4;
-      const initialTopPosition = 550;
+      const initialTopPosition = 650;
       const scrollSpeed = 0.6;
       const newTopPosition = initialTopPosition + scrollPosition * scrollSpeed;
 
@@ -69,23 +68,30 @@ const Home = () => {
 
   return (
     <>
-      <ContentFragment cf={data} className="home-wrapper">
-        <div className="variations-wrapper">
-          {Object.entries(categories).map(([variation, label], index) => (
-            <SelectorButton
-              key={`${variation}_${index}`}
-              onClick={() => navigate(`/?variation=${variation}`)}
-              isSelected={selectedVariation === variation}
-            >
-              {label}
-            </SelectorButton>
-          ))}
+      <ContentFragment cf={data}>
+        <div className="background-blue">
+          <div className="container variations-wrapper">
+            {Object.entries(categories).map(([variation, label], index) => (
+              <SelectorButton
+                key={`${variation}_${index}`}
+                variant="light"
+                onClick={() => navigate(`/?variation=${variation}`)}
+                isSelected={selectedVariation === variation}
+              >
+                {label}
+              </SelectorButton>
+            ))}
+          </div>
         </div>
         <Hero image={image} title={title} content={content} />
         <img src={phones} id="parallax-item" alt="Phone" />
-        <Container prop="featuredServices" label="Featured Services">
-          <TeaserSection title="Featured Services" cfs={featuredServices} />
-        </Container>
+        <TeaserSection
+          cfs={featuredServices}
+          title="Featured Services"
+          containerProp="featuredServices"
+          containerLabel="Featured Services"
+          setFetchTrigger={setFetchTrigger}
+        />
       </ContentFragment>
       <CallToActionSection />
     </>

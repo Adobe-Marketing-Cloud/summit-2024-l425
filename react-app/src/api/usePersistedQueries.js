@@ -55,7 +55,7 @@ async function fetchPersistedQuery(persistedQueryName, queryParameters) {
  * @param {String} variation the page variation
  * @returns a JSON object representing the Page
  */
-export function usePageBySlug(slug, variation = "master") {
+export function usePageBySlug(slug, variation = "master", fetchTrigger) {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
@@ -79,7 +79,7 @@ export function usePageBySlug(slug, variation = "master") {
     }
 
     fetchData();
-  }, [slug, variation]);
+  }, [slug, variation, fetchTrigger]);
 
   return { data, error };
 }

@@ -2,7 +2,7 @@
 
 #parallax-item {
   position: absolute;
-  top: 550px;
+  top: 650px;
   height: 500px;
   left: 57%;
   transform: translate(-50%, -50%);
@@ -20,5 +20,6 @@
 .variations-wrapper {
   display: flex;
   flex-wrap: wrap;
-  margin: 0px auto;
+  justify-content: center;
+  padding: 40px 140px 0px;
 }

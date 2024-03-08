@@ -11,7 +11,7 @@ const ContentFragment = ({
   filter,
 }) => {
   let title = "";
-  if (cf?._metadata && cf?._metadata?.stringMetadata) {
+  if (cf?._metadata?.stringMetadata) {
     title =
       cf?._metadata?.stringMetadata.filter((meta) => meta?.name === "title")[0]
         ?.value || null;
