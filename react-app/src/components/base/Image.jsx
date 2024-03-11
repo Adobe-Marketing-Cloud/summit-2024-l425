@@ -7,7 +7,6 @@ const Image = ({ src, alt, className, prop, type, label, behavior }) => {
     "data-aue-type": type || "media",
     "data-aue-label":
       label || (prop && prop[0].toUpperCase() + prop.slice(1)) || "",
-    "data-aue-behavior": behavior || "",
   };
 
   return (

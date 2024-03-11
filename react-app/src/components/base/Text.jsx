@@ -4,7 +4,6 @@ const Text = ({ children, content, className, prop, label, behavior }) => {
   const editorProps = {
     "data-aue-prop": prop,
     "data-aue-label": label || (prop && prop[0].toUpperCase() + prop.slice(1)),
-    "data-aue-behavior": behavior,
   };
 
   let Component = null;

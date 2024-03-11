@@ -5,7 +5,6 @@ const Title = ({ children, heading, className, prop, label, behavior }) => {
     "data-aue-prop": prop,
     "data-aue-type": "text",
     "data-aue-label": label || (prop && prop[0].toUpperCase() + prop.slice(1)),
-    "data-aue-behavior": behavior,
   };
 
   const Component = heading || "h1";
