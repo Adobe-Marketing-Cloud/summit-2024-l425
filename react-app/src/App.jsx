@@ -1,6 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { HelmetProvider } from "react-helmet-async";
+import { Helmet, HelmetProvider } from "react-helmet-async";
 import Footer from "./components/structure/Footer.jsx";
 import Header from "./components/structure/Header.jsx";
 import Home from "./pages/Home.jsx";
@@ -15,6 +15,16 @@ function App() {
   return (
     <HelmetProvider>
       <div className="app">
+        <Helmet>
+          <script
+            src="https://universal-editor-service.experiencecloud.live/corslib/LATEST"
+            async
+          />
+          <meta
+            name="urn:adobe:aue:system:aemconnection"
+            content={`aem:${getURI()}`}
+          />
+        </Helmet>
         <Header />
         <Router>
           <main>
