@@ -5,6 +5,27 @@
       "id": "content-fragments",
       "components": [
         {
+          "title": "Article",
+          "id": "article",
+          "plugins": {
+            "aem": {
+              "cf": {
+                "name": "article",
+                "cfModel": "/conf/securbank/settings/dam/cfm/models/article",
+                "cfFolder": "/content/dam/securbank/pages/articles",
+                "title": "Article",
+                "description": "",
+                "template": {
+                  "title": "New Article",
+                  "description": "<p>New article's description</p>",
+                  "slug": "new-article",
+                  "icon": "/content/dam/securbank/services/default-service-illustration.jpg"
+                }
+              }
+            }
+          }
+        },
+        {
           "title": "Service",
           "id": "service",
           "plugins": {
