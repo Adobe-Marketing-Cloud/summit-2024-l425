@@ -44,7 +44,7 @@ const Home = () => {
       const scrollPosition = window.scrollY;
 
       const opacity = 1 - (scrollPosition / window.innerHeight) * 4;
-      const initialTopPosition = 650;
+      const initialTopPosition = 600;
       const scrollSpeed = 0.6;
       const newTopPosition = initialTopPosition + scrollPosition * scrollSpeed;
 

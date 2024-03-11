@@ -263,30 +263,3 @@ hr {
   background: $color-grey-0;
   box-shadow: 0px 4px 11px -1px rgba(10, 10, 10, 0.04);
 }
-
-// @media only screen and (max-width: $tablet-breakpoint) {
-//   header,
-//   footer {
-//     padding: $tablet-padding;
-//   }
-//   header {
-//     .logo {
-//       margin: 0;
-//     }
-//   }
-// }
-
-// @media only screen and (max-width: $mobile-breakpoint) {
-//   header {
-//     button {
-//       display: none;
-//     }
-//   }
-//   header,
-//   footer {
-//     grid-template-columns: 1fr 1.5fr;
-//     column-gap: 10px;
-
-//     white-space: nowrap;
-//   }
-// }

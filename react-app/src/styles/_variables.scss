@@ -32,14 +32,6 @@ $color-grey-700: #1e293b;
 $color-grey-800: #0f172a;
 $color-grey-900: #020617;
 
-// Functional Colors
-// $brand-primary: $yellow;
-// $body-bg: $white;
-// $text-color: $black;
-// $text-color-inverse: $gray-light;
-// $link-color: $blue;
-// $button-color: $lime;
-
 //== Typography
 //
 //## Font, line-height, headings, and more.
@@ -69,16 +61,10 @@ $font-weight-semibold: 600;
 
 $line-height-default: 150%;
 $line-height-heading: 120%;
-// $line-height-computed: floor(($font-size-base * $line-height-base));
 
 //Layout
 $max-width: 1440px;
 
-// Spacing
-$gutter-padding: 12px;
-
 // Breakpoints
 $mobile-breakpoint: 768px;
 $tablet-breakpoint: 1024px;
-
-$tablet-padding: 40px;
