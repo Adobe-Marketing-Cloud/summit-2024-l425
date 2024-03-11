@@ -41,6 +41,7 @@ const TeaserSection = ({
       tag="section"
       prop={containerProp}
       label={containerLabel}
+      filter="featured-services"
       className="container teaser-section"
     >
       <h2 className="color-dark">{title}</h2>

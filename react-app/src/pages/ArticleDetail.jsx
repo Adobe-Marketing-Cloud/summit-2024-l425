@@ -19,6 +19,7 @@ const ArticleDetail = () => {
   const image = data?.image?._dynamicUrl;
   const title = data?.title;
   const content = data?.content;
+  const relatedArticles = data?.relatedArticles;
 
   return (
     <>
@@ -37,10 +38,14 @@ const ArticleDetail = () => {
           <Text content={content} prop="content" className="content" />
           <hr />
         </div>
-        <Container prop="relatedArticles" label="Related Articles">
+        <Container
+          prop="relatedArticles"
+          filter="related-articles"
+          label="Related Articles"
+        >
           <ArticlesSection
             title="Related Articles"
-            cfs={data.relatedArticles}
+            cfs={relatedArticles}
             columns={3}
           />
         </Container>
