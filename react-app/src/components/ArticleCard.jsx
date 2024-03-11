@@ -14,6 +14,7 @@ const ArticleCard = ({ cf }) => {
   return (
     <ContentFragment
       cf={cf}
+      behavior="component"
       className="card-vertical hover-effect article-card-wrapper"
     >
       <Image src={image} alt={`${title} illustration`} prop="image" />
