@@ -21,6 +21,7 @@ const ContentFragment = ({
     "data-aue-resource": `urn:aemconnection:${cf?._path}/jcr:content/data/${
       cf?._variation || "master"
     }`,
+    "data-aue-type": "reference",
     "data-aue-label": compositeLabel,
   };
 
