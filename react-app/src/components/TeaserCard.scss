@@ -1,0 +1,18 @@
+@import "../styles/variables";
+
+.teaser-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  align-self: stretch;
+  gap: 80px;
+
+  .content-button-wrapper {
+    max-width: 500px;
+  }
+
+  button {
+    width: 160px;
+    height: 52px;
+  }
+}

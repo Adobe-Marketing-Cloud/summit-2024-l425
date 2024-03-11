@@ -1,0 +1,26 @@
+@import "../styles/variables";
+
+.articles-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 80px 120px;
+  gap: 48px;
+
+  .columns-1 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .columns-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .columns-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .cards-wrapper {
+    display: grid;
+    grid-auto-rows: 1fr;
+    grid-gap: 40px;
+  }
+}

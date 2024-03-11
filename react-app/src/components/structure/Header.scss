@@ -1,0 +1,38 @@
+@import "../../styles/variables";
+
+header {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  .header {
+    height: 88px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 80px;
+  }
+
+  .navigations-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 58px;
+
+    nav {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 36px;
+    }
+  }
+
+  .buttons-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    button {
+      height: 40px;
+      padding: 12px 16px;
+    }
+  }
+}
