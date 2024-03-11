@@ -52,10 +52,16 @@ const Home = () => {
       parallaxItem.style.opacity = opacity;
     };
 
+    const updateHandler = () => {
+      alert("Content Updated");
+    };
+
     document.addEventListener("scroll", scrollHandler);
+    document.addEventListener("aue:content-update", updateHandler);
 
     return () => {
       document.removeEventListener("scroll", scrollHandler);
+      document.removeEventListener("aue:content-update", updateHandler);
     };
   }, []);
 
