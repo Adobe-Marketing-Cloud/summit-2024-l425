@@ -8,7 +8,6 @@ const ContentFragment = ({
   prop,
   label,
   behavior,
-  filter,
 }) => {
   let title = "";
   if (cf?._metadata?.stringMetadata) {
@@ -28,7 +27,6 @@ const ContentFragment = ({
     "data-aue-type": "reference",
     "data-aue-label": compositeLabel,
     "data-aue-behavior": behavior,
-    "data-aue-filter": filter,
   };
 
   const Component = tag || "div";

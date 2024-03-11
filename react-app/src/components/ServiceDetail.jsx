@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import ContentFragment from "./base/ContentFragment";
 import Title from "./base/Title";
 import Image from "./base/Image";
@@ -9,16 +9,6 @@ import "./ServiceDetail.scss";
 
 const ServiceDetail = ({ slug }) => {
   const { data } = useServiceBySlug(slug);
-
-  useEffect(() => {
-    if (data) {
-      window.scrollTo({
-        top: 0,
-        left: 0,
-        behavior: "smooth",
-      });
-    }
-  }, [data]);
 
   if (!data) return;
 
@@ -36,11 +26,7 @@ const ServiceDetail = ({ slug }) => {
       <div className="left-wrapper">
         <div className="content-wrapper">
           {category && (
-            <p
-              data-aue-prop="serviceCategory"
-              data-aue-label="Service Category"
-              className="category color-blue font-size-small font-weight-medium"
-            >
+            <p className="category color-blue font-size-small font-weight-medium">
               {category}
             </p>
           )}

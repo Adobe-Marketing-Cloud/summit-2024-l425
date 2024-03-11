@@ -5,8 +5,9 @@ import Text from "./base/Text";
 import ContentFragment from "./base/ContentFragment";
 import arrowRight from "../assets/arrow-right.svg";
 import "./ServiceCard.scss";
+import RedirectButton from "./RedirectButton";
 
-const ServiceCard = ({ cf, navigate }) => {
+const ServiceCard = ({ cf }) => {
   const image = cf?.icon?._dynamicUrl;
   const title = cf?.title;
   const content = cf?.description;
@@ -36,10 +37,10 @@ const ServiceCard = ({ cf, navigate }) => {
             className="font-size-large"
           />
         </div>
-        <button onClick={() => navigate(path)} className="secondary">
+        <RedirectButton href={path} className="secondary">
           Learn More
           <img src={arrowRight} alt="Right arrow icon" className="icon" />
-        </button>
+        </RedirectButton>
       </div>
     </ContentFragment>
   );

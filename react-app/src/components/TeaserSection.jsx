@@ -41,8 +41,8 @@ const TeaserSection = ({
       tag="section"
       prop={containerProp}
       label={containerLabel}
-      className="container teaser-section"
       filter="featured-services"
+      className="container teaser-section"
     >
       <h2 className="color-dark">{title}</h2>
       {cfs.map((teaser, index) => (

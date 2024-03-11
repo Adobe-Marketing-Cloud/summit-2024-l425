@@ -16,13 +16,13 @@ function App() {
     <HelmetProvider>
       <div className="app">
         <Helmet>
+          <script
+            src="https://universal-editor-service.experiencecloud.live/corslib/LATEST"
+            async
+          />
           <meta
             name="urn:adobe:aue:system:aemconnection"
             content={`aem:${getURI()}`}
-          />
-          <meta
-            name="urn:adobe:aue:config:service"
-            content="https://universal-editor-service-dev.experiencecloud.live"
           />
         </Helmet>
         <Header />
