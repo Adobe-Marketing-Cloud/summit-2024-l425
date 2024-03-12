@@ -1,0 +1,17 @@
+extensions:
+  aem/cf-editor/1:
+    $include: src/aem-cf-editor-1/ext.config.yaml
+    runtimeManifest:
+      packages:
+        ext:
+          license: Apache-2.0
+          actions:
+            create-version:
+              function: src/aem-cf-editor-1/actions/create-version/index.js
+              web: 'yes'
+              runtime: nodejs:18
+              inputs:
+                LOG_LEVEL: debug
+              annotations:
+                require-adobe-auth: true
+                final: true
