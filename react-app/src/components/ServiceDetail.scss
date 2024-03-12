@@ -1,0 +1,38 @@
+@import "../styles/variables";
+
+.service-detail-wrapper {
+  display: flex;
+  padding: 120px;
+  align-items: center;
+  gap: 80px;
+
+  .left-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex: 1 0 0;
+    align-self: stretch;
+
+    .category {
+      padding: 5px 10px;
+      text-align: center;
+
+      border-radius: 1000px;
+      background: $color-primary-25;
+    }
+  }
+
+  img {
+    height: 450px;
+    width: 550px;
+
+    border-radius: 0px;
+  }
+
+  button {
+    width: 160px;
+    height: 52px;
+    margin-top: 24px;
+  }
+}

@@ -1,0 +1,26 @@
+@import "../styles/variables";
+
+.hero-wrapper {
+  display: flex;
+  align-items: flex-start;
+  padding: 44px 140px 88px 140px;
+  gap: 80px;
+  flex-wrap: wrap;
+
+  img {
+    width: 550px;
+    height: 310px;
+
+    margin-top: 92px;
+
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 4px 8px 32px 0px rgba(10, 10, 10, 0.06);
+    backdrop-filter: blur(20px);
+  }
+
+  button {
+    width: 170px;
+    height: 52px;
+  }
+}

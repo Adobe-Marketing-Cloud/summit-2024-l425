@@ -1,0 +1,84 @@
+//== Colors
+//
+//## Gray and brand colors for use across theme.
+
+// Primary
+$color-primary-0: #f5feff;
+$color-primary-25: #ebfeff;
+$color-primary-50: #ecfeff;
+$color-primary-100: #cffafe;
+$color-primary-200: #a5f3fc;
+$color-primary-300: #67e8f9;
+
+// Secondary
+$color-secondary-0: #f0f9ff;
+$color-secondary-25: #bae6fd;
+$color-secondary-50: #7dd3fc;
+$color-secondary-100: #0284c7;
+$color-secondary-200: #075985;
+$color-secondary-300: #082f49;
+
+// Greyscale
+$color-grey-0: #ffffff;
+$color-grey-25: #f8fafc;
+$color-grey-50: #f1f5f9;
+$color-grey-100: #e2e8f0;
+$color-grey-200: #cbd5e1;
+$color-grey-300: #94a3b8;
+$color-grey-400: #64748b;
+$color-grey-500: #475569;
+$color-grey-600: #334155;
+$color-grey-700: #1e293b;
+$color-grey-800: #0f172a;
+$color-grey-900: #020617;
+
+// Functional Colors
+// $brand-primary: $yellow;
+// $body-bg: $white;
+// $text-color: $black;
+// $text-color-inverse: $gray-light;
+// $link-color: $blue;
+// $button-color: $lime;
+
+//== Typography
+//
+//## Font, line-height, headings, and more.
+
+$font-family-inter-tight: "Inter Tight", sans-serif;
+$font-family-default: system-ui;
+
+// font-weight-regular
+$font-size-small: 12px;
+// font-weight-medium
+$font-size-medium: 14px;
+// font-weight-semibold
+$font-size-large: 16px;
+$font-size-xlarge: 18px;
+
+// font-weight-semibold
+$font-size-h1: 68px;
+$font-size-h2: 52px;
+$font-size-h3: 48px;
+$font-size-h4: 40px;
+$font-size-h5: 32px;
+$font-size-h6: 24px;
+
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-semibold: 600;
+
+$line-height-default: 150%;
+$line-height-heading: 120%;
+// $line-height-computed: floor(($font-size-base * $line-height-base));
+
+//Layout
+$max-width: 1440px;
+
+// Spacing
+$gutter-padding: 12px;
+
+// Breakpoints
+$mobile-breakpoint: 768px;
+$tablet-breakpoint: 1024px;
+
+$tablet-padding: 40px;

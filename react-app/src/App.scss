@@ -1,0 +1,292 @@
+@import "./styles/fonts";
+@import "./styles/variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  line-height: $line-height-default;
+}
+
+body {
+  text-align: start;
+
+  background-color: $color-grey-0;
+  color: $color-grey-400;
+  font-family: $font-family-inter-tight;
+  font-size: $font-size-xlarge;
+  font-weight: $font-weight-regular;
+  font-style: normal;
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+main {
+  flex: 1;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+  line-height: $line-height-heading;
+  font-weight: $font-weight-semibold;
+}
+
+h1,
+.h1 {
+  font-size: $font-size-h1;
+}
+h2,
+.h2 {
+  font-size: $font-size-h2;
+}
+h3,
+.h3 {
+  font-size: $font-size-h3;
+}
+h4,
+.h4 {
+  font-size: $font-size-h4;
+}
+h5,
+.h5 {
+  font-size: $font-size-h5;
+}
+h6,
+.h6 {
+  font-size: $font-size-h6;
+}
+
+.font-size-small {
+  font-size: $font-size-small;
+}
+.font-size-medium {
+  font-size: $font-size-medium;
+}
+.font-size-large {
+  font-size: $font-size-large;
+}
+.font-size-xlarge {
+  font-size: $font-size-xlarge;
+}
+
+.font-weight-regular {
+  font-weight: $font-weight-regular;
+}
+.font-weight-medium {
+  font-weight: $font-weight-medium;
+}
+.font-weight-semibold {
+  font-weight: $font-weight-semibold;
+}
+
+.color-light {
+  color: $color-grey-0;
+}
+
+.color-grey {
+  color: $color-grey-300;
+}
+
+.color-blue {
+  color: $color-secondary-300;
+}
+
+.color-dark {
+  color: $color-grey-900;
+}
+
+.hover-effect {
+  transition: all 0.4s cubic-bezier(0.47, 0, 0.23, 1.38);
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  gap: 8px;
+
+  border: none;
+  border-radius: 1000px;
+  cursor: pointer;
+  background-color: $color-primary-300;
+  color: $color-secondary-300;
+  font-size: $font-size-large;
+  font-weight: $font-weight-semibold;
+
+  &:focus,
+  &:active {
+    background-color: $color-primary-100;
+  }
+
+  &.secondary {
+    border: 1px solid $color-grey-100;
+    background-color: $color-grey-0;
+    color: $color-grey-900;
+
+    &:focus,
+    &:active {
+      border: 1px solid $color-grey-900;
+    }
+  }
+
+  &.transparent {
+    background-color: transparent;
+    border: 1px solid $color-grey-100;
+    color: $color-grey-0;
+
+    &:focus,
+    &:active {
+      border: 1px solid $color-grey-300;
+      color: $color-grey-200;
+    }
+  }
+}
+
+a {
+  display: inline-block;
+
+  text-decoration: none;
+
+  & > * {
+    vertical-align: middle;
+  }
+
+  &:visited {
+    text-decoration: none;
+  }
+}
+
+ul {
+  list-style-type: none;
+}
+
+img {
+  width: 500px;
+  height: 450px;
+  object-fit: cover;
+  object-position: center;
+
+  border-radius: 16px;
+  border: 1px solid $color-grey-100;
+}
+
+hr {
+  align-self: stretch;
+  border: none;
+  border-bottom: 1px solid $color-grey-200;
+}
+
+.icon {
+  width: auto !important;
+  height: auto !important;
+
+  all: initial;
+  cursor: pointer;
+}
+
+.content {
+  * {
+    margin-bottom: 16px;
+  }
+
+  & *:last-child {
+    margin-bottom: 0px;
+  }
+}
+
+.container {
+  max-width: $max-width;
+  margin: 0 auto;
+}
+
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  align-self: stretch;
+}
+
+.buttons-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  align-self: stretch;
+}
+
+.content-button-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  flex: 1;
+}
+
+.background-blue {
+  background-color: $color-secondary-300;
+}
+
+.background-grey {
+  background: $color-grey-50;
+}
+
+.card-horizontal {
+  border-radius: 0px;
+  border: 1px solid $color-grey-100;
+  background: $color-grey-0;
+  box-shadow: 0px 4px 11px -1px rgba(10, 10, 10, 0.04);
+}
+
+.card-vertical {
+  border-radius: 24px;
+  border: 1px solid $color-grey-0;
+  background: $color-grey-0;
+  box-shadow: 0px 4px 11px -1px rgba(10, 10, 10, 0.04);
+}
+
+// @media only screen and (max-width: $tablet-breakpoint) {
+//   header,
+//   footer {
+//     padding: $tablet-padding;
+//   }
+//   header {
+//     .logo {
+//       margin: 0;
+//     }
+//   }
+// }
+
+// @media only screen and (max-width: $mobile-breakpoint) {
+//   header {
+//     button {
+//       display: none;
+//     }
+//   }
+//   header,
+//   footer {
+//     grid-template-columns: 1fr 1.5fr;
+//     column-gap: 10px;
+
+//     white-space: nowrap;
+//   }
+// }

@@ -1,0 +1,13 @@
+.teaser-section {
+  display: flex;
+  padding: 120px 140px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 80px;
+
+  .teaser-wrapper {
+    &:nth-child(odd) {
+      flex-direction: row-reverse;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+@import "../styles/variables";
+
+.logo-wrapper {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+
+  h5 {
+    display: inline;
+  }
+}
