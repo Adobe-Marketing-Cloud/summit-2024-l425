@@ -1,0 +1,35 @@
+extensions:
+  aem/cf-editor/1:
+    $include: src/aem-cf-editor-1/ext.config.yaml
+    runtimeManifest:
+      packages:
+        ext:
+          license: Apache-2.0
+          actions:
+            create-version:
+              function: src/aem-cf-editor-1/actions/create-version/index.js
+              web: 'yes'
+              runtime: nodejs:18
+              inputs:
+                LOG_LEVEL: debug
+              annotations:
+                require-adobe-auth: true
+                final: true
+            auto-version:
+              function: actions/auto-version/index.js
+              web: 'no'
+              runtime: nodejs:18
+              inputs:
+                LOG_LEVEL: debug
+              annotations:
+                require-adobe-auth: false
+                final: true
+    events:
+      registrations:
+        Event Registration l425ext00:
+          description: Registration for l425ex00
+          events_of_interest:
+            - provider_metadata: aemsites
+              event_codes:
+                - aem.sites.contentFragment.modified
+          runtime_action: ext/auto-version
