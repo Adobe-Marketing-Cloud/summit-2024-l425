@@ -31,7 +31,7 @@ const TeaserSection = ({ title, cfs, containerProps, setFetchTrigger }) => {
   if (!cfs) return;
 
   return (
-    <section tag="section" className="container teaser-section">
+    <section className="container teaser-section">
       <h2 className="color-dark">{title}</h2>
       <Container {...containerProps} className="teasers-wrapper">
         {cfs.map((teaser, index) => (
