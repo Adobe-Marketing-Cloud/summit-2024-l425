@@ -4,7 +4,6 @@ import ContentFragment from "../components/base/ContentFragment";
 import Title from "../components/base/Title";
 import Image from "../components/base/Image";
 import Text from "../components/base/Text";
-import Container from "../components/base/Container";
 import CallToActionCard from "../components/CallToActionSection";
 import ArticlesSection from "../components/ArticlesSection";
 import { useArticleBySlug } from "../api";
@@ -19,7 +18,6 @@ const ArticleDetail = () => {
   const image = data?.image?._dynamicUrl;
   const title = data?.title;
   const content = data?.content;
-  const relatedArticles = data?.relatedArticles;
 
   return (
     <>
@@ -38,17 +36,16 @@ const ArticleDetail = () => {
           <Text content={content} prop="content" className="content" />
           <hr />
         </div>
-        <Container
-          prop="relatedArticles"
-          filter="related-articles"
-          label="Related Articles"
-        >
-          <ArticlesSection
-            title="Related Articles"
-            cfs={relatedArticles}
-            columns={3}
-          />
-        </Container>
+        <ArticlesSection
+          title="Related Articles"
+          cfs={data.relatedArticles}
+          containerProps={{
+            prop: "relatedArticles",
+            label: "Related Articles",
+            filter: "related-articles",
+          }}
+          columns={3}
+        />
       </ContentFragment>
       <CallToActionCard />
     </>

@@ -1,0 +1,3495 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2024-03-12T16:46:58.176Z",
+  "__export_source": "insomnia.desktop.app:v2023.5.7-adobe",
+  "resources": [
+    {
+      "_id": "req_90d66be4202f47cd94331e41591ae2ba",
+      "parentId": "fld_45239468bc41464d8d344a564704b87a",
+      "modified": 1709904820548,
+      "created": 1709904732513,
+      "url": "{{ _.base_url }}/adobe/sites/cf/models",
+      "name": "1.3.1.A List Models",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "cursor",
+          "disabled": true,
+          "value": "string"
+        },
+        {
+          "name": "limit",
+          "disabled": true,
+          "value": "0"
+        }
+      ],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709904812546,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_45239468bc41464d8d344a564704b87a",
+      "parentId": "fld_b5470f28b2f143d0905cc1b13fe45297",
+      "modified": 1709904886725,
+      "created": 1709904804971,
+      "name": "1.3.1 List",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1709904085477,
+      "_type": "request_group"
+    },
+    {
+      "_id": "fld_b5470f28b2f143d0905cc1b13fe45297",
+      "parentId": "fld_cc30c0b4271d4d5c81ded877b06ff355",
+      "modified": 1709905347538,
+      "created": 1709904039346,
+      "name": "1.3 Managing Models",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1709904039746,
+      "_type": "request_group"
+    },
+    {
+      "_id": "fld_cc30c0b4271d4d5c81ded877b06ff355",
+      "parentId": "wrk_54a9df2009a84ee888ed134f05c41fb3",
+      "modified": 1709904021119,
+      "created": 1709904021119,
+      "name": "Lab 425",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1709904021119,
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_54a9df2009a84ee888ed134f05c41fb3",
+      "parentId": null,
+      "modified": 1710261697017,
+      "created": 1710261697017,
+      "name": "Summit 2024 L425",
+      "description": "",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "req_13edd50f2a7c4c8b85b680b467f09311",
+      "parentId": "fld_45239468bc41464d8d344a564704b87a",
+      "modified": 1709906256242,
+      "created": 1709904079781,
+      "url": "{{ _.base_url }}/adobe/sites/cf/models",
+      "name": "1.3.1.B Limit List to 2 Models",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "cursor",
+          "disabled": true,
+          "value": "",
+          "id": "pair_4340c440d4f14affa8bb4a59fadd9468"
+        },
+        {
+          "name": "limit",
+          "disabled": false,
+          "value": "2",
+          "id": "pair_42061604ec8642b6953fa9c8b26aaa3d"
+        }
+      ],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709904812446,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_2c181e4934c34ababab5632302abe211",
+      "parentId": "fld_f5795576ead74440b211d90de8e634a0",
+      "modified": 1709907474064,
+      "created": 1709906452622,
+      "url": "{{ _.base_url }}/adobe/sites/cf/models",
+      "name": "1.3.2.A Create Webinar Model",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"models\": [\n    {\n\t\t\t\"configurationFolder\": \"{{ _.MODEL_CONF_FOLDER }}\",\n      \"name\": \"Webinar\",\n      \"description\": \"A model describing a webinar\",\n      \"locked\": false,\n      \"status\": \"draft\",\n      \"fields\": [\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"title\",\n\t\t\t\t\t\"label\": \"Title\",\n\t\t\t\t\t\"required\": true,\n\t\t\t\t\t\"multiple\": false,\n\t\t\t\t\t\"type\": \"text\",\n\t\t\t\t\t\"maxLength\": 255,\n\t\t\t\t\t\"validationType\": \"none\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"eventStart\",\n\t\t\t\t\t\"label\": \"Event Start\",\n\t\t\t\t\t\"required\": true,\n\t\t\t\t\t\"multiple\": false,\n\t\t\t\t\t\"type\": \"date-time\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"eventDuration\",\n\t\t\t\t\t\"label\": \"Event Duration\",\n\t\t\t\t\t\"required\": true,\n\t\t\t\t\t\"multiple\": false,\n\t\t\t\t\t\"type\": \"number\",\n\t\t\t\t\t\"min\": \"15\"\n\t\t\t\t},\n\t\t\t\t{\n\t\t\t\t\t\"name\": \"description\",\n\t\t\t\t\t\"label\": \"Description\",\n\t\t\t\t\t\"required\": false,\n\t\t\t\t\t\"multiple\": false,\n\t\t\t\t\t\"type\": \"long-text\",\n\t\t\t\t\t\"mimeType\": \"text/html\"\n\t\t\t\t}\n      ]\n    }\n  ]\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709906457357,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_f5795576ead74440b211d90de8e634a0",
+      "parentId": "fld_b5470f28b2f143d0905cc1b13fe45297",
+      "modified": 1709904893875,
+      "created": 1709904842230,
+      "name": "1.3.2 CRUD",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1709904085377,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_670715681b404eae8ef826f50073a762",
+      "parentId": "fld_f5795576ead74440b211d90de8e634a0",
+      "modified": 1710000719773,
+      "created": 1709906885254,
+      "url": "{{ _.base_url }}/adobe/sites/cf/models/{{ _.modelId }}",
+      "name": "1.3.2.B Get Webinar Model",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709906457332,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_cf59614ea865475b87d48bd0f4861e5b",
+      "parentId": "fld_f5795576ead74440b211d90de8e634a0",
+      "modified": 1710000767708,
+      "created": 1709906973748,
+      "url": "{{ _.base_url }}/adobe/sites/cf/models/{{ _.modelId }}",
+      "name": "1.3.2.C Edit Webinar Model",
+      "description": "",
+      "method": "PATCH",
+      "body": {
+        "mimeType": "application/json",
+        "text": "[\n  {\n    \"op\": \"replace\",\n    \"path\": \"/status\",\n    \"value\": \"enabled\"\n  },\n  {\n    \"op\": \"add\",\n    \"path\": \"/fields/4\",\n    \"value\": {\n\t\t\t\"name\": \"cta\",\n\t\t\t\"label\": \"Call To Action\",\n\t\t\t\"required\": false,\n\t\t\t\"multiple\": false,\n\t\t\t\"type\": \"text\"\n\t\t}\n  }\n]"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json-patch+json",
+          "id": "pair_f34b08bb2bf14b8da3bfdf8aca1529eb"
+        },
+        {
+          "name": "If-Match",
+          "disabled": false,
+          "value": "",
+          "id": "pair_e1c45f7b79f54c0187c8f11b8b5a60ae"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709906457307,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_b74bc7a052dc44779ac24b16d4a0644d",
+      "parentId": "fld_dff806d35653403d8c59984e53bc278e",
+      "modified": 1709977159016,
+      "created": 1709911817110,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/search",
+      "name": "1.4.1.A Search By Author",
+      "description": "Content modified by gknob@adobe.com",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "cursor",
+          "disabled": true,
+          "value": "string",
+          "id": "pair_1f0042b7aae44ddf9bb551e57d17e2d8"
+        },
+        {
+          "name": "limit",
+          "disabled": true,
+          "value": "0",
+          "id": "pair_193b9bf95cdc4018ba179ffaa4f46da9"
+        },
+        {
+          "name": "query",
+          "disabled": false,
+          "value": "{\n  \"filter\": {\n    \"modified\": {\n      \"by\": [\n        \"gknob@adobe.com\"\n      ]\n    }\n  }\n}",
+          "id": "pair_655cd162503d437d925f27256bb3d5e8",
+          "type": "text",
+          "multiline": "application/json"
+        }
+      ],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709911821724,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_dff806d35653403d8c59984e53bc278e",
+      "parentId": "fld_52d475c7baba44bbbe4e3e8858ad1dbb",
+      "modified": 1709914709479,
+      "created": 1709911794500,
+      "name": "1.4.1 Search",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1709914698209,
+      "_type": "request_group"
+    },
+    {
+      "_id": "fld_52d475c7baba44bbbe4e3e8858ad1dbb",
+      "parentId": "fld_cc30c0b4271d4d5c81ded877b06ff355",
+      "modified": 1709905345509,
+      "created": 1709905340340,
+      "name": "1.4 Managing Content Fragments",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1709904039646,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_d6e2cd08e0c94915af1bb491f5e21bba",
+      "parentId": "fld_dff806d35653403d8c59984e53bc278e",
+      "modified": 1709977843751,
+      "created": 1709976911996,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/search",
+      "name": "1.4.1.B Search By Author & Date",
+      "description": "Content modified by gknob@adobe.com before March 7th",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "cursor",
+          "disabled": true,
+          "value": "string",
+          "id": "pair_1f0042b7aae44ddf9bb551e57d17e2d8"
+        },
+        {
+          "name": "limit",
+          "disabled": true,
+          "value": "0",
+          "id": "pair_193b9bf95cdc4018ba179ffaa4f46da9"
+        },
+        {
+          "name": "query",
+          "disabled": false,
+          "value": "{\n\t\"filter\": {\n\t\t\"modified\": {\n\t\t\t\"by\": [\n\t\t\t\t\"gknob@adobe.com\"\n\t\t\t],\n\t\t\t\"before\": \"2024-03-09T00:00:00.00Z\"\n\t\t}\n\t}\n}",
+          "id": "pair_655cd162503d437d925f27256bb3d5e8",
+          "type": "text",
+          "multiline": "application/json"
+        }
+      ],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709910480632.25,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_c31035d2c69047829f2519446765a1b4",
+      "parentId": "fld_dff806d35653403d8c59984e53bc278e",
+      "modified": 1709977937668,
+      "created": 1709920346093,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/search",
+      "name": "1.4.1.C Search By Model & Status",
+      "description": "Content of type \"Service\" & published",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "cursor",
+          "disabled": true,
+          "value": "string",
+          "id": "pair_1f0042b7aae44ddf9bb551e57d17e2d8"
+        },
+        {
+          "name": "limit",
+          "disabled": true,
+          "value": "0",
+          "id": "pair_193b9bf95cdc4018ba179ffaa4f46da9"
+        },
+        {
+          "name": "query",
+          "disabled": false,
+          "value": "{\n\t\"filter\": {\n\t\t\"modelIds\": [\n\t\t\t\"L2NvbmYvc2VjdXJiYW5rL3NldHRpbmdzL2RhbS9jZm0vbW9kZWxzL3NlcnZpY2U\"\n\t\t],\n\t\t\"status\": [\n\t\t\t\"PUBLISHED\"\n\t\t]\n\t}\n}",
+          "id": "pair_655cd162503d437d925f27256bb3d5e8",
+          "type": "text",
+          "multiline": "application/json"
+        }
+      ],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709909139540.5,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_9ddb63b8a98c4899bacfb0919c9a6804",
+      "parentId": "fld_dff806d35653403d8c59984e53bc278e",
+      "modified": 1709976950033,
+      "created": 1709920490844,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/search",
+      "name": "1.4.1.D Search By Location",
+      "description": "Content in folder /content/dam/securbank/pages/articles",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "cursor",
+          "disabled": true,
+          "value": "string",
+          "id": "pair_1f0042b7aae44ddf9bb551e57d17e2d8"
+        },
+        {
+          "name": "limit",
+          "disabled": true,
+          "value": "0",
+          "id": "pair_193b9bf95cdc4018ba179ffaa4f46da9"
+        },
+        {
+          "name": "query",
+          "disabled": false,
+          "value": "{\n\t\"filter\": {\n\t\t\"path\": \"/content/dam/securbank/pages/articles\"\n\t}\n}",
+          "id": "pair_655cd162503d437d925f27256bb3d5e8",
+          "type": "text",
+          "multiline": "application/json"
+        }
+      ],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709907798448.75,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_03c709e9b6484754bc869546b851d3aa",
+      "parentId": "fld_dff806d35653403d8c59984e53bc278e",
+      "modified": 1709978796301,
+      "created": 1709920583411,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/search",
+      "name": "1.4.1.E1 Search By Tags",
+      "description": "Content using a provided tag",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "cursor",
+          "disabled": true,
+          "value": "string",
+          "id": "pair_1f0042b7aae44ddf9bb551e57d17e2d8"
+        },
+        {
+          "name": "limit",
+          "disabled": true,
+          "value": "0",
+          "id": "pair_193b9bf95cdc4018ba179ffaa4f46da9"
+        },
+        {
+          "name": "query",
+          "disabled": false,
+          "value": "{\n\t\"filter\": {\n\t\t\"tags\": [\n\t\t\t\"securebank:article-types/tips\"\n\t\t]\n\t}\n}",
+          "id": "pair_655cd162503d437d925f27256bb3d5e8",
+          "type": "text",
+          "multiline": "application/json"
+        }
+      ],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709907630812.2812,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_586dbf6a78c24633b121a2e527ba72df",
+      "parentId": "fld_dff806d35653403d8c59984e53bc278e",
+      "modified": 1709978917797,
+      "created": 1709978723354,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/search",
+      "name": "1.4.1.E2 Search By Tags (OR)",
+      "description": "Content using one of provided tags",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "cursor",
+          "disabled": true,
+          "value": "string",
+          "id": "pair_1f0042b7aae44ddf9bb551e57d17e2d8"
+        },
+        {
+          "name": "limit",
+          "disabled": true,
+          "value": "0",
+          "id": "pair_193b9bf95cdc4018ba179ffaa4f46da9"
+        },
+        {
+          "name": "query",
+          "disabled": false,
+          "value": "{\n\t\"filter\": {\n\t\t\"tags\": [\n\t\t\t\"securebank:article-types/tips\",\n\t\t\t\"securebank:article-types/savings\"\n\t\t]\n\t}\n}",
+          "id": "pair_655cd162503d437d925f27256bb3d5e8",
+          "type": "text",
+          "multiline": "application/json"
+        }
+      ],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709907609857.7227,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_366e2300cc7e4566b2b0472a851bd511",
+      "parentId": "fld_dff806d35653403d8c59984e53bc278e",
+      "modified": 1709979094950,
+      "created": 1709978742896,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/search",
+      "name": "1.4.1.E3 Search By Tags (AND)",
+      "description": "Content using combination of provided tags",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "cursor",
+          "disabled": true,
+          "value": "string",
+          "id": "pair_1f0042b7aae44ddf9bb551e57d17e2d8"
+        },
+        {
+          "name": "limit",
+          "disabled": true,
+          "value": "0",
+          "id": "pair_193b9bf95cdc4018ba179ffaa4f46da9"
+        },
+        {
+          "name": "query",
+          "disabled": false,
+          "value": "{\n\t\"filter\": {\n\t\t\"tags\": [\n\t\t\t\"securebank:article-types/tips\"\n\t\t],\n\t\t\"tags\": [\n\t\t\t\"securebank:article-types/travel\"\n\t\t]\n\t}\n}",
+          "id": "pair_655cd162503d437d925f27256bb3d5e8",
+          "type": "text",
+          "multiline": "application/json"
+        }
+      ],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709907599380.4434,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_b60113c75cf748899c9d4b591822b592",
+      "parentId": "fld_dff806d35653403d8c59984e53bc278e",
+      "modified": 1709979531007,
+      "created": 1709921572924,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/search",
+      "name": "1.4.1.F Fulltext",
+      "description": "Fulltext Search",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "cursor",
+          "disabled": true,
+          "value": "string",
+          "id": "pair_1f0042b7aae44ddf9bb551e57d17e2d8"
+        },
+        {
+          "name": "limit",
+          "disabled": true,
+          "value": "0",
+          "id": "pair_193b9bf95cdc4018ba179ffaa4f46da9"
+        },
+        {
+          "name": "query",
+          "disabled": false,
+          "value": "{\n\t\"filter\": {\n\t\t\"fullText\": {\n\t\t\t\"text\": \"Saving\"\n\t\t}\n\t}\n}",
+          "id": "pair_655cd162503d437d925f27256bb3d5e8",
+          "type": "text",
+          "multiline": "application/json"
+        }
+      ],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709907588903.164,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_cd257940fc8143d6b27b720e8e1f8107",
+      "parentId": "fld_dff806d35653403d8c59984e53bc278e",
+      "modified": 1709979741772,
+      "created": 1709921087600,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/search",
+      "name": "1.4.1.G Sort by Title",
+      "description": "Sort Results by Title",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "cursor",
+          "disabled": true,
+          "value": "string",
+          "id": "pair_1f0042b7aae44ddf9bb551e57d17e2d8"
+        },
+        {
+          "name": "limit",
+          "disabled": false,
+          "value": "3",
+          "id": "pair_193b9bf95cdc4018ba179ffaa4f46da9"
+        },
+        {
+          "name": "query",
+          "disabled": false,
+          "value": "{\n\t\"filter\": {\n\t\t\"modelIds\": [\n\t\t\t\"L2NvbmYvc2VjdXJiYW5rL3NldHRpbmdzL2RhbS9jZm0vbW9kZWxzL3NlcnZpY2U\"\n\t\t]\n\t},\n\t\"sort\": [\n\t\t{\n\t\t\t\"on\": \"title\",\n\t\t\t\"order\": \"ASC\"\n\t\t}\n\t]\n}",
+          "id": "pair_655cd162503d437d925f27256bb3d5e8",
+          "type": "text",
+          "multiline": "application/json"
+        }
+      ],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709907546994.0469,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_5067762375a14ec68ddd5ad40d647ec3",
+      "parentId": "fld_dff806d35653403d8c59984e53bc278e",
+      "modified": 1709979772697,
+      "created": 1709920940641,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/search",
+      "name": "1.4.1.H Sort by Last Modified",
+      "description": "Sort Results by Last Modification",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "cursor",
+          "disabled": true,
+          "value": "string",
+          "id": "pair_1f0042b7aae44ddf9bb551e57d17e2d8"
+        },
+        {
+          "name": "limit",
+          "disabled": false,
+          "value": "3",
+          "id": "pair_193b9bf95cdc4018ba179ffaa4f46da9"
+        },
+        {
+          "name": "query",
+          "disabled": false,
+          "value": "{\n\t\"filter\": {\n\t\t\"modelIds\": [\n\t\t\t\"L2NvbmYvc2VjdXJiYW5rL3NldHRpbmdzL2RhbS9jZm0vbW9kZWxzL3NlcnZpY2U\"\n\t\t]\n\t},\n\t\"sort\": [\n\t\t{\n\t\t\t\"on\": \"modified\",\n\t\t\t\"order\": \"DESC\"\n\t\t}\n\t]\n}",
+          "id": "pair_655cd162503d437d925f27256bb3d5e8",
+          "type": "text",
+          "multiline": "application/json"
+        }
+      ],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709907463175.8125,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_53bb793ae86749f596ce2f807c9337b6",
+      "parentId": "fld_3e2b1a89e18a4fdba477681e01e22fd8",
+      "modified": 1709990607907,
+      "created": 1709912438632,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments",
+      "name": "1.4.2.A Create Automated Portfolio Management",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"title\": \"Automated Portfolio Management\",\n  \"name\": \"automated-portfolio-management\",\n  \"modelId\": \"L2NvbmYvc2VjdXJiYW5rL3NldHRpbmdzL2RhbS9jZm0vbW9kZWxzL3NlcnZpY2U\",\n  \"parentPath\": \"/content/dam/securbank/services\",\n  \"fields\": [\n\t\t{\n\t\t\t\"name\": \"title\",\n\t\t\t\"type\": \"text\",\n\t\t\t\"multiple\": false,\n\t\t\t\"values\": [\n\t\t\t\t\"Automated Portfolio Management\"\n\t\t\t]\n\t\t},\n\t\t{\n\t\t\t\"name\": \"serviceCategory\",\n\t\t\t\"type\": \"content-fragment\",\n\t\t\t\"multiple\": false,\n\t\t\t\"values\": [\n\t\t\t\t\"/content/dam/securbank/services/investment-services\"\n\t\t\t]\n\t\t},\n\t\t{\n\t\t\t\"name\": \"description\",\n\t\t\t\"type\": \"long-text\",\n\t\t\t\"multiple\": false,\n\t\t\t\"mimeType\": \"text/html\",\n\t\t\t\"values\": [\n\t\t\t\t\"<p>Take the hassle out of investing with our Automated Portfolio Management service. Our advanced algorithms and personalized approach create tailored investment portfolios designed to help you reach your financial goals efficiently and effectively. With automated diversification, risk management, and tax-efficient strategies, investing has never been easier. Let technology work for you and optimize your portfolio with ease.</p>\"\n\t\t\t]\n\t\t},\n\t\t{\n\t\t\t\"name\": \"icon\",\n\t\t\t\"type\": \"content-reference\",\n\t\t\t\"multiple\": false,\n\t\t\t\"values\": [\n\t\t\t\t\"/content/dam/securbank/services/automated-portfolio-management.jpg\"\n\t\t\t]\n\t\t},\n\t\t{\n\t\t\t\"name\": \"slug\",\n\t\t\t\"type\": \"text\",\n\t\t\t\"multiple\": false,\n\t\t\t\"values\": [\n\t\t\t\t\"automated-portfolio-management\"\n\t\t\t]\n\t\t}\n\t]\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json",
+          "id": "pair_bcff58f3c0254a5890299cc94076cd52"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709912442807,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_3e2b1a89e18a4fdba477681e01e22fd8",
+      "parentId": "fld_52d475c7baba44bbbe4e3e8858ad1dbb",
+      "modified": 1709914707072,
+      "created": 1709912415996,
+      "name": "1.4.2 CRUD",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1709914698109,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_0077c97573c846b18de281d7a3cbdd16",
+      "parentId": "fld_3e2b1a89e18a4fdba477681e01e22fd8",
+      "modified": 1709991033230,
+      "created": 1709912478721,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{% request 'parameter', 'fragmentId', '' %}",
+      "name": "1.4.2.B Read",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "references",
+          "disabled": true,
+          "value": "direct-hydrated",
+          "id": "pair_91854d3fdefd4f1f9faf1f17aa40ce27"
+        },
+        {
+          "id": "pair_e0c3602f6c7e4fda949717905453a06a",
+          "name": "fragmentId",
+          "value": "id",
+          "description": "",
+          "disabled": true
+        }
+      ],
+      "headers": [
+        {
+          "name": "If-None-Match",
+          "disabled": true,
+          "value": "string",
+          "id": "pair_4b55b28bb8a548ceb05bf7a796d9e9f9"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709912442707,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_56d325bddcc74a4c862d2227ad3cd45c",
+      "parentId": "fld_3e2b1a89e18a4fdba477681e01e22fd8",
+      "modified": 1709914517264,
+      "created": 1709912533844,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/publish",
+      "name": "1.4.2.C Publish",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"paths\": [\n    \"/content/dam/securbank/services/automated-portfolio-management\"\n  ],\n  \"filterReferencesByStatus\": [\n    \"DRAFT\",\n    \"UNPUBLISHED\"\n  ]\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json",
+          "id": "pair_eeb7afe454e2404090d082b4648fe103"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709912442682,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_394461edc04c4df2b876fb359619b5b8",
+      "parentId": "fld_3e2b1a89e18a4fdba477681e01e22fd8",
+      "modified": 1710261799948,
+      "created": 1709912573259,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{% request 'parameter', 'fragmentId', '' %}",
+      "name": "1.4.2.D Delete",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [
+        {
+          "id": "pair_fab91e9fb7644ebeab51d2da2fed212f",
+          "name": "fragmentId",
+          "value": "",
+          "description": "",
+          "disabled": true
+        }
+      ],
+      "headers": [
+        {
+          "name": "If-Match",
+          "disabled": false,
+          "value": "",
+          "id": "pair_30ed95f87a8a458790ea09107466ed26"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709912442657,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_d4fd20f5751e4499a569501a3231e3f8",
+      "parentId": "fld_c781486c67ac46219c9b42bc5a1e5621",
+      "modified": 1709993427395,
+      "created": 1709921422591,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments",
+      "name": "1.4.3.A Search Home Page",
+      "description": "Fulltext Search",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "path",
+          "disabled": false,
+          "value": "/content/dam/securbank/pages/home",
+          "id": "pair_655cd162503d437d925f27256bb3d5e8",
+          "type": "text",
+          "multiline": false
+        }
+      ],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709921335190,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_c781486c67ac46219c9b42bc5a1e5621",
+      "parentId": "fld_52d475c7baba44bbbe4e3e8858ad1dbb",
+      "modified": 1709915035004,
+      "created": 1709914664051,
+      "name": "1.4.3 Variations",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1709914698009,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_c7751fcf6a8f416cb37fc3d5bd916c8b",
+      "parentId": "fld_c781486c67ac46219c9b42bc5a1e5621",
+      "modified": 1710261812737,
+      "created": 1709921324126,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{% request 'parameter', 'fragmentId', '' %}/variations",
+      "name": "1.4.3.B List Variations",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "id": "pair_0092703f7a484ebfbc27abb635a70a72",
+          "name": "fragmentId",
+          "value": "",
+          "description": "",
+          "disabled": true
+        }
+      ],
+      "headers": [
+        {
+          "id": "pair_fb8096cbd2904da5b37c972b5443342c",
+          "name": "",
+          "value": "",
+          "description": ""
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709921335090,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_1357e09f0abc4d7ba635eb80076e0f0f",
+      "parentId": "fld_c781486c67ac46219c9b42bc5a1e5621",
+      "modified": 1710261828324,
+      "created": 1709921645500,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{% request 'parameter', 'fragmentId', '' %}/variations/{% request 'parameter', 'variationName', '' %}",
+      "name": "1.4.3.C Get Business Variation",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "id": "pair_0092703f7a484ebfbc27abb635a70a72",
+          "name": "fragmentId",
+          "value": "",
+          "description": "",
+          "disabled": true
+        },
+        {
+          "id": "pair_1524a7a46a8248d3ba5f8fecf37c678b",
+          "name": "variationName",
+          "value": "",
+          "description": "",
+          "disabled": true
+        }
+      ],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709916888948.5,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_5c4e37aca9ee45e5aafbba7d870d43c9",
+      "parentId": "fld_c781486c67ac46219c9b42bc5a1e5621",
+      "modified": 1709921855569,
+      "created": 1709921753675,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{% request 'parameter', 'fragmentId', '' %}/variations",
+      "name": "1.4.3.D Create Dummy Variation",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n\t\"title\": \"Dummy\",\n\t\"description\": \"Dummy Variation\"\n}"
+      },
+      "parameters": [
+        {
+          "id": "pair_0092703f7a484ebfbc27abb635a70a72",
+          "name": "fragmentId",
+          "value": "",
+          "description": "",
+          "disabled": true
+        }
+      ],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709914665877.75,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_5e0c832f596a47dba12bc5a70f4efde7",
+      "parentId": "fld_0aeded5b5240468ca5b3df4e38aa591c",
+      "modified": 1709995833173,
+      "created": 1709994731077,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{% prompt 'Fragment ID', '', '', 'fragmentId', false, true %}/tags",
+      "name": "1.4.4.A List Tags of a Content Fragment",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709995827419,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_0aeded5b5240468ca5b3df4e38aa591c",
+      "parentId": "fld_52d475c7baba44bbbe4e3e8858ad1dbb",
+      "modified": 1709915116690,
+      "created": 1709915103423,
+      "name": "1.4.4 Tagging",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1709914698004.3125,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_179de3a38cd04bc9b777681f9f05673e",
+      "parentId": "fld_0aeded5b5240468ca5b3df4e38aa591c",
+      "modified": 1709995831333,
+      "created": 1709995057038,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{% prompt 'Fragment ID', '', '', 'fragmentId', false, true %}/tags",
+      "name": "1.4.4.B Add tags to a Content Fragment",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"tags\": [\n    \"securebank:audience/business\",\n    \"securebank:audience/investor\"\n  ]\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709995827319,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_80d7f26625614de6ae33e5f894477210",
+      "parentId": "fld_e3b4ebfbc57644f6828d1ba2d0cd8d5d",
+      "modified": 1709996363537,
+      "created": 1709995854826,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{% prompt 'Fragment ID', '', '', 'fragmentId', false, true %}/versions",
+      "name": "1.4.5.A List Versions",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "limit",
+          "disabled": true,
+          "value": "0"
+        },
+        {
+          "name": "cursor",
+          "disabled": true,
+          "value": "string"
+        }
+      ],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709995858191,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_e3b4ebfbc57644f6828d1ba2d0cd8d5d",
+      "parentId": "fld_52d475c7baba44bbbe4e3e8858ad1dbb",
+      "modified": 1709915114305,
+      "created": 1709914697809,
+      "name": "1.4.5 Versions",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1709914697999.625,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_3736b5016c0343bb8a1a70fccf335c2d",
+      "parentId": "fld_e3b4ebfbc57644f6828d1ba2d0cd8d5d",
+      "modified": 1709996360043,
+      "created": 1709995985370,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{% prompt 'Fragment ID', '', '', 'fragmentId', false, true %}/versions",
+      "name": "1.4.5.B Create a Version",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"label\": \"Summit 2024\",\n  \"comment\": \"Version created during the lab\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json",
+          "id": "pair_45a561f141af41df8a5e55073bff0d39"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709995858178.5,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_1a97b4166617483abd507c40c41ba53f",
+      "parentId": "fld_e3b4ebfbc57644f6828d1ba2d0cd8d5d",
+      "modified": 1710000890057,
+      "created": 1709997942993,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{% prompt 'Fragment ID', '', '', 'fragmentId', false, true %}",
+      "name": "1.4.5.C Read Home Fragment",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "references",
+          "disabled": true,
+          "value": "direct-hydrated",
+          "id": "pair_91854d3fdefd4f1f9faf1f17aa40ce27"
+        }
+      ],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709995858169.125,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_820bad83daeb4c648193bdd9435c45fe",
+      "parentId": "fld_e3b4ebfbc57644f6828d1ba2d0cd8d5d",
+      "modified": 1710261860827,
+      "created": 1709995946583,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{% prompt 'Fragment ID', '', '', 'fragmentId', false, true %}",
+      "name": "1.4.5.D Edit Home Content Fragment",
+      "description": "",
+      "method": "PATCH",
+      "body": {
+        "mimeType": "application/json",
+        "text": "[\n  {\n    \"op\": \"replace\",\n    \"path\": \"/fields/1/values\",\n    \"value\": [\n\t\t\t\"/content/dam/securbank/pages/sb-at-summit.png\"\n\t\t]\n  }\n]"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json-patch+json",
+          "id": "pair_a52c7b8636084d5995a0c9ca090d9986"
+        },
+        {
+          "name": "If-Match",
+          "disabled": false,
+          "value": "",
+          "id": "pair_6018179f6297433c9f7abc0d6c3af717"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709995858166,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_6fc2a5bb392847078ce0c125320e9a20",
+      "parentId": "fld_e3b4ebfbc57644f6828d1ba2d0cd8d5d",
+      "modified": 1710000899090,
+      "created": 1709996112367,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{% prompt 'Fragment ID', '', '', 'fragmentId', false, true %}/variations/{% prompt 'Variation Name', '', '', 'variationName', false, true %}",
+      "name": "1.4.5.E Read Business Variation",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "references",
+          "disabled": true,
+          "value": "direct-hydrated",
+          "id": "pair_91854d3fdefd4f1f9faf1f17aa40ce27"
+        }
+      ],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709995858164.4375,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_3194e57744b14e1a9d2b7e337eaf86a6",
+      "parentId": "fld_e3b4ebfbc57644f6828d1ba2d0cd8d5d",
+      "modified": 1710261866444,
+      "created": 1709996034958,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{% prompt 'Fragment ID', '', '', 'fragmentId', false, true %}/variations/{% prompt 'Variation Name', '', '', 'variationName', false, true %}",
+      "name": "1.4.5.F Delete a Variation",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "If-Match",
+          "disabled": false,
+          "value": "",
+          "id": "pair_558bef8ed90b4b978ad50f935eb883cb"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709995858162.875,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_e34fe5129f064dc785a4cf11aca2fe79",
+      "parentId": "fld_e3b4ebfbc57644f6828d1ba2d0cd8d5d",
+      "modified": 1709998928189,
+      "created": 1709996673194,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{% prompt 'Fragment ID', '', '', 'fragmentId', false, true %}/versions/restore/{% prompt 'Version ID', '', '', 'versionId', false, true %}",
+      "name": "1.4.5.G Restore a Content Fragment Version",
+      "description": "",
+      "method": "POST",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709995858162.0938,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_f3f1be1c5ebf416ca2c377a2aeaccc85",
+      "parentId": "fld_e3b4ebfbc57644f6828d1ba2d0cd8d5d",
+      "modified": 1709999925674,
+      "created": 1709999888472,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{% prompt 'Fragment ID', '', '', 'fragmentId', false, true %}/versions/{% prompt 'Version ID', '', '', 'versionToDeleteId', false, true %}",
+      "name": "1.4.5.H Get a Content Fragment Version",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709995858161.7031,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_3b06f344d49a4157b9c34fdc1aec2a3e",
+      "parentId": "fld_e3b4ebfbc57644f6828d1ba2d0cd8d5d",
+      "modified": 1710000932954,
+      "created": 1709996760355,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{% prompt 'Fragment ID', '', '', 'fragmentId', false, true %}/versions/{% prompt 'Version ID', '', '', 'versionToDeleteId', false, false %}",
+      "name": "1.4.5.I Delete a Content Fragment Version",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "If-Match",
+          "disabled": false,
+          "value": "",
+          "id": "pair_f753258fcaa04afc9fcd207b9b309f0c"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709995858161.3125,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_98e3c537663b470ca5c9e94d2e4f06bb",
+      "parentId": "fld_8e8a33b7e01043e881458e32101cae40",
+      "modified": 1709292070965,
+      "created": 1709135634187,
+      "url": "{{ _.base_url }}/adobe/sites/cf/models",
+      "name": "List all Content Fragment Models\n",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "cursor",
+          "disabled": true,
+          "value": "string"
+        },
+        {
+          "name": "limit",
+          "disabled": true,
+          "value": "0"
+        }
+      ],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634290,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_8e8a33b7e01043e881458e32101cae40",
+      "parentId": "fld_6c6416f085da47e5a1ef638ac9867ee1",
+      "modified": 1709137438869,
+      "created": 1709135634184,
+      "name": "1. Models",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1709136062658,
+      "_type": "request_group"
+    },
+    {
+      "_id": "fld_6c6416f085da47e5a1ef638ac9867ee1",
+      "parentId": "wrk_54a9df2009a84ee888ed134f05c41fb3",
+      "modified": 1709136057155,
+      "created": 1709136057155,
+      "name": "Full API",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1709136057155,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_fbd95840c41b430e8b1abee6ba4b7dd1",
+      "parentId": "fld_8e8a33b7e01043e881458e32101cae40",
+      "modified": 1709142575446,
+      "created": 1709135634188,
+      "url": "{{ _.base_url }}/sites/cf/models",
+      "name": "Create a Content Fragment Model",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"models\": [\n    {\n      \"name\": \"A simple CFM\",\n      \"description\": \"This is a simple CFM\",\n      \"locked\": true,\n      \"status\": \"enabled\",\n      \"fields\": [\n        {\n          \"type\": \"text\",\n          \"name\": \"title\",\n          \"label\": \"Title\",\n          \"required\": false,\n          \"multiple\": false,\n          \"maxLength\": 255,\n          \"validationType\": \"none\"\n        },\n        {\n          \"type\": \"text\",\n          \"name\": \"slug\",\n          \"label\": \"Slug\",\n          \"description\": \"A short path to be used to uniquely identify the article. Can be used for pathing in client applications.\",\n          \"required\": true,\n          \"multiple\": false,\n          \"maxLength\": 255,\n          \"validationType\": \"custom\",\n          \"customValidationRegex\": \"^[a-z0-9\\\\-_]{5,40}$\",\n          \"customErrorMessage\": \"Slug must be at least 5 characters in length, lower case, using only letters and numbers and no spaces. Only special characters that can be used are dashes and underscore.\"\n        }\n      ]\n    }\n  ]\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634240,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_543a06fadacd4b55923537b5aebb0e68",
+      "parentId": "fld_8e8a33b7e01043e881458e32101cae40",
+      "modified": 1709142579908,
+      "created": 1709135634189,
+      "url": "{{ _.base_url }}/adobe/sites/cf/models/{{ _.modelId }}",
+      "name": "Get a Content Fragment Model",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634215,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_93cab6387bc146cf957dd128ca9c0e14",
+      "parentId": "fld_8e8a33b7e01043e881458e32101cae40",
+      "modified": 1709142583449,
+      "created": 1709135634189,
+      "url": "{{ _.base_url }}/adobe/sites/cf/models/{{ _.modelId }}",
+      "name": "Get the details for a Content Fragment Model",
+      "description": "",
+      "method": "HEAD",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634202.5,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_e87159dc7ecb4a978625d4cd8e8fc42e",
+      "parentId": "fld_8e8a33b7e01043e881458e32101cae40",
+      "modified": 1709140804274,
+      "created": 1709135634190,
+      "url": "{{ _.base_url }}/adobe/sites/cf/models/{{ _.modelId }}",
+      "name": "Delete a Content Fragment Model",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "If-Match",
+          "disabled": false,
+          "value": "string"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634190,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_60e8e65a6cd84ee584af7d1b9b1291f2",
+      "parentId": "fld_8e8a33b7e01043e881458e32101cae40",
+      "modified": 1709140805656,
+      "created": 1709135634190,
+      "url": "{{ _.base_url }}/adobe/sites/cf/models/{{ _.modelId }}",
+      "name": "Edit a Content Fragment Model",
+      "description": "",
+      "method": "PATCH",
+      "body": {
+        "mimeType": "application/json",
+        "text": "[\n  {\n    \"op\": \"test\",\n    \"path\": \"/dc:title\",\n    \"value\": \"old value\"\n  },\n  {\n    \"op\": \"replace\",\n    \"path\": \"/dc:title\",\n    \"value\": \"new value\"\n  },\n  {\n    \"op\": \"copy\",\n    \"from\": \"/dc:title\",\n    \"path\": \"/custom:title\"\n  }\n]"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json"
+        },
+        {
+          "name": "If-Match",
+          "disabled": false,
+          "value": "string"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634190,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_fc9436ae164e46ca8c3a903ffe9d039d",
+      "parentId": "fld_467fe97136844d22bc0a48860c7f4a66",
+      "modified": 1709292679726,
+      "created": 1709135634195,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments",
+      "name": "List all Content Fragments",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "cursor",
+          "disabled": true,
+          "value": "string"
+        },
+        {
+          "name": "limit",
+          "disabled": true,
+          "value": "0"
+        },
+        {
+          "name": "path",
+          "disabled": true,
+          "value": "string"
+        }
+      ],
+      "headers": [
+        {
+          "name": "X-Adobe-Accept-Unsupported-API",
+          "disabled": false,
+          "value": "0"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634314,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_467fe97136844d22bc0a48860c7f4a66",
+      "parentId": "fld_6c6416f085da47e5a1ef638ac9867ee1",
+      "modified": 1709137447789,
+      "created": 1709135634180,
+      "name": "2. Fragments",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1709136062651.75,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_8e1463f8987e4e6195b32d047b430c1c",
+      "parentId": "fld_467fe97136844d22bc0a48860c7f4a66",
+      "modified": 1709292684652,
+      "created": 1709135634196,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments",
+      "name": "Create a Content Fragment",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"title\": \"Snowboarding\",\n  \"name\": \"snowboarding-cf\",\n  \"description\": \"This new CF is created with the new POST endpoint\",\n  \"modelId\": \"L2NvbmYvZ2xvYmFsL3NldHRpbmdzL2RhbS9jZm0vbW9kZWxzL3NpbXBsZS1jZg\",\n  \"parentPath\": \"/wknd-shared/en/adventures\",\n  \"fields\": [\n    {\n      \"name\": \"location\",\n      \"type\": \"text\"\n    }\n  ]\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json"
+        },
+        {
+          "name": "X-Adobe-Accept-Unsupported-API",
+          "disabled": false,
+          "value": "0"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634264,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_f35e884f80724cdfa10f3888ffb606a1",
+      "parentId": "fld_467fe97136844d22bc0a48860c7f4a66",
+      "modified": 1709292686361,
+      "created": 1709135634197,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{{ _.fragmentId }}",
+      "name": "Get a Content Fragment",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "references",
+          "disabled": true,
+          "value": "direct-hydrated"
+        }
+      ],
+      "headers": [
+        {
+          "name": "X-Adobe-Accept-Unsupported-API",
+          "disabled": false,
+          "value": "0"
+        },
+        {
+          "name": "If-None-Match",
+          "disabled": true,
+          "value": "string"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634239,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_aca101a9295e4dd6a874ab85ad714e43",
+      "parentId": "fld_467fe97136844d22bc0a48860c7f4a66",
+      "modified": 1709292688139,
+      "created": 1709135634197,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{{ _.fragmentId }}",
+      "name": "Edit a Content Fragment",
+      "description": "",
+      "method": "PATCH",
+      "body": {
+        "mimeType": "application/json",
+        "text": "[\n  {\n    \"op\": \"test\",\n    \"path\": \"/dc:title\",\n    \"value\": \"old value\"\n  },\n  {\n    \"op\": \"replace\",\n    \"path\": \"/dc:title\",\n    \"value\": \"new value\"\n  },\n  {\n    \"op\": \"copy\",\n    \"from\": \"/dc:title\",\n    \"path\": \"/custom:title\"\n  }\n]"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json"
+        },
+        {
+          "name": "X-Adobe-Accept-Unsupported-API",
+          "disabled": false,
+          "value": "0"
+        },
+        {
+          "name": "If-Match",
+          "disabled": false,
+          "value": "string"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634226.5,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_191f8ebb145045b5a439396f65567ee4",
+      "parentId": "fld_467fe97136844d22bc0a48860c7f4a66",
+      "modified": 1709292690137,
+      "created": 1709135634198,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{{ _.fragmentId }}",
+      "name": "Delete a Content Fragment",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "X-Adobe-Accept-Unsupported-API",
+          "disabled": false,
+          "value": "0"
+        },
+        {
+          "name": "If-Match",
+          "disabled": false,
+          "value": "string"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634220.25,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_573aca1a923443678c29cb3c760e4a28",
+      "parentId": "fld_467fe97136844d22bc0a48860c7f4a66",
+      "modified": 1709292692258,
+      "created": 1709135634198,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{{ _.fragmentId }}/previewUrl",
+      "name": "Get the preview URLs for a Content Fragment",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "X-Adobe-Accept-Unsupported-API",
+          "disabled": false,
+          "value": "0"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634217.125,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_d6f634fd125c492989a97472c4e4dd27",
+      "parentId": "fld_467fe97136844d22bc0a48860c7f4a66",
+      "modified": 1709292694754,
+      "created": 1709135634208,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{{ _.fragmentId }}/scheduledPublicationStatus",
+      "name": "Get the scheduled publication status for a Content Fragment",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "X-Adobe-Accept-Unsupported-API",
+          "disabled": false,
+          "value": "0"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634215.5625,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_66b43bf7839f4366a4b87db406e2cd04",
+      "parentId": "fld_467fe97136844d22bc0a48860c7f4a66",
+      "modified": 1709292697553,
+      "created": 1709135634208,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/permissions",
+      "name": "Get the current's user permissions on a list of resources",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"paths\": [\n    \"/content/dam/sample-wknd-app\",\n    \"/content/dam/wknd-shared\"\n  ],\n  \"preferredPermissions\": [\n    \"READ\",\n    \"DELETE\",\n    \"CREATE_CONTENT_FRAGMENT\"\n  ]\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json"
+        },
+        {
+          "name": "X-Adobe-Accept-Unsupported-API",
+          "disabled": false,
+          "value": "0"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634214.7812,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_8bda85d4f4da43f8ad7abc5cdf80c7e6",
+      "parentId": "fld_467fe97136844d22bc0a48860c7f4a66",
+      "modified": 1709292700284,
+      "created": 1709135634211,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/publish",
+      "name": "Publish Content Fragments",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"paths\": [\n    \"/content/dam/wknd-shared/en/contributors/ian-provo\",\n    \"/content/dam/wknd-shared/en/contributors/jacob-wester\"\n  ],\n  \"filterReferencesByStatus\": [\n    \"DRAFT\",\n    \"UNPUBLISHED\"\n  ],\n  \"workflowModelId\": \"/etc/workflow/models/scheduled_activation_with_references\",\n  \"workflowTitle\": \"Workflow Title\",\n  \"scheduledTime\": 1635244063701\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json"
+        },
+        {
+          "name": "X-Adobe-Accept-Unsupported-API",
+          "disabled": false,
+          "value": "0"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634214.3906,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_0bc151b534534986abbf6edc8203c43d",
+      "parentId": "fld_467fe97136844d22bc0a48860c7f4a66",
+      "modified": 1709292702496,
+      "created": 1709135634214,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/findAndReplace",
+      "name": "Find and replace text in Content Fragments\n",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"paths\": [\n    \"/content/dam/copy-of-my-new-adventure3\"\n  ],\n  \"find\": \"adventure\",\n  \"replace\": \"fun\",\n  \"dryRun\": true,\n  \"ignoreErrors\": true\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json"
+        },
+        {
+          "name": "X-Adobe-Accept-Unsupported-API",
+          "disabled": false,
+          "value": "0"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634214,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_ca83f77cf9084a66b1b80315f366bdad",
+      "parentId": "fld_3d530b91d7cd40969ae7c588e80a7bdd",
+      "modified": 1709292706807,
+      "created": 1709135634199,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{{ _.fragmentId }}/variations",
+      "name": "List a Content Fragment's Variations",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "limit",
+          "disabled": true,
+          "value": "0"
+        },
+        {
+          "name": "cursor",
+          "disabled": true,
+          "value": "string"
+        }
+      ],
+      "headers": [
+        {
+          "name": "X-Adobe-Accept-Unsupported-API",
+          "disabled": false,
+          "value": "0"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634301,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_3d530b91d7cd40969ae7c588e80a7bdd",
+      "parentId": "fld_6c6416f085da47e5a1ef638ac9867ee1",
+      "modified": 1709136856068,
+      "created": 1709135634181,
+      "name": "3. Fragment Variations",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1709136062645.5,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_e320c31d6ee64fe486d3469a6688338e",
+      "parentId": "fld_3d530b91d7cd40969ae7c588e80a7bdd",
+      "modified": 1709292709340,
+      "created": 1709135634199,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{{ _.fragmentId }}/variations",
+      "name": "Create a Content Fragment Variation",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"title\": \"Summit 2023\",\n  \"description\": \"The Summit 2023 variation\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json"
+        },
+        {
+          "name": "X-Adobe-Accept-Unsupported-API",
+          "disabled": false,
+          "value": "0"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634251,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_3555cb5408d34833a736635fc9a4fd23",
+      "parentId": "fld_3d530b91d7cd40969ae7c588e80a7bdd",
+      "modified": 1709292711645,
+      "created": 1709135634200,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{{ _.fragmentId }}/variations/{{ _.variationName }}",
+      "name": "Get a Variation for a Content Fragment",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "references",
+          "disabled": true,
+          "value": "direct-hydrated"
+        }
+      ],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634226,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_0ae53b0cfea54d8582c8614831285035",
+      "parentId": "fld_3d530b91d7cd40969ae7c588e80a7bdd",
+      "modified": 1709292714113,
+      "created": 1709135634200,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{{ _.fragmentId }}/variations/{{ _.variationName }}",
+      "name": "Edit a Content Fragment Variation",
+      "description": "",
+      "method": "PATCH",
+      "body": {
+        "mimeType": "application/json",
+        "text": "[\n  {\n    \"op\": \"test\",\n    \"path\": \"/dc:title\",\n    \"value\": \"old value\"\n  },\n  {\n    \"op\": \"replace\",\n    \"path\": \"/dc:title\",\n    \"value\": \"new value\"\n  },\n  {\n    \"op\": \"copy\",\n    \"from\": \"/dc:title\",\n    \"path\": \"/custom:title\"\n  }\n]"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json"
+        },
+        {
+          "name": "If-Match",
+          "disabled": false,
+          "value": "string"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634213.5,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_6f4ffdabfb9644aeb979d9ef0500a29a",
+      "parentId": "fld_3d530b91d7cd40969ae7c588e80a7bdd",
+      "modified": 1709292718512,
+      "created": 1709135634201,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{{ _.fragmentId }}/variations/{{ _.variationName }}/references",
+      "name": "Get the tree of references contained in a Content Fragment Variation",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "X-Adobe-Accept-Unsupported-API",
+          "disabled": false,
+          "value": "0"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634201,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_02fac499acaa441685bdae55014ae299",
+      "parentId": "fld_3d530b91d7cd40969ae7c588e80a7bdd",
+      "modified": 1709292716216,
+      "created": 1709135634201,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{{ _.fragmentId }}/variations/{{ _.variationName }}",
+      "name": "Delete a Content Fragment Variation",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "If-Match",
+          "disabled": false,
+          "value": "string"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634201,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_b69eca6893534d78a226d355a4d2d363",
+      "parentId": "fld_e61e063a7ae04205b1dab3e09aac8193",
+      "modified": 1709292722495,
+      "created": 1709135634202,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{{ _.fragmentId }}/versions",
+      "name": "List a Content Fragment's Versions",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "limit",
+          "disabled": true,
+          "value": "0"
+        },
+        {
+          "name": "cursor",
+          "disabled": true,
+          "value": "string"
+        }
+      ],
+      "headers": [
+        {
+          "name": "X-Adobe-Accept-Unsupported-API",
+          "disabled": false,
+          "value": "0"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634303,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_e61e063a7ae04205b1dab3e09aac8193",
+      "parentId": "fld_6c6416f085da47e5a1ef638ac9867ee1",
+      "modified": 1709137458810,
+      "created": 1709135634183,
+      "name": "4. Fragment Versions",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1709136062639.25,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_a8e36205c9e5446998f1ede5411f9efa",
+      "parentId": "fld_e61e063a7ae04205b1dab3e09aac8193",
+      "modified": 1709292725041,
+      "created": 1709135634202,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{{ _.fragmentId }}/versions",
+      "name": "Create a Version for a Content Fragment",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"label\": \"first version\",\n  \"comment\": \"v1\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json"
+        },
+        {
+          "name": "X-Adobe-Accept-Unsupported-API",
+          "disabled": false,
+          "value": "0"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634253,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_505fe9419369418f805df8e932cb26e5",
+      "parentId": "fld_e61e063a7ae04205b1dab3e09aac8193",
+      "modified": 1709292727685,
+      "created": 1709135634202,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{{ _.fragmentId }}/versions/{{ _.versionId }}",
+      "name": "Get a Version for a Content Fragment",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "X-Adobe-Accept-Unsupported-API",
+          "disabled": false,
+          "value": "0"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634228,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_2890b97ea5524328b6f487faf72195b8",
+      "parentId": "fld_e61e063a7ae04205b1dab3e09aac8193",
+      "modified": 1709292730025,
+      "created": 1709135634203,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{{ _.fragmentId }}/versions/{{ _.versionId }}",
+      "name": "Delete a Content Fragment Version\n",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "X-Adobe-Accept-Unsupported-API",
+          "disabled": false,
+          "value": "0"
+        },
+        {
+          "name": "If-Match",
+          "disabled": false,
+          "value": "string"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634203,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_0289572fa3a4459da40cac12894d5006",
+      "parentId": "fld_e61e063a7ae04205b1dab3e09aac8193",
+      "modified": 1709292732469,
+      "created": 1709135634203,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{{ _.fragmentId }}/versions/restore/{{ _.versionId }}",
+      "name": "Restore a Content Fragment Version",
+      "description": "",
+      "method": "POST",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "X-Adobe-Accept-Unsupported-API",
+          "disabled": false,
+          "value": "0"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634203,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_3e986e33670b446fb17c9c7be5e7f4ce",
+      "parentId": "fld_52c7aa1b86f5435ba0add20af2ec3a45",
+      "modified": 1709292746081,
+      "created": 1709135634215,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/search",
+      "name": "Search API for Content Fragments based on various Search Criteria.\n",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "cursor",
+          "disabled": true,
+          "value": "string"
+        },
+        {
+          "name": "limit",
+          "disabled": true,
+          "value": "0"
+        },
+        {
+          "name": "query",
+          "disabled": true,
+          "value": "undefined"
+        }
+      ],
+      "headers": [
+        {
+          "name": "X-Adobe-Accept-Unsupported-API",
+          "disabled": false,
+          "value": "0"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634215,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_52c7aa1b86f5435ba0add20af2ec3a45",
+      "parentId": "fld_6c6416f085da47e5a1ef638ac9867ee1",
+      "modified": 1709137011231,
+      "created": 1709135634184,
+      "name": "5. Search",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1709136062637.6875,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_44fdfa23b5b94e78b0ecaf7d7bc3fa53",
+      "parentId": "fld_8634d373e28644249551a32c01f03ef8",
+      "modified": 1709292754501,
+      "created": 1709135634191,
+      "url": "{{ _.base_url }}/adobe/sites/cf/models/{{ _.modelId }}/tags",
+      "name": "Get the Tags applied to a Content Fragment Model",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709137087701,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_8634d373e28644249551a32c01f03ef8",
+      "parentId": "fld_1201ae5f2e9644b3832c1458edebf8cf",
+      "modified": 1709137316769,
+      "created": 1709137084116,
+      "name": "Models",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1709137310278,
+      "_type": "request_group"
+    },
+    {
+      "_id": "fld_1201ae5f2e9644b3832c1458edebf8cf",
+      "parentId": "fld_6c6416f085da47e5a1ef638ac9867ee1",
+      "modified": 1709137476872,
+      "created": 1709135634185,
+      "name": "6. Tagging",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1709136062637.2969,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_184092a7027a41b28eeebf31bf84faf4",
+      "parentId": "fld_8634d373e28644249551a32c01f03ef8",
+      "modified": 1709292757055,
+      "created": 1709135634191,
+      "url": "{{ _.base_url }}/adobe/sites/cf/models/{{ _.modelId }}/tags",
+      "name": "Add Tags to a Content Fragment Model",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"tags\": [\n    \"wknd-shared:season/summer\",\n    \"wknd-shared:season/spring\"\n  ]\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709137087676,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_c2d1a7653b754dfc99401877bb9c4089",
+      "parentId": "fld_8634d373e28644249551a32c01f03ef8",
+      "modified": 1709292759149,
+      "created": 1709135634192,
+      "url": "{{ _.base_url }}/adobe/sites/cf/models/{{ _.modelId }}/tags",
+      "name": "Replace the Tags applied to a Content Fragment Model",
+      "description": "",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"tags\": [\n    \"wknd-shared:season/summer\",\n    \"wknd-shared:season/spring\"\n  ]\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json"
+        },
+        {
+          "name": "If-Match",
+          "disabled": false,
+          "value": "string"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709137087669.75,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_d8874850482a41f0bdb6e23152e9cda3",
+      "parentId": "fld_8634d373e28644249551a32c01f03ef8",
+      "modified": 1709292761233,
+      "created": 1709135634193,
+      "url": "{{ _.base_url }}/adobe/sites/cf/models/{{ _.modelId }}/tags",
+      "name": "Delete the Tags applied to a Content Fragment Model",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "If-Match",
+          "disabled": false,
+          "value": "string"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709137087663.5,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_c52994222f97475f99286dadf043ceb3",
+      "parentId": "fld_13c2e504e6f04ed08eff93a1f2f49a28",
+      "modified": 1709292764706,
+      "created": 1709135634204,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{{ _.fragmentId }}/tags",
+      "name": "Get the Tags applied to a Content Fragment",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709137361832,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_13c2e504e6f04ed08eff93a1f2f49a28",
+      "parentId": "fld_1201ae5f2e9644b3832c1458edebf8cf",
+      "modified": 1709137325806,
+      "created": 1709137286391,
+      "name": "Fragments",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1709137310178,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_f7ca4fa13d8e4bcfa50d40c86e1eafec",
+      "parentId": "fld_13c2e504e6f04ed08eff93a1f2f49a28",
+      "modified": 1709292767193,
+      "created": 1709135634204,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{{ _.fragmentId }}/tags",
+      "name": "Add tags to a Content Fragment",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"tags\": [\n    \"wknd-shared:season/summer\",\n    \"wknd-shared:season/spring\"\n  ]\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709137361732,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_7eba0c3cb6824e499be83db4cb59ac82",
+      "parentId": "fld_13c2e504e6f04ed08eff93a1f2f49a28",
+      "modified": 1709292769445,
+      "created": 1709135634205,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{{ _.fragmentId }}/tags",
+      "name": "Replace the Tags applied to a Content Fragment",
+      "description": "",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"tags\": [\n    \"wknd-shared:season/summer\",\n    \"wknd-shared:season/spring\"\n  ]\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json"
+        },
+        {
+          "name": "X-Adobe-Accept-Unsupported-API",
+          "disabled": false,
+          "value": "0"
+        },
+        {
+          "name": "If-Match",
+          "disabled": false,
+          "value": "string"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709137361632,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_08d599c448764b18b29628c2259ff66d",
+      "parentId": "fld_13c2e504e6f04ed08eff93a1f2f49a28",
+      "modified": 1709292771798,
+      "created": 1709135634205,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{{ _.fragmentId }}/tags",
+      "name": "Delete the Tags applied to a Content Fragment\n",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "X-Adobe-Accept-Unsupported-API",
+          "disabled": false,
+          "value": "0"
+        },
+        {
+          "name": "If-Match",
+          "disabled": false,
+          "value": "string"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709137361532,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_aba4760da6884a0d814dd45f223a7153",
+      "parentId": "fld_39ecdbedc7a74fd6857e02b25e322acb",
+      "modified": 1709292775592,
+      "created": 1709135634206,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{{ _.fragmentId }}/variations/{{ _.variationName }}/tags",
+      "name": "Get the Tags applied to a Content Fragment Variation",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709137337864,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_39ecdbedc7a74fd6857e02b25e322acb",
+      "parentId": "fld_1201ae5f2e9644b3832c1458edebf8cf",
+      "modified": 1709137332865,
+      "created": 1709137310078,
+      "name": "Fragment Variations",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1709137310078,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_5db6ea32c2384f269fc14d8ddf0761e6",
+      "parentId": "fld_39ecdbedc7a74fd6857e02b25e322acb",
+      "modified": 1709292778628,
+      "created": 1709135634206,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{{ _.fragmentId }}/variations/{{ _.variationName }}/tags",
+      "name": "Add Tags to a Content Fragment Variation",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"tags\": [\n    \"wknd-shared:season/summer\",\n    \"wknd-shared:season/spring\"\n  ]\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709137337764,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_1db3f99eb2194f8297a68ae0279c30cf",
+      "parentId": "fld_39ecdbedc7a74fd6857e02b25e322acb",
+      "modified": 1709292780793,
+      "created": 1709135634207,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{{ _.fragmentId }}/variations/{{ _.variationName }}/tags",
+      "name": "Replace the Tags applied to a Content Fragment Variation\n",
+      "description": "",
+      "method": "PUT",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"tags\": [\n    \"wknd-shared:season/summer\",\n    \"wknd-shared:season/spring\"\n  ]\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json"
+        },
+        {
+          "name": "X-Adobe-Accept-Unsupported-API",
+          "disabled": false,
+          "value": "0"
+        },
+        {
+          "name": "If-Match",
+          "disabled": false,
+          "value": "string"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709137337664,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_f737b5fb24954cad94d22c8b17be9584",
+      "parentId": "fld_39ecdbedc7a74fd6857e02b25e322acb",
+      "modified": 1709292783632,
+      "created": 1709135634207,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{{ _.fragmentId }}/variations/{{ _.variationName }}/tags",
+      "name": "Delete the Tags applied to a Content Fragment Variation\n",
+      "description": "",
+      "method": "DELETE",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "X-Adobe-Accept-Unsupported-API",
+          "disabled": false,
+          "value": "0"
+        },
+        {
+          "name": "If-Match",
+          "disabled": false,
+          "value": "string"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709137337564,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_f7d914d9a141401aba95392772a33af8",
+      "parentId": "fld_f67b65995afb4c68ae25577eff43b1f6",
+      "modified": 1709292787438,
+      "created": 1709135634212,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/referencedBy",
+      "name": "Get the parent references of a given list of resources",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"paths\": [\n    \"/content/dam/wknd-shared/en/contributors/ian-provo\",\n    \"/content/dam/wknd-shared/en/contributors/jacob-wester\"\n  ]\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json"
+        },
+        {
+          "name": "X-Adobe-Accept-Unsupported-API",
+          "disabled": false,
+          "value": "0"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634313,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_f67b65995afb4c68ae25577eff43b1f6",
+      "parentId": "fld_6c6416f085da47e5a1ef638ac9867ee1",
+      "modified": 1709137503332,
+      "created": 1709135634186,
+      "name": "7. References",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1709136062637.1992,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_31ccf8cc3d3e4d11acc7cd80f232ff8c",
+      "parentId": "fld_f67b65995afb4c68ae25577eff43b1f6",
+      "modified": 1709292789552,
+      "created": 1709135634213,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/{{ _.fragmentId }}/references",
+      "name": "Get the references of a Content Fragment",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "X-Adobe-Accept-Unsupported-API",
+          "disabled": false,
+          "value": "0"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634213,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_25f94da6d19e40a9b84ce6f869b99cf3",
+      "parentId": "fld_89feae1f22da4975980914de9f21ce91",
+      "modified": 1709292793541,
+      "created": 1709135634214,
+      "url": "{{ _.base_url }}/adobe/sites/cf/fragments/translations",
+      "name": "Get the locales and language copies of a given list of resources",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"paths\": [\n    \"/content/dam/wknd-shared/en/contributors/ian-provo\",\n    \"/content/dam/wknd-shared/en/contributors/jacob-wester\"\n  ]\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json"
+        },
+        {
+          "name": "X-Adobe-Accept-Unsupported-API",
+          "disabled": false,
+          "value": "0"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634214,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_89feae1f22da4975980914de9f21ce91",
+      "parentId": "fld_6c6416f085da47e5a1ef638ac9867ee1",
+      "modified": 1709137538430,
+      "created": 1709135634186,
+      "name": "8. Translations",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1709136062637.1748,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_ab1ba109fc4f4709b57775c2ec5cf401",
+      "parentId": "fld_00c6d5acf0324263b4d40fc0ae2b7a7f",
+      "modified": 1709292796179,
+      "created": 1709135634215,
+      "url": "{{ _.base_url }}/adobe/sites/cf/graphql",
+      "name": "GraphQL POST request",
+      "description": "",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"query\": \"query (\\n  $sort: String\\n  $after: String\\n  $first: Int\\n  $filter: String\\n) {\\n  contentFragments(sort: $sort, after: $after, limit: $first, filter: $filter) {\\n    edges {\\n      node {\\n        path\\n        title\\n        status\\n        statusPreview\\n        created {\\n          at\\n          by\\n        }\\n        modified {\\n          at\\n          by\\n        }\\n        tags {               id               name               path               description               title               titlePath             }\\n        modifiedOrCreated {\\n          at\\n          by\\n        }\\n        published {\\n          at\\n          by\\n        }\\n        model {\\n          name\\n          path\\n        }\\n        parent {\\n          path\\n          name\\n          title\\n        }\\n      }\\n    }\\n    pageInfo {\\n      startCursor\\n      endCursor\\n      hasNextPage\\n      hasPreviousPage\\n    }\\n  }\\n}\\n\",\n  \"variables\": {\n    \"sort\": \"modifiedOrCreated DESC\",\n    \"after\": null,\n    \"first\": 100,\n    \"filter\": \"path=/content/dam/wknd-shared;\",\n    \"withStatusPreview\": true,\n    \"withTags\": true\n  }\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "disabled": false,
+          "value": "application/json"
+        },
+        {
+          "name": "X-Adobe-Accept-Unsupported-API",
+          "disabled": false,
+          "value": "0"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634316,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "fld_00c6d5acf0324263b4d40fc0ae2b7a7f",
+      "parentId": "fld_6c6416f085da47e5a1ef638ac9867ee1",
+      "modified": 1709137544492,
+      "created": 1709135634186,
+      "name": "9. GraphQL",
+      "description": "",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1709136062637.1504,
+      "_type": "request_group"
+    },
+    {
+      "_id": "req_e41932061d5e4092ba24b6a0be2fc1bb",
+      "parentId": "fld_00c6d5acf0324263b4d40fc0ae2b7a7f",
+      "modified": 1709292798858,
+      "created": 1709135634216,
+      "url": "{{ _.base_url }}/adobe/sites/cf/graphql",
+      "name": "GraphQL GET request",
+      "description": "",
+      "method": "GET",
+      "body": {},
+      "parameters": [
+        {
+          "name": "query",
+          "disabled": false,
+          "value": "string"
+        },
+        {
+          "name": "variables",
+          "disabled": true,
+          "value": "string"
+        }
+      ],
+      "headers": [
+        {
+          "name": "X-Adobe-Accept-Unsupported-API",
+          "disabled": false,
+          "value": "0"
+        }
+      ],
+      "authentication": {
+        "type": "bearer",
+        "token": "{{ _.bearerToken }}",
+        "prefix": "Bearer"
+      },
+      "metaSortKey": -1709135634216,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "env_81b05f92d41d47539d6e66ded87379e0",
+      "parentId": "wrk_54a9df2009a84ee888ed134f05c41fb3",
+      "modified": 1709135243732,
+      "created": 1709135162437,
+      "name": "Base Environment",
+      "data": {},
+      "dataPropertyOrder": {},
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1709135162437,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_9d422fc8732e4238b2372baba8f343d8",
+      "parentId": "wrk_54a9df2009a84ee888ed134f05c41fb3",
+      "modified": 1709974904135,
+      "created": 1709135162440,
+      "name": "Default Jar",
+      "cookies": [
+        {
+          "key": "affinity",
+          "value": "\"4c0ddd39b4bcbcfe\"",
+          "domain": "author-p131648-e1282969.adobeaemcloud.com",
+          "path": "/",
+          "httpOnly": true,
+          "hostOnly": true,
+          "creation": "2024-02-28T17:20:33.910Z",
+          "lastAccessed": "2024-02-28T17:20:33.910Z",
+          "id": "9260943860689521"
+        },
+        {
+          "key": "login-token",
+          "value": "login%3aeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJMNDI1KzAwQGFkb2JlZXZlbnRsYWIuY29tIiwiZXhwIjoxNzA5MzQwMzc4LCJpYXQiOjE3MDkyOTcxNzgsInNjb3BlIjoibG9naW4ifQ.jdPuc65KDwkjehL3pLI62plrjMIJ0WpMtzO50XGJsFQ%3acrx.default",
+          "domain": "author-p131648-e1282969.adobeaemcloud.com",
+          "path": "/",
+          "secure": true,
+          "httpOnly": true,
+          "hostOnly": true,
+          "creation": "2024-02-28T17:48:25.310Z",
+          "lastAccessed": "2024-03-01T12:46:18.973Z",
+          "sameSite": "none",
+          "id": "776581402989682"
+        },
+        {
+          "key": "login-token",
+          "value": "login%3aeyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJMNDI1KzAwQGFkb2JlZXZlbnRsYWIuY29tIiwiZXhwIjoxNzEwMDE4MTA0LCJpYXQiOjE3MDk5NzQ5MDQsInNjb3BlIjoibG9naW4ifQ.mIqtxsAN_AxVBVAu96A3a8ICSIuxJ3dOV7AdSeDi4Ow%3acrx.default",
+          "domain": "author-p131648-e1282969.adobeaemcloud.com",
+          "path": "/",
+          "secure": true,
+          "httpOnly": true,
+          "hostOnly": true,
+          "creation": "2024-03-04T05:57:35.232Z",
+          "lastAccessed": "2024-03-09T09:01:44.134Z",
+          "sameSite": "none",
+          "id": "9862729123105398"
+        },
+        {
+          "key": "affinity",
+          "value": "\"d7015762af06e461\"",
+          "domain": "author-p131648-e1282969.adobeaemcloud.com",
+          "path": "/",
+          "httpOnly": true,
+          "hostOnly": true,
+          "creation": "2024-03-04T05:57:35.233Z",
+          "lastAccessed": "2024-03-04T05:57:35.233Z",
+          "id": "8176298047807997"
+        },
+        {
+          "key": "cq-authoring-mode",
+          "value": "TOUCH",
+          "expires": "2024-03-15T14:06:36.000Z",
+          "maxAge": 604800,
+          "domain": "author-p131648-e1282969.adobeaemcloud.com",
+          "path": "/",
+          "hostOnly": true,
+          "creation": "2024-03-08T14:06:36.440Z",
+          "lastAccessed": "2024-03-08T14:06:36.440Z",
+          "id": "5745473793828184"
+        }
+      ],
+      "_type": "cookie_jar"
+    },
+    {
+      "_id": "env_1e98664da4e34a5380424ba5a5fecf68",
+      "parentId": "env_81b05f92d41d47539d6e66ded87379e0",
+      "modified": 1709974898973,
+      "created": 1709135250845,
+      "name": "Summit L425 Environment",
+      "data": {
+        "base_url": "https://author-p131648-e1282969.adobeaemcloud.com",
+        "MODEL_CONF_FOLDER": "/conf/securbank",
+        "modelId": "L2NvbmYvc2VjdXJiYW5rL3NldHRpbmdzL2RhbS9jZm0vbW9kZWxzL3dlYmluYXI",
+        "fragmentId": "",
+        "FRAGMENT_PARENT_PATH": "/content/dam/securbank",
+        "variationName": "",
+        "versionId": "",
+        "bearerToken": ""
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "base_url",
+          "MODEL_CONF_FOLDER",
+          "modelId",
+          "fragmentId",
+          "FRAGMENT_PARENT_PATH",
+          "variationName",
+          "versionId",
+          "bearerToken"
+        ]
+      },
+      "color": "#ff0000",
+      "isPrivate": false,
+      "metaSortKey": 1709135250845,
+      "_type": "environment"
+    },
+    {
+      "_id": "env_95479e81d0064d57a11cb3098b9a2157",
+      "parentId": "env_81b05f92d41d47539d6e66ded87379e0",
+      "modified": 1709135634178,
+      "created": 1709135634178,
+      "name": "OpenAPI env ",
+      "data": {
+        "scheme": "https",
+        "base_path": "%7Bbucket%7D.adobeaemcloud.com/adobe/sites",
+        "host": "",
+        "httpUsername": "username",
+        "httpPassword": "password",
+        "bearerToken": "bearerToken"
+      },
+      "dataPropertyOrder": null,
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1709135634178,
+      "_type": "environment"
+    }
+  ]
+}

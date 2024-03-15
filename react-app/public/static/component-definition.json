@@ -14,12 +14,10 @@
                 "cfModel": "/conf/securbank/settings/dam/cfm/models/article",
                 "cfFolder": "/content/dam/securbank/pages/articles",
                 "title": "Article",
-                "description": "",
                 "template": {
                   "title": "New Article",
-                  "description": "<p>New article's description</p>",
                   "slug": "new-article",
-                  "icon": "/content/dam/securbank/services/default-service-illustration.jpg"
+                  "image": "/content/dam/securbank/services/default-service-illustration.jpg"
                 }
               }
             }
@@ -35,10 +33,8 @@
                 "cfModel": "/conf/securbank/settings/dam/cfm/models/service",
                 "cfFolder": "/content/dam/securbank/services",
                 "title": "Service",
-                "description": "",
                 "template": {
                   "title": "New Service",
-                  "description": "<p>New service's description</p>",
                   "slug": "new-service",
                   "icon": "/content/dam/securbank/services/default-service-illustration.jpg"
                 }
