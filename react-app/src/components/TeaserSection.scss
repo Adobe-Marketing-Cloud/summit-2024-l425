@@ -5,9 +5,16 @@
   align-items: flex-start;
   gap: 80px;
 
-  .teaser-wrapper {
-    &:nth-child(odd) {
-      flex-direction: row-reverse;
+  .teasers-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-self: stretch;
+    gap: 80px;
+
+    .teaser-wrapper {
+      &:nth-child(even) {
+        flex-direction: row-reverse;
+      }
     }
   }
 }
