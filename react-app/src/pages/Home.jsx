@@ -94,8 +94,10 @@ const Home = () => {
         <TeaserSection
           cfs={featuredServices}
           title="Featured Services"
-          containerProp="featuredServices"
-          containerLabel="Featured Services"
+          containerProps={{
+            prop: "featuredServices",
+            label: "Featured Services",
+          }}
           setFetchTrigger={setFetchTrigger}
         />
       </ContentFragment>
