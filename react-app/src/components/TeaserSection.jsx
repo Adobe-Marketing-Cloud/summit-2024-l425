@@ -3,13 +3,7 @@ import Container from "./base/Container";
 import TeaserCard from "../components/TeaserCard";
 import "./TeaserSection.scss";
 
-const TeaserSection = ({
-  title,
-  cfs,
-  containerProp,
-  containerLabel,
-  setFetchTrigger,
-}) => {
+const TeaserSection = ({ title, cfs, containerProps, setFetchTrigger }) => {
   useEffect(() => {
     const contentAddHandler = (event) => {
       setTimeout(() => {
@@ -37,17 +31,14 @@ const TeaserSection = ({
   if (!cfs) return;
 
   return (
-    <Container
-      tag="section"
-      prop={containerProp}
-      label={containerLabel}
-      className="container teaser-section"
-    >
+    <section className="container teaser-section">
       <h2 className="color-dark">{title}</h2>
-      {cfs.map((teaser, index) => (
-        <TeaserCard key={`${teaser?.title}_${index}`} cf={teaser} />
-      ))}
-    </Container>
+      <Container {...containerProps} className="teasers-wrapper">
+        {cfs.map((teaser, index) => (
+          <TeaserCard key={`${teaser?.title}_${index}`} cf={teaser} />
+        ))}
+      </Container>
+    </section>
   );
 };
 
