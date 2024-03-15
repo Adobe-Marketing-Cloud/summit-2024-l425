@@ -1,8 +1,9 @@
 import React, { useMemo } from "react";
+import Container from "./base/Container";
 import ArticleCard from "./ArticleCard";
 import "./ArticlesSection.scss";
 
-const ArticlesSection = ({ title, cfs, columns = 2 }) => {
+const ArticlesSection = ({ title, cfs, containerProps, columns = 2 }) => {
   const articles = useMemo(
     () =>
       cfs.map((cf, index) => (
@@ -15,7 +16,12 @@ const ArticlesSection = ({ title, cfs, columns = 2 }) => {
     <div className="background-grey">
       <section className="container articles-wrapper">
         {title && <h3 className="color-dark">{title}</h3>}
-        <div className={`cards-wrapper columns-${columns}`}>{articles}</div>
+        <Container
+          {...containerProps}
+          className={`cards-wrapper columns-${columns}`}
+        >
+          {articles}
+        </Container>
       </section>
     </div>
   );
