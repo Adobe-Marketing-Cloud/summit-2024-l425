@@ -1,0 +1,7 @@
+application:
+  actions: actions
+  web: web-src
+  runtimeManifest:
+    packages:
+      test:
+        license: Apache-2.0
