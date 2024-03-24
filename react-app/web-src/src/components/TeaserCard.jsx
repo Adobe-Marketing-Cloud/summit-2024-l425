@@ -16,6 +16,7 @@ const TeaserCard = ({ cf }) => {
   return (
     <ContentFragment
       cf={cf}
+      behavior="component"
       className="hover-effect teaser-wrapper"
     >
       <Image src={image} alt={`${title} illustration`} prop="icon" />

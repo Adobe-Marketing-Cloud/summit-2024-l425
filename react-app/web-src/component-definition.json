@@ -1,0 +1,48 @@
+{
+  "groups": [
+    {
+      "title": "Content Fragments",
+      "id": "content-fragments",
+      "components": [
+        {
+          "title": "Article",
+          "id": "article",
+          "plugins": {
+            "aem": {
+              "cf": {
+                "name": "article",
+                "cfModel": "/conf/securbank/settings/dam/cfm/models/article",
+                "cfFolder": "/content/dam/securbank/pages/articles",
+                "title": "Article",
+                "template": {
+                  "title": "New Article",
+                  "slug": "new-article",
+                  "image": "/content/dam/securbank/services/default-service-illustration.jpg"
+                }
+              }
+            }
+          }
+        },
+        {
+          "title": "Service",
+          "id": "service",
+          "plugins": {
+            "aem": {
+              "cf": {
+                "name": "service",
+                "cfModel": "/conf/securbank/settings/dam/cfm/models/service",
+                "cfFolder": "/content/dam/securbank/services",
+                "title": "Service",
+                "template": {
+                  "title": "New Service",
+                  "slug": "new-service",
+                  "icon": "/content/dam/securbank/services/default-service-illustration.jpg"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

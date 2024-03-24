@@ -33,7 +33,7 @@ const TeaserSection = ({ title, cfs, containerProps, setFetchTrigger }) => {
   return (
     <section className="container teaser-section">
       <h2 className="color-dark">{title}</h2>
-      <Container {...containerProps} className="teasers-wrapper">
+      <Container {...containerProps} filter="featured-services" className="teasers-wrapper">
         {cfs.map((teaser, index) => (
           <TeaserCard key={`${teaser?.title}_${index}`} cf={teaser} />
         ))}

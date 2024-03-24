@@ -42,6 +42,7 @@ const ArticleDetail = () => {
           containerProps={{
             prop: "relatedArticles",
             label: "Related Articles",
+            filter: "related-articles",
           }}
           columns={3}
         />
