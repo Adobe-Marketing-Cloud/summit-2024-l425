@@ -9,7 +9,7 @@ it.
 
 import { useEffect, useState } from "react";
 
-import aemHeadlessClient from "./aemHeadlessClient";
+import getHeadlessClient from "./aemHeadlessClient";
 
 const { REACT_APP_ENDPOINT } = process.env;
 
@@ -36,6 +36,7 @@ async function fetchPersistedQuery(persistedQueryName, queryParameters) {
   let err;
 
   try {
+    const aemHeadlessClient = await getHeadlessClient();
     const response = await aemHeadlessClient.runPersistedQuery(
       persistedQueryName,
       queryParameters

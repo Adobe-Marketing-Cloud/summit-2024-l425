@@ -25,26 +25,27 @@ const {
 // In development the serviceURL can be set to '/' which will be a relative proxy is used (see ../authMethods.js) to avoid CORS issues
 
 const serviceURL = REACT_APP_USE_PROXY === "true" ? "/" : REACT_APP_HOST_URI;
+let serviceToken;
 
 // Get authorization based on environment variables
 // authorization is not needed when connecting to Publish environments
-const setAuthorization = () => {
+const setAuthorization = async () => {
   if (REACT_APP_AUTH_METHOD === "basic") {
     return [REACT_APP_BASIC_AUTH_USER, REACT_APP_BASIC_AUTH_PASS];
   } else if (REACT_APP_AUTH_METHOD === "dev-token") {
     return REACT_APP_DEV_TOKEN;
+  } else if ( REACT_APP_AUTH_METHOD === "service-token" ) {
+    if ( !serviceToken ) {
+        const resp = await fetch("/api/v1/web/securbank/getTechAccount");
+        const json = await resp.json();
+        serviceToken = json.token;
+    }
+    return serviceToken;
   } else {
     // no authentication set
     return;
   }
 };
-
-// Initialize the AEM Headless Client and export it for other files to use
-const aemHeadlessClient = new AEMHeadless({
-  serviceURL: serviceURL,
-  endpoint: REACT_APP_GRAPHQL_ENDPOINT,
-  auth: setAuthorization(),
-});
 
 // Prefix URLs with AEM Host
 export function addAemHost(url) {
@@ -55,4 +56,16 @@ export function addAemHost(url) {
   return url;
 }
 
-export default aemHeadlessClient;
+let aemHeadlessClient;
+export async function getHeadlessClient() {
+  if ( !aemHeadlessClient ) {
+    aemHeadlessClient = new AEMHeadless({
+      serviceURL: serviceURL,
+      endpoint: REACT_APP_GRAPHQL_ENDPOINT,
+      auth: await setAuthorization(),
+    });
+  }
+  return aemHeadlessClient;
+}
+
+export default getHeadlessClient;
