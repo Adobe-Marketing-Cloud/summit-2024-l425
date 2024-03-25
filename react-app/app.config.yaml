@@ -1,7 +1,11 @@
 application:
+  operations:
+    view:
+      - type: web
+        impl: index.html
   actions: actions
-  web: web-src
   runtimeManifest:
     packages:
-      test:
+      securbank:
         license: Apache-2.0
+        web: web-src
