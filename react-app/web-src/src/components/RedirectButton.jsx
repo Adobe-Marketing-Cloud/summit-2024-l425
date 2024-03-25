@@ -1,10 +1,11 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 const RedirectButton = ({ children, href = "/", className }) => {
   return (
-    <a href={href}>
+    <Link to={href}>
       <button className={className}>{children}</button>
-    </a>
+    </Link>
   );
 };
 

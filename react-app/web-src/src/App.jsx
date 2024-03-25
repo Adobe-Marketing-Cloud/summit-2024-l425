@@ -25,8 +25,8 @@ function App() {
             content={`aem:${getURI()}`}
           />
         </Helmet>
-        <Header />
         <Router>
+          <Header />
           <main>
             <Routes>
               <Route path="/" element={<Home />} />
@@ -37,8 +37,8 @@ function App() {
               <Route path="/*" element={<NotFound />} />
             </Routes>
           </main>
+          <Footer />
         </Router>
-        <Footer />
       </div>
     </HelmetProvider>
   );

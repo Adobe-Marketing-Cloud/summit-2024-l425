@@ -1,6 +1,7 @@
 const util = require("util");
 const buffer = require("buffer");
 const webpack = require("webpack");
+const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
 
 module.exports = {
   plugins: [
@@ -10,6 +11,7 @@ module.exports = {
     new webpack.ProvidePlugin({
       process: "process/browser",
     }),
+    new NodePolyfillPlugin()
   ],
   resolve: {
     extensions: [".js"],

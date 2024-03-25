@@ -2,6 +2,7 @@ import React from "react";
 import Logo from "../Logo";
 import RedirectButton from "../RedirectButton";
 import "./Header.scss";
+import {Link} from "react-router-dom";
 
 const Header = () => {
   const navigations = [
@@ -16,13 +17,13 @@ const Header = () => {
           <Logo variant="light" />
           <nav>
             {navigations.map(({ label, href }, index) => (
-              <a
+              <Link
                 key={`${href}_${index}`}
-                href={href}
+                to={href}
                 className="font-size-medium font-weight-medium color-light hover-effect"
               >
                 {label}
-              </a>
+              </Link>
             ))}
           </nav>
         </div>

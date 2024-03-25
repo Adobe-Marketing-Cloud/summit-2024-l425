@@ -6,6 +6,7 @@ import twitterIcon from "../../assets/twitter-icon.svg";
 import facebookIcon from "../../assets/facebook-icon.svg";
 import { useArticles, useServices } from "../../api";
 import "./Footer.scss";
+import {Link} from "react-router-dom";
 
 const hardcodedCategories = {
   About: [
@@ -63,13 +64,13 @@ const Footer = () => {
                 <p className="font-size-large font-weight-medium">{category}</p>
                 <nav>
                   {categories[category].map(({ label, href }, index) => (
-                    <a
+                    <Link
                       key={`${href}_${index}`}
-                      href={href}
+                      to={href}
                       className="font-size-large font-weight-medium color-dark"
                     >
                       {label}
-                    </a>
+                    </Link>
                   ))}
                 </nav>
               </div>
@@ -84,15 +85,15 @@ const Footer = () => {
             </p>
           </div>
           <div className="social-media-wrapper">
-            <a href="/">
+            <Link to="/">
               <img src={linkedinIcon} alt="LinkedIn icon" className="icon" />
-            </a>
-            <a href="/">
+            </Link>
+            <Link to="/">
               <img src={twitterIcon} alt="Twitter icon" className="icon" />
-            </a>
-            <a href="/">
+            </Link>
+            <Link to="/">
               <img src={facebookIcon} alt="Facebook icon" className="icon" />
-            </a>
+            </Link>
           </div>
         </div>
       </div>
