@@ -4,8 +4,20 @@ application:
       - type: web
         impl: index.html
   actions: actions
+  hooks:
+    pre-app-deploy: cp web-src/service-worker.js dist/application/web-prod/
   runtimeManifest:
     packages:
       securbank:
         license: Apache-2.0
         web: web-src
+        actions:
+          getTechAccount:
+              function: actions/jwt/getTechAccount.js
+              web: 'yes'
+              runtime: nodejs:18
+              inputs:
+                LOG_LEVEL: error
+                SERVICE_TOKEN: #SERVICE TOKEN OBJECT HERE
+              annotations:
+                final: false
