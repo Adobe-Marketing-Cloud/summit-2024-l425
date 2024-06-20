@@ -30,11 +30,12 @@ self.addEventListener('fetch', async function (event) {
 
     if ( event.request?.url?.startsWith(REACT_APP_HOST_URI)) {
         if ( !event.request.headers.has("authorization")) {
-            event.respondWith( fetch(event.request, {
-                credentials: 'include',
-                headers: { authorization: `Bearer ${serviceToken}`},
-                mode: "cors"
-            }));
+            event.respondWith(
+                fetch(event.request, {
+                    credentials: 'include',
+                    headers: { authorization: `Bearer ${serviceToken}`},
+                }
+             ));
         }
     }
 });

@@ -16,3 +16,10 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+app.config.yaml
+.env
+.idea/
+.parcel-cache/
+dist/
+.aws.tmp.creds.json
