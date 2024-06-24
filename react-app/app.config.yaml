@@ -5,7 +5,7 @@ application:
         impl: index.html
   actions: actions
   hooks:
-    pre-app-deploy: cp web-src/service-worker.js dist/application/web-prod/
+    pre-app-deploy: cp web-src/service-worker.js dist/application/web-prod/ && mkdir -p dist/application/web-prod/static/ && cp web-src/static/component-definition.json dist/application/web-prod/static/ && cp web-src/static/filter-definition.json dist/application/web-prod/static/
   runtimeManifest:
     packages:
       securbank:

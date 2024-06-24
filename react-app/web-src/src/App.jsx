@@ -24,6 +24,8 @@ function App() {
             name="urn:adobe:aue:system:aemconnection"
             content={`aem:${getURI()}`}
           />
+          <script type="application/vnd.adobe.aue.component+json" src="./static/component-definition.json"></script>
+          <script type="application/vnd.adobe.aue.model+json" src="./static/filter-definition.json"></script>
         </Helmet>
         <Router>
           <Header />
