@@ -10,6 +10,7 @@ import ArticleDetail from "./pages/ArticleDetail.jsx";
 import NotFound from "./pages/NotFound.jsx";
 import { getURI } from "./utils";
 import "./App.scss";
+import {getServiceURL} from "./utils/getURI";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             name="urn:adobe:aue:system:aemconnection"
             content={`aem:${getURI()}`}
           />
+          { getServiceURL() && <meta name="urn:adobe:aue:config:service" content={getServiceURL()}/> }
           <script type="application/vnd.adobe.aue.component+json" src="./static/component-definition.json"></script>
           <script type="application/vnd.adobe.aue.model+json" src="./static/filter-definition.json"></script>
         </Helmet>

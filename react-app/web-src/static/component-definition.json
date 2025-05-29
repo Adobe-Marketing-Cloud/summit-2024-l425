@@ -16,7 +16,6 @@
                 "title": "Article",
                 "template": {
                   "title": "New Article",
-                  "slug": "new-article",
                   "image": "/content/dam/securbank/services/default-service-illustration.jpg"
                 }
               }
@@ -35,7 +34,6 @@
                 "title": "Service",
                 "template": {
                   "title": "New Service",
-                  "slug": "new-service",
                   "icon": "/content/dam/securbank/services/default-service-illustration.jpg"
                 }
               }
